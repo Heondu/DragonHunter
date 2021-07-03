@@ -1,0 +1,46 @@
+{
+    "atk": {
+        "Level": 1,
+        "BaseValue": 0.0
+    },
+    "skillDamage": {
+        "Level": 1,
+        "BaseValue": 1.0
+    },
+    "hp": {
+        "Level": 1,
+        "BaseValue": 0.0
+    },
+    "defense": {
+        "Level": 1,
+        "BaseValue": 0.0
+    },
+    "critChance": {
+        "Level": 1,
+        "BaseValue": 0.05000000074505806
+    },
+    "critDamage": {
+        "Level": 1,
+        "BaseValue": 1.0
+    },
+    "dungeonSpeed": {
+        "Level": 1,
+        "BaseValue": 1.0
+    },
+    "speed": {
+        "Level": 1,
+        "BaseValue": 5.0
+    },
+    "atkSpeed": {
+        "Level": 1,
+        "BaseValue": 1.0
+    },
+    "range": {
+        "Level": 1,
+        "BaseValue": 1.0
+    },
+    "score": {
+        "Level": 1,
+        "BaseValue": 1.0
+    }
+}

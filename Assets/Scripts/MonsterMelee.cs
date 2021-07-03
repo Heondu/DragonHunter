@@ -2,7 +2,7 @@
 
 public class MonsterMelee : Monster
 {
-    public override void Attack()
+    protected override void Attack()
     {
 
     }

@@ -19,7 +19,7 @@ public class Character : MonoBehaviour, ILivingEntity
     {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        transform.position += new Vector3(x, 0, z);
+        transform.position += new Vector3(x, 0, z) * StatusManager.Status.speed.Value * Time.deltaTime;
     }
 
     public virtual void Attack()

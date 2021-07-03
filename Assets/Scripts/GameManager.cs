@@ -7,10 +7,15 @@ public class GameManager : MonoBehaviour
     private float tElapsed = 0;
     private int isClear;
     private int score;
+    [SerializeField]
+    private SpawnManager spawnManager;
 
     void Update()
     {
-        tElapsed += Time.deltaTime;
+        if (spawnManager.IsBossSpawn == false)
+        {
+            tElapsed += Time.deltaTime;
+        }
     }
 
     public float GetTime()

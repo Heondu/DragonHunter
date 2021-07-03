@@ -2,11 +2,19 @@ using UnityEngine;
 
 public class StatusManager : MonoBehaviour
 {
-    public static PlayerStatus status;
-
-    private void Awake()
+    private static PlayerStatus status;
+    public static PlayerStatus Status
     {
-        LoadStatus();
+        get
+        {
+            if (status == null) LoadStatus();
+            return status;
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveStatus();
     }
 
     private static void SaveStatus()
