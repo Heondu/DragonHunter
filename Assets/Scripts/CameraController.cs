@@ -17,4 +17,9 @@ public class CameraController : MonoBehaviour
 
         transform.position = new Vector3(target.position.x, y, target.position.z + z);
     }
+
+    public void SetTarget(Transform _target)
+    {
+        target = _target;
+    }
 }

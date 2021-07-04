@@ -6,9 +6,4 @@ public class Warrior : Player
     {
 
     }
-
-    public override void Attack()
-    {
-
-    }
 }

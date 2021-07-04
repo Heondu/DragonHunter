@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
-    [SerializeField] private Transform target;
     [SerializeField] private float moveDistance;
+
+    private Transform target;
 
     private void Update()
     {
@@ -16,5 +17,10 @@ public class BackgroundScroller : MonoBehaviour
         else if (distance.z > moveDistance) z = moveDistance;
 
         transform.position += new Vector3(x * 2, 0, z * 2);
+    }
+
+    public void SetTarget(Transform _target)
+    {
+        target = _target;
     }
 }

@@ -1,46 +1,59 @@
 {
-    "atk": {
-        "Level": 1,
-        "BaseValue": 0.0
-    },
-    "skillDamage": {
-        "Level": 1,
-        "BaseValue": 1.0
-    },
-    "hp": {
-        "Level": 1,
-        "BaseValue": 0.0
-    },
-    "defense": {
-        "Level": 1,
-        "BaseValue": 0.0
-    },
-    "critChance": {
-        "Level": 1,
-        "BaseValue": 0.05000000074505806
-    },
-    "critDamage": {
-        "Level": 1,
-        "BaseValue": 1.0
-    },
-    "dungeonSpeed": {
-        "Level": 1,
-        "BaseValue": 1.0
-    },
-    "speed": {
-        "Level": 1,
-        "BaseValue": 3.0
-    },
-    "atkSpeed": {
-        "Level": 1,
-        "BaseValue": 1.0
-    },
-    "range": {
-        "Level": 1,
-        "BaseValue": 1.0
-    },
-    "score": {
-        "Level": 1,
-        "BaseValue": 1.0
-    }
+    "data": [
+        {
+            "Name": "atk",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "skillDamage",
+            "LV": 1,
+            "BaseValue": 1.0
+        },
+        {
+            "Name": "hp",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "defense",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "critChance",
+            "LV": 1,
+            "BaseValue": 0.05000000074505806
+        },
+        {
+            "Name": "critDamage",
+            "LV": 1,
+            "BaseValue": 1.0
+        },
+        {
+            "Name": "dungeonSpeed",
+            "LV": 1,
+            "BaseValue": 1.0
+        },
+        {
+            "Name": "speed",
+            "LV": 1,
+            "BaseValue": 3.0
+        },
+        {
+            "Name": "atkSpeed",
+            "LV": 1,
+            "BaseValue": 1.0
+        },
+        {
+            "Name": "range",
+            "LV": 1,
+            "BaseValue": 1.0
+        },
+        {
+            "Name": "score",
+            "LV": 1,
+            "BaseValue": 1.0
+        }
+    ]
 }

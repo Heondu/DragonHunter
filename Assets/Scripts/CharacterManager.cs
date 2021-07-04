@@ -71,6 +71,10 @@ public class CharacterManager : MonoBehaviour
     private string selectedID;
     public static string currentID = "character001";
 
+    private void Awake()
+    {
+        Load();
+    }
 
     private void OnApplicationQuit()
     {

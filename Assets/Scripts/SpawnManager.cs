@@ -13,10 +13,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private float distance = 10;
     private Transform player;
+    private GameObject wallPrefab;
+    private GameObject wall;
 
     private void Start()
     {
         player = FindObjectOfType<Player>().transform;
+        wallPrefab = Resources.Load<GameObject>("Prefabs/Wall/Wall");
         StartCoroutine("SpawnCo");
     }
 
@@ -46,8 +49,7 @@ public class SpawnManager : MonoBehaviour
             Vector3 pos = GetRandomPos(prefab.transform.position);
             prefab = Instantiate(prefab, pos, prefab.transform.rotation);
             prefab.GetComponent<Monster>().Init(id);
-            prefab = Resources.Load<GameObject>("Prefabs/Wall/Wall");
-            Instantiate(prefab, (player.position + pos) / 2, prefab.transform.rotation);
+            wall = Instantiate(wallPrefab, (player.position + pos) / 2, prefab.transform.rotation);
             return;
         }
 
@@ -165,5 +167,11 @@ public class SpawnManager : MonoBehaviour
     {
         if ((int)DataManager.traps[i]["SpawnTime"] >= gameManager.GetTime()) return false;
         return true;
+    }
+
+    public void OnBossDeath()
+    {
+        wall.SetActive(false);
+        IsBossSpawn = false;
     }
 }

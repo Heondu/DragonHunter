@@ -6,9 +6,4 @@ public class Savage : Player
     {
 
     }
-
-    public override void Attack()
-    {
-
-    }
 }

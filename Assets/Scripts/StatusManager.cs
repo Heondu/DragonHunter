@@ -1,73 +1,101 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class StatusManager : MonoBehaviour
+[System.Serializable]
+public class StatusList
 {
-    private static PlayerStatus status;
-    public static PlayerStatus Status
+    public Dictionary<string, Status> status = new Dictionary<string, Status>();
+
+    public void Init()
     {
-        get
+        for (int i = 0; i < DataManager.status.Count; i++)
         {
-            if (status == null) Load();
-            return status;
+            string name = DataManager.status[i]["Name"].ToString();
+            status.Add(name, new Status(name, 1, (float)DataManager.status[i]["Default"]));
         }
     }
 
+    public List<Status> GetList()
+    {
+        List<Status> list = new List<Status>();
+        foreach (string key in status.Keys)
+        {
+            list.Add(status[key]);
+        }
+        return list;
+    }
+}
+
+public class StatusManager : MonoBehaviour
+{
+    private static StatusList list;
+    public static StatusList List
+    {
+        get
+        {
+            if (list == null) Load();
+            return list;
+        }
+    }
+
+    private void Awake()
+    {
+        Load();
+    }
 
     private void OnApplicationQuit()
     {
         Save();
     }
 
+    [System.Serializable]
+    private class SaveData
+    {
+        public List<Status> data;
+    }
+
     private static void Save()
     {
-        JsonIO.SaveToJson(Status, SaveDataManager.saveFile[SaveFile.PlayerStatus]);
+        SaveData saveData = new SaveData();
+        saveData.data = List.GetList();
+        JsonIO.SaveToJson(saveData, SaveDataManager.saveFile[SaveFile.PlayerStatus]);
     }
 
     private static void Load()
     {
-        status = JsonIO.LoadFromJson<PlayerStatus>(SaveDataManager.saveFile[SaveFile.PlayerStatus]);
-        if (status == null)
+        SaveData saveData = JsonIO.LoadFromJson<SaveData>(SaveDataManager.saveFile[SaveFile.PlayerStatus]);
+        list = new StatusList();
+        if (saveData == null)
         {
-            status = new PlayerStatus();
-            status.Init();
+            list.Init();
+        }
+        else
+        {
+            for (int i = 0; i < saveData.data.Count; i++)
+            {
+                string name = saveData.data[i].Name;
+                Dictionary<string, object> data = DataManager.status.FindDic("Name", name);
+                float value = (float)data["Default"] + (float)data["StatAmount"] * (saveData.data[i].LV - 1);
+                list.status.Add(name, new Status(name, saveData.data[i].LV, value));
+            }
         }
     }
 
-    public static void LevelUp(StatusList name)
+    public void LevelUp(string name)
     {
-        switch (name)
-        {
-            case StatusList.ATK: Status.atk.LevelUp("atk"); break;
-            case StatusList.SkillDamage: Status.skillDamage.LevelUp("skillDamage"); break;
-            case StatusList.HP: Status.hp.LevelUp("hp"); break;
-            case StatusList.Defense: Status.defense.LevelUp("defense"); break;
-            case StatusList.CritChance: Status.critChance.LevelUp("critChance"); break;
-            case StatusList.CritDamage: Status.critDamage.LevelUp("critDamage"); break;
-            case StatusList.DungeonSpeed: Status.dungeonSpeed.LevelUp("dungeonSpeed"); break;
-            case StatusList.Speed: Status.speed.LevelUp("speed"); break;
-            case StatusList.ATKSpeed: Status.atkSpeed.LevelUp("atkSpeed"); break;
-            case StatusList.Range: Status.range.LevelUp("range"); break;
-            case StatusList.Score: Status.score.LevelUp("score"); break;
-        }
+        if (!List.status.ContainsKey(name)) return;
+        List.status[name].LevelUp(name);
         Save();
     }
 
-    public static int GetLevel(StatusList name)
+    public static int GetLevel(string name)
     {
-        switch (name)
-        {
-            case StatusList.ATK: return Status.atk.Level;
-            case StatusList.SkillDamage: return Status.skillDamage.Level;
-            case StatusList.HP: return Status.hp.Level;
-            case StatusList.Defense: return Status.defense.Level;
-            case StatusList.CritChance: return Status.critChance.Level;
-            case StatusList.CritDamage: return Status.critDamage.Level;
-            case StatusList.DungeonSpeed: return Status.dungeonSpeed.Level;
-            case StatusList.Speed: return Status.speed.Level;
-            case StatusList.ATKSpeed: return Status.atkSpeed.Level;
-            case StatusList.Range: return Status.range.Level;
-            case StatusList.Score: return Status.score.Level;
-        }
-        return 1;
+        if (!list.status.ContainsKey(name)) return 1;
+        return List.status[name].LV;
+    }
+
+    public static Status GetStatus(string name)
+    {
+        return List.status[name];
     }
 }

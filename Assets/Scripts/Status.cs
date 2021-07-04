@@ -5,7 +5,8 @@ using System.Collections.ObjectModel;
 [Serializable]
 public class Status
 {
-    public int Level;
+    public string Name;
+    public int LV;
     public float BaseValue;
 
     public virtual float Value 
@@ -33,11 +34,12 @@ public class Status
     {
         statusModifiers = new List<StatusModifier>();
         StatusModifiers = statusModifiers.AsReadOnly();
-        Level = 1;
     }
 
-    public Status(float baseValue) : this()
+    public Status(string name, int lv, float baseValue) : this()
     {
+        Name = name;
+        LV = lv;
         BaseValue = baseValue;
     }
 
@@ -115,12 +117,12 @@ public class Status
 
     public void LevelUp(string statName)
     {
-        int price = (int)DataManager.status.Find("Name", statName, "Price") + (int)DataManager.status.Find("Name", statName, "GoldAmount") * (Level - 1);
+        int price = (int)DataManager.status.Find("Name", statName, "Price") + (int)DataManager.status.Find("Name", statName, "GoldAmount") * (LV - 1);
         if (PlayerData.gold >= price)
         {
             PlayerData.gold -= price;
             float amount = (float)DataManager.status.Find("Name", statName, "StatAmount");
-            Level++;
+            LV++;
             BaseValue += amount;
         }
     }

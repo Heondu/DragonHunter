@@ -6,9 +6,4 @@ public class Wizard : Player
     {
 
     }
-
-    public override void Attack()
-    {
-
-    }
 }

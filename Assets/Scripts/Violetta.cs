@@ -6,9 +6,4 @@ public class Violetta : Player
     {
 
     }
-
-    public override void Attack()
-    {
-
-    }
 }

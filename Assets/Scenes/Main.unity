@@ -3892,6 +3892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 0
   textStatus: {fileID: 401959225}
+  button: {fileID: 0}
 --- !u!114 &573478859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4028,6 +4029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 4
   textStatus: {fileID: 2003626397}
+  button: {fileID: 0}
 --- !u!114 &670002165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4164,6 +4166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 10
   textStatus: {fileID: 553236835}
+  button: {fileID: 0}
 --- !u!114 &704358756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4592,6 +4595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 9
   textStatus: {fileID: 1064343414}
+  button: {fileID: 0}
 --- !u!114 &767563637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6728,6 +6732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 1
   textStatus: {fileID: 110586697}
+  button: {fileID: 0}
 --- !u!114 &1229940468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7173,6 +7178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 7
   textStatus: {fileID: 1412199691}
+  button: {fileID: 0}
 --- !u!114 &1312954044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7747,6 +7753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 5
   textStatus: {fileID: 1164512208}
+  button: {fileID: 0}
 --- !u!114 &1387129082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8228,6 +8235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 2
   textStatus: {fileID: 1757964200}
+  button: {fileID: 0}
 --- !u!114 &1449563607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9496,6 +9504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 8
   textStatus: {fileID: 1019388042}
+  button: {fileID: 0}
 --- !u!114 &1753589459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10407,6 +10416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 6
   textStatus: {fileID: 515052074}
+  button: {fileID: 0}
 --- !u!114 &1871724880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11512,6 +11522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 3
   textStatus: {fileID: 2023058657}
+  button: {fileID: 0}
 --- !u!114 &2022528667
 MonoBehaviour:
   m_ObjectHideFlags: 0

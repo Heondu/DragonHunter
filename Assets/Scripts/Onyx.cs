@@ -6,9 +6,4 @@ public class Onyx : Player
     {
 
     }
-
-    public override void Attack()
-    {
-
-    }
 }

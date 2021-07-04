@@ -1,13 +1,13 @@
 {
-    "currentID": "character001",
+    "currentID": "character003",
     "data": [
         {
             "ID": "character001",
-            "LV": 5
+            "LV": 1
         },
         {
             "ID": "character002",
-            "LV": 4
+            "LV": 1
         },
         {
             "ID": "character003",
@@ -19,7 +19,7 @@
         },
         {
             "ID": "character005",
-            "LV": 5
+            "LV": 1
         },
         {
             "ID": "character006",

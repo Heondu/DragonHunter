@@ -6,9 +6,4 @@ public class Assassin : Player
     {
 
     }
-
-    public override void Attack()
-    {
-
-    }
 }

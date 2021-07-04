@@ -7,10 +7,20 @@ public class GameManager : MonoBehaviour
     private float tElapsed = 0;
     private int isClear;
     private int score;
-    [SerializeField]
-    private SpawnManager spawnManager;
 
-    void Update()
+    [SerializeField] private SpawnManager spawnManager;
+    [SerializeField] private CameraController cameraController;
+    [SerializeField] private BackgroundScroller backgroundScroller;
+
+    private void Start()
+    {
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/Characters/" + CharacterManager.currentID);
+        prefab = Instantiate(prefab, Vector3.zero, prefab.transform.rotation);
+        cameraController.SetTarget(prefab.transform);
+        backgroundScroller.SetTarget(prefab.transform);
+    }
+
+    private void Update()
     {
         if (spawnManager.IsBossSpawn == false)
         {

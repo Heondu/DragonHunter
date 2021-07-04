@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5837152336421844076}
   - component: {fileID: 6450500310150285849}
-  - component: {fileID: 5083318253060419373}
-  - component: {fileID: 4479202378441939402}
   - component: {fileID: 5626231778812848278}
+  - component: {fileID: 6249419540721940087}
+  - component: {fileID: 980780700779290030}
   m_Layer: 0
   m_Name: SwordAuraProjectile
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6229303579614046205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1.4142135, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.35355338, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4686971511757700940, guid: ceb475f8b7a57fa40906610805c574b4, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: 589ce0018fb76df498caac8fad6fc2ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,20 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!135 &5083318253060419373
-SphereCollider:
+--- !u!114 &5626231778812848278
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6229303579614046205}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.35
-  m_Center: {x: 0.175, y: -0.1, z: 0}
---- !u!114 &4479202378441939402
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9eebc2bf48ac3045ace1da8f077476d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6249419540721940087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,15 +111,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiveShadows: 1
   shadowCastingMode: 1
---- !u!114 &5626231778812848278
-MonoBehaviour:
+  ySize: 0.25
+--- !u!135 &980780700779290030
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6229303579614046205}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9eebc2bf48ac3045ace1da8f077476d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Radius: 0.125
+  m_Center: {x: 0, y: 0, z: 0}

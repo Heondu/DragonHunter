@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PathFinder))]
@@ -14,17 +15,24 @@ public class Monster : MonoBehaviour, ILivingEntity
 
     private PathFinder pathFinder;
     private Transform target;
+    private Animator animator;
+    private SpriteRenderer sr;
 
     private void Start()
     {
         pathFinder = GetComponent<PathFinder>();
+        animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+
         target = FindObjectOfType<Player>().transform;
         pathFinder.SetTarget(target);
+
+        StartCoroutine("Attack");
     }
 
     private void Update()
     {
-        //Move();
+        Move();
     }
 
     public virtual void Init(string _id)
@@ -34,19 +42,37 @@ public class Monster : MonoBehaviour, ILivingEntity
         atk = (int)data["ATK"];
         hp = (int)data["HP"];
         maxHp = hp;
-        speed = 2;
+        speed = 1;
         atkSpeed = 1;
         spawnTime = (int)data["SpawnTime"];
     }
 
     protected void Move()
     {
-        transform.position += pathFinder.GetMoveDir(target.position - transform.position) * speed * Time.deltaTime;
+        Vector3 dir = pathFinder.GetMoveDir(target.position - transform.position);
+        transform.position += dir * speed * Time.deltaTime;
+        if (dir != Vector3.zero)
+        {
+            animator.SetBool("IsMove", true);
+            sr.flipX = dir.x > 0;
+        }
     }
 
-    protected virtual void Attack()
+    protected virtual IEnumerator Attack()
     {
+        while (true)
+        {
+            yield return new WaitForSeconds(2);
 
+            Skill[] skills = GetComponentsInChildren<Skill>();
+            for (int i = 0; i < skills.Length; i++)
+            {
+                if (skills[i].Attack(gameObject.tag, atk))
+                {
+                    animator.SetTrigger("Attack");
+                }
+            }
+        }
     }
 
     public virtual void TakeDamage(int damage)

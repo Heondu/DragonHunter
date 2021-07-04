@@ -61,7 +61,7 @@ public class PathFinder : MonoBehaviour
         }
 
         Debug.DrawLine(transform.position, transform.position + possibleDir[possibleDirIndex] * 1.5f, Color.red);
-        return possibleDir[possibleDirIndex];
+        return possibleDir[possibleDirIndex].normalized;
     }
 
     /// <summary>
