@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Warrior : Character
+public class Warrior : Player
 {
     private void ApplyAbility()
     {

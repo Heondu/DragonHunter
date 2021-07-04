@@ -29,7 +29,7 @@
     },
     "speed": {
         "Level": 1,
-        "BaseValue": 5.0
+        "BaseValue": 3.0
     },
     "atkSpeed": {
         "Level": 1,

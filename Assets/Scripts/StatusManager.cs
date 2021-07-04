@@ -7,22 +7,23 @@ public class StatusManager : MonoBehaviour
     {
         get
         {
-            if (status == null) LoadStatus();
+            if (status == null) Load();
             return status;
         }
     }
 
+
     private void OnApplicationQuit()
     {
-        SaveStatus();
+        Save();
     }
 
-    private static void SaveStatus()
+    private static void Save()
     {
-        JsonIO.SaveToJson(status, SaveDataManager.saveFile[SaveFile.PlayerStatus]);
+        JsonIO.SaveToJson(Status, SaveDataManager.saveFile[SaveFile.PlayerStatus]);
     }
 
-    private static void LoadStatus()
+    private static void Load()
     {
         status = JsonIO.LoadFromJson<PlayerStatus>(SaveDataManager.saveFile[SaveFile.PlayerStatus]);
         if (status == null)
@@ -36,36 +37,36 @@ public class StatusManager : MonoBehaviour
     {
         switch (name)
         {
-            case StatusList.ATK: status.atk.LevelUp("atk"); break;
-            case StatusList.SkillDamage: status.skillDamage.LevelUp("skillDamage"); break;
-            case StatusList.HP: status.hp.LevelUp("hp"); break;
-            case StatusList.Defense: status.defense.LevelUp("defense"); break;
-            case StatusList.CritChance: status.critChance.LevelUp("critChance"); break;
-            case StatusList.CritDamage: status.critDamage.LevelUp("critDamage"); break;
-            case StatusList.DungeonSpeed: status.dungeonSpeed.LevelUp("dungeonSpeed"); break;
-            case StatusList.Speed: status.speed.LevelUp("speed"); break;
-            case StatusList.ATKSpeed: status.atkSpeed.LevelUp("atkSpeed"); break;
-            case StatusList.Range: status.range.LevelUp("range"); break;
-            case StatusList.Score: status.score.LevelUp("score"); break;
+            case StatusList.ATK: Status.atk.LevelUp("atk"); break;
+            case StatusList.SkillDamage: Status.skillDamage.LevelUp("skillDamage"); break;
+            case StatusList.HP: Status.hp.LevelUp("hp"); break;
+            case StatusList.Defense: Status.defense.LevelUp("defense"); break;
+            case StatusList.CritChance: Status.critChance.LevelUp("critChance"); break;
+            case StatusList.CritDamage: Status.critDamage.LevelUp("critDamage"); break;
+            case StatusList.DungeonSpeed: Status.dungeonSpeed.LevelUp("dungeonSpeed"); break;
+            case StatusList.Speed: Status.speed.LevelUp("speed"); break;
+            case StatusList.ATKSpeed: Status.atkSpeed.LevelUp("atkSpeed"); break;
+            case StatusList.Range: Status.range.LevelUp("range"); break;
+            case StatusList.Score: Status.score.LevelUp("score"); break;
         }
-        SaveStatus();
+        Save();
     }
 
     public static int GetLevel(StatusList name)
     {
         switch (name)
         {
-            case StatusList.ATK: return status.atk.Level;
-            case StatusList.SkillDamage: return status.skillDamage.Level;
-            case StatusList.HP: return status.hp.Level;
-            case StatusList.Defense: return status.defense.Level;
-            case StatusList.CritChance: return status.critChance.Level;
-            case StatusList.CritDamage: return status.critDamage.Level;
-            case StatusList.DungeonSpeed: return status.dungeonSpeed.Level;
-            case StatusList.Speed: return status.speed.Level;
-            case StatusList.ATKSpeed: return status.atkSpeed.Level;
-            case StatusList.Range: return status.range.Level;
-            case StatusList.Score: return status.score.Level;
+            case StatusList.ATK: return Status.atk.Level;
+            case StatusList.SkillDamage: return Status.skillDamage.Level;
+            case StatusList.HP: return Status.hp.Level;
+            case StatusList.Defense: return Status.defense.Level;
+            case StatusList.CritChance: return Status.critChance.Level;
+            case StatusList.CritDamage: return Status.critDamage.Level;
+            case StatusList.DungeonSpeed: return Status.dungeonSpeed.Level;
+            case StatusList.Speed: return Status.speed.Level;
+            case StatusList.ATKSpeed: return Status.atkSpeed.Level;
+            case StatusList.Range: return Status.range.Level;
+            case StatusList.Score: return Status.score.Level;
         }
         return 1;
     }

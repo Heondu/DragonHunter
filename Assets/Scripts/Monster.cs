@@ -18,7 +18,7 @@ public class Monster : MonoBehaviour, ILivingEntity
     private void Start()
     {
         pathFinder = GetComponent<PathFinder>();
-        target = FindObjectOfType<Character>().transform;
+        target = FindObjectOfType<Player>().transform;
         pathFinder.SetTarget(target);
     }
 
@@ -51,6 +51,19 @@ public class Monster : MonoBehaviour, ILivingEntity
 
     public virtual void TakeDamage(int damage)
     {
+        hp = Mathf.Max(0, hp - damage);
 
+        if (hp == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void AutoDestroy()
+    {
+        if (Vector3.Distance(target.position, transform.position) > 20)
+        {
+            Destroy(gameObject);
+        }
     }
 }

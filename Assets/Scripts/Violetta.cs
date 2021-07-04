@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Violetta : Character
+public class Violetta : Player
 {
     private void ApplyAbility()
     {

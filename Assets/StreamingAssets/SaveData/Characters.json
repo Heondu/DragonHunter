@@ -1,0 +1,29 @@
+{
+    "currentID": "character001",
+    "data": [
+        {
+            "ID": "character001",
+            "LV": 5
+        },
+        {
+            "ID": "character002",
+            "LV": 4
+        },
+        {
+            "ID": "character003",
+            "LV": 1
+        },
+        {
+            "ID": "character004",
+            "LV": 1
+        },
+        {
+            "ID": "character005",
+            "LV": 5
+        },
+        {
+            "ID": "character006",
+            "LV": 1
+        }
+    ]
+}

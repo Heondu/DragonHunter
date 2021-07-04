@@ -1,7 +1,7 @@
-﻿ID,ATK,HP
-character001,300,1000
-character002,350,750
-character003,400,900
-character004,300,1200
-character005,450,1200
-character006,500,900
+﻿ID,ATK,HP,ATKAmount,HPAmount
+character001,300,1000,3,5
+character002,350,750,4,3
+character003,400,900,4,3
+character004,300,1200,3,6
+character005,450,1200,5,6
+character006,500,900,5,6

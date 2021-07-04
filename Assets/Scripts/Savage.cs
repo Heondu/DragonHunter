@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Savage : Character
+public class Savage : Player
 {
     private void ApplyAbility()
     {

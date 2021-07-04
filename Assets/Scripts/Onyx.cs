@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Onyx : Character
+public class Onyx : Player
 {
     private void ApplyAbility()
     {

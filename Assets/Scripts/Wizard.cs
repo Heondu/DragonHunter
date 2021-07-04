@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Wizard : Character
+public class Wizard : Player
 {
     private void ApplyAbility()
     {

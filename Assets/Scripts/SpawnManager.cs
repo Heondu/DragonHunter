@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        player = FindObjectOfType<Character>().transform;
+        player = FindObjectOfType<Player>().transform;
         StartCoroutine("SpawnCo");
     }
 
@@ -47,7 +47,7 @@ public class SpawnManager : MonoBehaviour
             prefab = Instantiate(prefab, pos, prefab.transform.rotation);
             prefab.GetComponent<Monster>().Init(id);
             prefab = Resources.Load<GameObject>("Prefabs/Wall/Wall");
-            Instantiate(prefab, (player.position - pos) / 2, prefab.transform.rotation);
+            Instantiate(prefab, (player.position + pos) / 2, prefab.transform.rotation);
             return;
         }
 

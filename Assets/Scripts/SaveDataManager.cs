@@ -4,6 +4,7 @@ using UnityEngine;
 public enum SaveFile
 {
     PlayerStatus,
+    Characters
 }
 
 public class SaveDataManager : MonoBehaviour
@@ -13,5 +14,6 @@ public class SaveDataManager : MonoBehaviour
     private void Awake()
     {
         saveFile[SaveFile.PlayerStatus] = "Player Status";
+        saveFile[SaveFile.Characters] = "Characters";
     }
 }

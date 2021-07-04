@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Assassin : Character
+public class Assassin : Player
 {
     private void ApplyAbility()
     {
