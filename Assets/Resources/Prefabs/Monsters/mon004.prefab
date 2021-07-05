@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &8901620786751418391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8498884719199151680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ed7f25fb0a5fc43b62eab2c679bfee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 1
+  skills:
+  - {fileID: 7104525514151751812, guid: 85f06e4a3565bbd49874babe292e7c16, type: 3}
+  poisonExplosion: {fileID: 7100025510798505449, guid: e3b3421f2f256ec4fb8e4036e45bc371, type: 3}
+  marbles:
+  - {fileID: 5189197926805169057, guid: 4249fe6aa5a0d954e84eabd95b16e8ae, type: 3}
+  - {fileID: 5689345467611994300, guid: a827ef756a094c943b63ac31211e15bf, type: 3}
 --- !u!1001 &4034425126777510453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11,6 +30,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: d02715e48bb3bda448ce19406fd88267, type: 2}
+    - target: {fileID: 4760079236740922481, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
+      propertyPath: skills.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760079236740922481, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 8940564576984304749, guid: 239636c6306145d4e878071d892c22e1, type: 3}
     - target: {fileID: 4760079236740922482, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -63,5 +90,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mon004
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1304592630045449441, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
+--- !u!1 &8498884719199151680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4760079236740922485, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
+  m_PrefabInstance: {fileID: 4034425126777510453}
+  m_PrefabAsset: {fileID: 0}

@@ -1,29 +1,20 @@
 using UnityEngine;
 
+public struct SkillData
+{
+    public string casterTag;
+    public int damage;
+    public Vector3 dir;
+    public int penetrate;
+}
+
 public class Skill : MonoBehaviour
 {
-    public virtual bool Attack(string casterTag, int damage)
-    {
-        return false;
-    }
+    public float delay = 0;
+    public Timer timer = new Timer();
 
-    public Transform FindTarget()
+    public virtual void Attack(SkillData skillData)
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 6);
-        Transform target = null;
-        float distance = float.MaxValue;
-        foreach (Collider collider in colliders)
-        {
-            if (collider.GetComponent<ILivingEntity>() == null) continue;
-            if (collider.CompareTag("Player")) continue;
 
-            float newDistance = Vector3.Distance(collider.transform.position, transform.position);
-            if (distance > newDistance)
-            {
-                target = collider.transform;
-                distance = newDistance;
-            }
-        }
-        return target;
     }
 }

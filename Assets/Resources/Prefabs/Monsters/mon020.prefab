@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3b3d3fa394aef468aa3e410d5d2e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 1
+  skills: []
+  poisonExplosion: {fileID: 7100025510798505449, guid: e3b3421f2f256ec4fb8e4036e45bc371, type: 3}
+  marbles:
+  - {fileID: 5189197926805169057, guid: 4249fe6aa5a0d954e84eabd95b16e8ae, type: 3}
+  - {fileID: 5689345467611994300, guid: a827ef756a094c943b63ac31211e15bf, type: 3}
 --- !u!1001 &2107546957392630324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77,6 +83,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4760079236740922481, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
+    - {fileID: 1304592630045449441, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
 --- !u!1 &6859175824217632321 stripped
 GameObject:

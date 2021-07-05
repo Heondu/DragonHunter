@@ -180,12 +180,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Difficulty
-
-'
+  m_text: "\uB09C\uC774\uB3C4"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -486,12 +484,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Armor
-
-'
+  m_text: "\uBC29\uC5B4\uAD6C"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -554,7 +550,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &43134446
@@ -921,9 +917,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Accept
+  m_text: "\uC120\uD0DD"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -987,7 +983,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &101775485
@@ -1205,12 +1201,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1627,15 +1621,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character
-
-    ATK : 100
-
-    HP : 100
-
-    LV : 1'
+  m_text: "\uCE90\uB9AD\uD130\n\uACF5\uACA9\uB825 : 100\n\uCCB4\uB825 : 100\n\uB808\uBCA8
+    : 1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1699,7 +1688,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &244667330
@@ -2022,15 +2011,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character
-
-    ATK : 100
-
-    HP : 100
-
-    LV : 1'
+  m_text: "\uCE90\uB9AD\uD130\n\uACF5\uACA9\uB825 : 100\n\uCCB4\uB825 : 100\n\uB808\uBCA8
+    : 1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2094,7 +2078,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &301202163
@@ -2240,10 +2224,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'D : 100'
+  m_text: "\uB2E4\uC774\uC544 : 100"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2525,15 +2509,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character
-
-    ATK : 100
-
-    HP : 100
-
-    LV : 1'
+  m_text: "\uCE90\uB9AD\uD130\n\uACF5\uACA9\uB825 : 100\n\uCCB4\uB825 : 100\n\uB808\uBCA8
+    : 1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2597,7 +2576,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &361713476
@@ -2763,12 +2742,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3489,12 +3466,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3625,12 +3600,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3761,10 +3734,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Inventory
+  m_text: "\uC778\uBCA4\uD1A0\uB9AC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3887,12 +3860,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 573478856}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 0
+  name: atk
   textStatus: {fileID: 401959225}
-  button: {fileID: 0}
 --- !u!114 &573478859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4024,12 +3996,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 670002162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 4
+  name: critChance
   textStatus: {fileID: 2003626397}
-  button: {fileID: 0}
 --- !u!114 &670002165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4161,12 +4132,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 704358753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 10
+  name: score
   textStatus: {fileID: 553236835}
-  button: {fileID: 0}
 --- !u!114 &704358756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4389,10 +4359,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: "\uB3C4\uC804"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4590,12 +4560,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 767563634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 9
+  name: range
   textStatus: {fileID: 1064343414}
-  button: {fileID: 0}
 --- !u!114 &767563637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5364,12 +5333,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5607,15 +5574,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character
-
-    ATK : 100
-
-    HP : 100
-
-    LV : 1'
+  m_text: "\uCE90\uB9AD\uD130\n\uACF5\uACA9\uB825 : 100\n\uCCB4\uB825 : 100\n\uB808\uBCA8
+    : 1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5679,7 +5641,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1050454981
@@ -5747,12 +5709,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6062,15 +6022,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character
-
-    ATK : 100
-
-    HP : 100
-
-    LV : 1'
+  m_text: "\uCE90\uB9AD\uD130\n\uACF5\uACA9\uB825 : 100\n\uCCB4\uB825 : 100\n\uB808\uBCA8
+    : 1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6134,7 +6089,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1097853587
@@ -6369,16 +6324,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK : 100'
+  m_text: "\uACF5\uACA9\uB825 : 100"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6509,12 +6464,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6727,12 +6680,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1229940465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 1
+  name: skillDamage
   textStatus: {fileID: 110586697}
-  button: {fileID: 0}
 --- !u!114 &1229940468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6872,12 +6824,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Weapon
-
-'
+  m_text: "\uBB34\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6940,7 +6890,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1248255893
@@ -7173,12 +7123,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1312954041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 7
+  name: speed
   textStatus: {fileID: 1412199691}
-  button: {fileID: 0}
 --- !u!114 &1312954044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7393,15 +7342,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character
-
-    ATK : 100
-
-    HP : 100
-
-    LV : 1'
+  m_text: "\uCE90\uB9AD\uD130\n\uACF5\uACA9\uB825 : 100\n\uCCB4\uB825 : 100\n\uB808\uBCA8
+    : 1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7465,7 +7409,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1342738955
@@ -7748,12 +7692,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1387129079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 5
+  name: critDamage
   textStatus: {fileID: 1164512208}
-  button: {fileID: 0}
 --- !u!114 &1387129082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7893,12 +7836,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8029,10 +7970,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Status
+  m_text: "\uC2A4\uD14C\uC774\uD130\uC2A4"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8230,12 +8171,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1449563604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 2
+  name: hp
   textStatus: {fileID: 1757964200}
-  button: {fileID: 0}
 --- !u!114 &1449563607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8745,10 +8685,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shop
+  m_text: "\uC0C1\uC810"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8879,11 +8819,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'LevelUP
-
-'
+  m_text: "\uB808\uBCA8\uC5C5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8947,7 +8885,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1635389474
@@ -9009,16 +8947,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HP : 100'
+  m_text: "\uCCB4\uB825 : 100"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9149,12 +9087,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Hero
-
-    Change'
+  m_text: "\uC601\uC6C5 \uBCC0\uACBD"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9361,10 +9297,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'G : 100'
+  m_text: "\uACE8\uB4DC : 100"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9499,12 +9435,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1753589456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 8
+  name: atkSpeed
   textStatus: {fileID: 1019388042}
-  button: {fileID: 0}
 --- !u!114 &1753589459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9644,12 +9579,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9855,10 +9788,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: "\uC124\uC815"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10137,10 +10070,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Accessory
+  m_text: "\uC545\uC138\uC0AC\uB9AC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10203,7 +10136,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1784743435
@@ -10411,12 +10344,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1871724877}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 6
+  name: dungeonSpeed
   textStatus: {fileID: 515052074}
-  button: {fileID: 0}
 --- !u!114 &1871724880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10764,10 +10696,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dungeon
+  m_text: "\uB358\uC804"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11043,10 +10975,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Accessory
+  m_text: "\uC545\uC138\uC0AC\uB9AC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11109,7 +11041,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1995725064
@@ -11263,12 +11195,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11517,12 +11447,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2022528664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f81dbc6df3c5e244a1672b6468ab15c, type: 3}
+  m_Script: {fileID: 11500000, guid: 43ec155d5d9c9074cab2601ed484f09b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: 3
+  name: def
   textStatus: {fileID: 2023058657}
-  button: {fileID: 0}
 --- !u!114 &2022528667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11662,12 +11591,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ATK
-
-    LV.1'
+  m_text: "\uACF5\uACA9\uB825\nLV.1"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11883,12 +11810,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quest
-
-'
+  m_text: "\uD018\uC2A4\uD2B8"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
+  m_sharedMaterial: {fileID: -8965784702323490613, guid: be5cc16f0935a144e9cd5142bd70d266, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

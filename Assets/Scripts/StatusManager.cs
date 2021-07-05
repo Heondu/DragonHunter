@@ -98,4 +98,16 @@ public class StatusManager : MonoBehaviour
     {
         return List.status[name];
     }
+
+    public static StatusList DeepCopy()
+    {
+        StatusList newList = new StatusList();
+        foreach (string key in List.status.Keys)
+        {
+            string name = key;
+            float value = List.status[key].Value;
+            newList.status.Add(name, new Status(name, 1, value));
+        }
+        return newList;
+    }
 }

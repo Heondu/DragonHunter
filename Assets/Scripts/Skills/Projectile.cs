@@ -1,41 +1,41 @@
 using System.Collections;
 using UnityEngine;
 
-public struct ProjectileData
-{
-    public Vector3 dir;
-    public string casterTag;
-    public int damage;
-    public int speed;
-}
-
 public class Projectile : MonoBehaviour
 {
-    private ProjectileData data;
+    public SkillData skillData;
+    private int speed;
 
-    public void Init(ProjectileData _data)
+    public void Init(SkillData _skillData, int _speed)
     {
-        data.dir = _data.dir;
-        data.casterTag = _data.casterTag;
-        data.damage = _data.damage;
-        data.speed = _data.speed;
+        skillData = _skillData;
+        speed = _speed;
     }
 
     private void Update()
     {
-        transform.position += data.dir * data.speed * Time.deltaTime;
+        transform.position += skillData.dir * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(data.casterTag)) return;
+        if (other.CompareTag(skillData.casterTag)) return;
 
         ILivingEntity entity = other.GetComponent<ILivingEntity>();
         if (entity != null)
         {
-            entity.TakeDamage(data.damage);
-            Destroy(gameObject);
+            Attack(entity);
+            skillData.penetrate--;
+            if (skillData.penetrate <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
+    }
+
+    protected virtual void Attack(ILivingEntity entity)
+    {
+        entity.TakeDamage(skillData.damage);
     }
 
     private IEnumerator DestroyTimer(float t)

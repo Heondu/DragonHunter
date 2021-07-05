@@ -15,6 +15,7 @@ public class SpawnManager : MonoBehaviour
     private Transform player;
     private GameObject wallPrefab;
     private GameObject wall;
+    public bool CanTrapSpawn = true;
 
     private void Start()
     {
@@ -29,7 +30,8 @@ public class SpawnManager : MonoBehaviour
         {
             if (!IsBossSpawn)
             {
-                Spawn();
+                SpawnMonster();
+                SpawnTrap();
                 yield return new WaitForSeconds(spawnTime);
             }
             else
@@ -39,7 +41,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private void Spawn()
+    private void SpawnMonster()
     {
         string id;
         id = GetBoss();
@@ -54,15 +56,10 @@ public class SpawnManager : MonoBehaviour
         }
 
         Dictionary<string, int> monsters = GetMonsterList();
-        Dictionary<string, int> traps = GetTrapList();
         int sumOfProb = 0;
         foreach (string key in monsters.Keys)
         {
             sumOfProb += monsters[key];
-        }
-        foreach (string key in traps.Keys)
-        {
-            sumOfProb += traps[key];
         }
 
         int rand = Random.Range(0, sumOfProb);
@@ -78,6 +75,22 @@ public class SpawnManager : MonoBehaviour
                 return;
             }
         }
+
+    }
+
+    private void SpawnTrap()
+    {
+        if (!CanTrapSpawn) return;
+
+        Dictionary<string, int> traps = GetTrapList();
+        int sumOfProb = 0;
+        foreach (string key in traps.Keys)
+        {
+            sumOfProb += traps[key];
+        }
+
+        int rand = Random.Range(0, sumOfProb);
+        int sum = 0;
         foreach (string key in traps.Keys)
         {
             sum += traps[key];

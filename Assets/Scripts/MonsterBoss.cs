@@ -2,14 +2,9 @@ using UnityEngine;
 
 public class MonsterBoss : Monster
 {
-    public override void TakeDamage(int damage)
+    protected override void OnDeath()
     {
-        hp = Mathf.Max(0, hp - damage);
-
-        if (hp == 0)
-        {
-            FindObjectOfType<SpawnManager>().OnBossDeath();
-            Destroy(gameObject);
-        }
+        base.OnDeath();
+        FindObjectOfType<SpawnManager>().OnBossDeath();
     }
 }

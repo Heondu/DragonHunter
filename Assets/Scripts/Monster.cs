@@ -12,11 +12,21 @@ public class Monster : MonoBehaviour, ILivingEntity
     protected int speed;
     protected int atkSpeed;
     protected int spawnTime;
+    [SerializeField]
+    protected float attackRange = 1;
+    protected State state = State.None;
 
     private PathFinder pathFinder;
     private Transform target;
-    private Animator animator;
+    protected Animator animator;
     private SpriteRenderer sr;
+
+    [SerializeField]
+    protected Skill[] skills;
+    [SerializeField]
+    protected Skill poisonExplosion;
+    [SerializeField]
+    protected GameObject[] marbles;
 
     private void Start()
     {
@@ -27,12 +37,19 @@ public class Monster : MonoBehaviour, ILivingEntity
         target = FindObjectOfType<Player>().transform;
         pathFinder.SetTarget(target);
 
-        StartCoroutine("Attack");
+        for (int i = 0; i < skills.Length; i++)
+        {
+            skills[i] = Instantiate(skills[i], transform);
+        }
     }
 
     private void Update()
     {
-        Move();
+        if (state == State.None)
+        {
+            Move();
+            Attack();
+        }
     }
 
     public virtual void Init(string _id)
@@ -58,31 +75,76 @@ public class Monster : MonoBehaviour, ILivingEntity
         }
     }
 
-    protected virtual IEnumerator Attack()
+    protected virtual void Attack()
     {
-        while (true)
+        for (int i = 0; i < skills.Length; i++)
         {
-            yield return new WaitForSeconds(2);
-
-            Skill[] skills = GetComponentsInChildren<Skill>();
-            for (int i = 0; i < skills.Length; i++)
+            if (skills[i].timer.GetTimer(skills[i].delay))
             {
-                if (skills[i].Attack(gameObject.tag, atk))
-                {
-                    animator.SetTrigger("Attack");
-                }
+                skills[i].Attack(GetSkillData());
+                animator.SetTrigger("Attack");
             }
         }
     }
 
-    public virtual void TakeDamage(int damage)
+    public Transform FindTarget(float range)
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
+        Transform target = null;
+        float distance = float.MaxValue;
+        foreach (Collider collider in colliders)
+        {
+            if (collider.GetComponent<ILivingEntity>() == null) continue;
+            if (collider.CompareTag(gameObject.tag)) continue;
+
+            float newDistance = Vector3.Distance(collider.transform.position, transform.position);
+            if (distance > newDistance)
+            {
+                target = collider.transform;
+                distance = newDistance;
+            }
+        }
+        return target;
+    }
+
+    public void TakeDamage(int damage)
     {
         hp = Mathf.Max(0, hp - damage);
 
         if (hp == 0)
         {
+            OnDeath();
             Destroy(gameObject);
         }
+    }
+
+    protected virtual void OnDeath()
+    {
+        if (CardManager.Instance.PoisonExplosion)
+        {
+            Vector3 pos = new Vector3(transform.position.x, poisonExplosion.transform.position.y, transform.position.z);
+            Instantiate(poisonExplosion, pos, poisonExplosion.transform.rotation).Attack(GetSkillData());
+        }
+
+        int sumOfProb = 0;
+        Dictionary<string, object> data = DataManager.monsters.FindDic("ID", id);
+        int[] probs = { (int)data["BlueMarbleProb"], (int)data["YellowMarbleProb"] }; 
+        sumOfProb += probs[0];
+        sumOfProb += probs[1];
+
+        int rand = Random.Range(0, 100);
+        int sum = 0;
+        for (int i = 0; i < probs.Length; i++)
+        {
+            sum += probs[i];
+            if (rand < sum)
+            {
+                Vector3 pos = new Vector3(transform.position.x, marbles[i].transform.position.y, transform.position.z);
+                Instantiate(marbles[i], pos, marbles[i].transform.rotation);
+                break;
+            }
+        }
+
     }
 
     private void AutoDestroy()
@@ -91,5 +153,29 @@ public class Monster : MonoBehaviour, ILivingEntity
         {
             Destroy(gameObject);
         }
+    }
+
+    public SkillData GetSkillData()
+    {
+        Transform target = FindTarget(attackRange);
+        SkillData skillData = new SkillData();
+        skillData.casterTag = gameObject.tag;
+        skillData.damage = atk;
+        skillData.dir = target == null ? Vector3.zero : (target.position - transform.position).normalized;
+        skillData.penetrate = 1;
+        return skillData;
+    }
+
+    public void ChangeState(State _state, float t)
+    {
+        state = _state;
+        StartCoroutine("StateTimer", t);
+    }
+
+    private IEnumerator StateTimer(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        state = State.None;
     }
 }

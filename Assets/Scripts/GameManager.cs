@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private SpawnManager spawnManager;
     [SerializeField] private CameraController cameraController;
     [SerializeField] private BackgroundScroller backgroundScroller;
+    [SerializeField] private CardManager cardManager;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
         prefab = Instantiate(prefab, Vector3.zero, prefab.transform.rotation);
         cameraController.SetTarget(prefab.transform);
         backgroundScroller.SetTarget(prefab.transform);
+        cardManager.SetPlayer(prefab.GetComponent<Player>());
     }
 
     private void Update()

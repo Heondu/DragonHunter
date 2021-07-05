@@ -1,40 +1,56 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour, ILivingEntity
 {
-    protected Status atk;
-    protected Status hp;
+    protected int hp;
     protected int lv;
     protected int maxHp;
     protected int exp;
+    public int penetrate = 1;
+    public int repeat = 1;
+    public bool diagonalAttack = false;
+    public bool backAttack = false;
+    private float attackRange = 6;
+    private State state = State.None;
 
     private Animator animator;
     private SpriteRenderer sr;
 
+    [SerializeField]
+    private List<Skill> skills = new List<Skill>();
+
     private void Start()
     {
-        atk = new Status("atk", 1, CharacterManager.GetCharacter().ATK);
-        hp = new Status("hp", 1, CharacterManager.GetCharacter().HP);
-        atk.AddModifier(new StatusModifier(StatusManager.GetStatus("atk").Value, StatusModType.Flat, this));
-        hp.AddModifier(new StatusModifier(StatusManager.GetStatus("hp").Value, StatusModType.Flat, this));
+        StatusManager.GetStatus("atk").AddModifier(new StatusModifier(CharacterManager.GetCharacter().ATK, StatusModType.Flat, this));
+        StatusManager.GetStatus("hp").AddModifier(new StatusModifier(CharacterManager.GetCharacter().HP, StatusModType.Flat, this));
+        hp = (int)StatusManager.GetStatus("hp").Value;
+
+        for (int i = 0; i < skills.Count; i++)
+        {
+            skills[i] = Instantiate(skills[i], transform);
+        }
 
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
-        StartCoroutine("Attack");
     }
 
     private void Update()
     {
-        Move();
+        if (state == State.None)
+        {
+            Move();
+            Attack();
+        }
     }
 
     private void Move()
     {
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
-        transform.position += new Vector3(x, 0, z).normalized * StatusManager.List.status["speed"].Value * Time.deltaTime;
+        transform.position += new Vector3(x, 0, z).normalized * StatusManager.GetStatus("speed").Value * Time.deltaTime;
         if (x != 0 || z != 0)
         {
             animator.SetBool("IsMove", true);
@@ -42,25 +58,88 @@ public class Player : MonoBehaviour, ILivingEntity
         }
     }
 
-    private IEnumerator Attack()
+    private void Attack()
     {
-        while (true)
+        for (int i = 0; i < skills.Count; i++)
         {
-            yield return new WaitForSeconds((float)StatusManager.GetStatus("atkSpeed").Value);
-
-            Skill[] skills = GetComponentsInChildren<Skill>();
-            for (int i = 0; i < skills.Length; i++)
+            if (skills[i].timer.GetTimer(skills[i].delay))
             {
-                if (skills[i].Attack(gameObject.tag, (int)atk.Value))
-                {
-                    animator.SetTrigger("Attack");
-                }
+                skills[i].Attack(GetSkillData());
+                animator.SetTrigger("Attack");
             }
         }
     }
 
+    public Transform FindTarget(float range)
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
+        Transform target = null;
+        float distance = float.MaxValue;
+        foreach (Collider collider in colliders)
+        {
+            if (collider.GetComponent<ILivingEntity>() == null) continue;
+            if (collider.CompareTag(gameObject.tag)) continue;
+
+            float newDistance = Vector3.Distance(collider.transform.position, transform.position);
+            if (distance > newDistance)
+            {
+                target = collider.transform;
+                distance = newDistance;
+            }
+        }
+        return target;
+    }
+
     public void TakeDamage(int damage)
     {
+        hp = Mathf.Max(0, hp - damage);
+    }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="value"></param>
+    /// <param name="modifier">0 = 더하기, 1 = 퍼센트</param>
+    public void Restore(int value, int modifier)
+    {
+        if (modifier == 0)
+        {
+            hp = Mathf.Min(hp + value, (int)StatusManager.GetStatus("hp").Value);
+        }
+        else if (modifier == 1)
+        {
+            hp = Mathf.Min(hp + (int)(StatusManager.GetStatus("hp").Value * 0.2f), (int)StatusManager.GetStatus("hp").Value);
+        }
+    }
+
+    public void AddSkill(string name)
+    {
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/Skills/" + name);
+        prefab = Instantiate(prefab, transform);
+        skills.Add(prefab.GetComponent<Skill>());
+    }
+
+    public SkillData GetSkillData()
+    {
+        Transform target = FindTarget(attackRange);
+        SkillData skillData = new SkillData();
+        skillData.casterTag = gameObject.tag;
+        skillData.damage = (int)StatusManager.GetStatus("atk").Value;
+        skillData.dir = target == null ? Vector3.zero : (target.position - transform.position).normalized;
+        skillData.penetrate = 1;
+        return skillData;
+    }
+
+    public void ChangeState(State _state, float t)
+    {
+        state = _state;
+        StartCoroutine("StateTimer", t);
+    }
+
+    private IEnumerator StateTimer(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        state = State.None;
     }
 }
