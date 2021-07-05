@@ -119,7 +119,8 @@ MonoBehaviour:
   repeat: 1
   diagonalAttack: 0
   backAttack: 0
-  skills: []
+  skills:
+  - {fileID: 6032832313511909376, guid: f00446f49c3dccd41b01743c00ecf928, type: 3}
 --- !u!114 &6372077741701351300
 MonoBehaviour:
   m_ObjectHideFlags: 0

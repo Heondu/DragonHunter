@@ -65,7 +65,7 @@ public class Player : MonoBehaviour, ILivingEntity
             if (skills[i].timer.GetTimer(skills[i].delay))
             {
                 skills[i].Attack(GetSkillData());
-                animator.SetTrigger("Attack");
+                //animator.SetTrigger("Attack");
             }
         }
     }

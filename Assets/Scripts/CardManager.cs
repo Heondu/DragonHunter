@@ -15,10 +15,10 @@ public class CardManager : MonoBehaviour
             instance = value;
         }
     }
-    [SerializeField]
-    private CardViewer[] cardViewers;
-    [SerializeField]
-    private GameObject panel;
+    [SerializeField] private CardViewer[] cardViewers;
+    [SerializeField] private CardViewer[] specialCardViewers;
+    [SerializeField] private GameObject panelCard;
+    [SerializeField] private GameObject panelSpecialCard;
 
     private Player player;
     [SerializeField]
@@ -34,7 +34,7 @@ public class CardManager : MonoBehaviour
     public void ShowCard()
     {
         Time.timeScale = 0;
-        panel.SetActive(true);
+        panelCard.SetActive(true);
 
         for (int i = 0; i < 3; i++)
         {
@@ -62,7 +62,7 @@ public class CardManager : MonoBehaviour
     public void ShowSpecialCard()
     {
         Time.timeScale = 0;
-        panel.SetActive(true);
+        panelSpecialCard.SetActive(true);
 
         for (int i = 0; i < 3; i++)
         {
@@ -79,7 +79,7 @@ public class CardManager : MonoBehaviour
                 sum += (int)DataManager.specialCards[j]["Prob"];
                 if (rand < sum)
                 {
-                    cardViewers[i].SetCard(DataManager.specialCards[j]["ID"].ToString());
+                    specialCardViewers[i].SetCard(DataManager.specialCards[j]["ID"].ToString());
                     break;
                 }
             }
@@ -151,7 +151,8 @@ public class CardManager : MonoBehaviour
                 break;
         }
 
-        panel.SetActive(false);
+        panelCard.SetActive(false);
+        panelSpecialCard.SetActive(false);
         Time.timeScale = 1;
     }
 

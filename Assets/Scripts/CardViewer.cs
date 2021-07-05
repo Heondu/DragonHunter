@@ -5,7 +5,8 @@ using TMPro;
 public class CardViewer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private Button button;
+    [SerializeField] private Image image;
+    private Button button;
 
     private string id;
 
@@ -19,6 +20,7 @@ public class CardViewer : MonoBehaviour
     {
         id = _id;
         text.text = DataManager.Localization(id);
+        image.sprite = DataManager.LoadImage(id);
     }
 
     public void Select()

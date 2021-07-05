@@ -10,6 +10,6 @@ public class StatusViewer : MonoBehaviour
 
     private void Update()
     {
-        textStatus.text = $"{name}\nLV.{StatusManager.GetLevel(name)}";
+        textStatus.text = $"{DataManager.Localization(name)}\nLV.{StatusManager.GetLevel(name)}";
     }
 }

@@ -14,6 +14,7 @@ public class DataManager : MonoBehaviour
     public static List<Dictionary<string, object>> status = new List<Dictionary<string, object>>();
     public static List<Dictionary<string, object>> cards = new List<Dictionary<string, object>>();
     public static List<Dictionary<string, object>> specialCards = new List<Dictionary<string, object>>();
+    public static List<Dictionary<string, object>> images = new List<Dictionary<string, object>>();
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class DataManager : MonoBehaviour
         status = CSVReader.Read(path + "status");
         cards = CSVReader.Read(path + "cards");
         specialCards = CSVReader.Read(path + "specialCards");
+        images = CSVReader.Read(path + "images");
     }
 
     public static bool Exists(List<Dictionary<string, object>> list, string key, object value)
@@ -59,6 +61,17 @@ public class DataManager : MonoBehaviour
             return str;
         }
         return "";
+    }
+
+    public static Sprite LoadImage(string id)
+    {
+        string path = images.Find("ID", id, "Path").ToString();
+        if (path.Contains("_"))
+        {
+            string[] splitStr = path.Split('_');
+            return Resources.LoadAll<Sprite>(splitStr[0])[int.Parse(splitStr[1])];
+        }
+        else return Resources.Load<Sprite>(path);
     }
 }
 
