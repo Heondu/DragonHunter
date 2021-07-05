@@ -9,28 +9,25 @@ public class FloatingDamage : MonoBehaviour
     private float destroyTime = 2f;
     private float distance = 50f;
     private TextMeshProUGUI damageText;
-    private Color alpha = Color.white;
+    private Color alpha = Color.black;
     private Vector3 originPos;
     private Vector3 offset = Vector3.up;
-    private GameObject executor;
 
-    public void Init(GameObject executor, string damage, Vector3 originPos)
+    public void Init(string damage, Vector3 originPos)
     {
         damageText = GetComponent<TextMeshProUGUI>();
-        Destroy(gameObject, destroyTime);
+        StartCoroutine("InactiveTimer", destroyTime);
 
-        this.executor = executor;
         this.originPos = originPos;
         damageText.text = damage;
-        offset.x += Random.Range(-0.5f, 0.5f);
+        //offset.x += Random.Range(-0.5f, 0.5f);
         StartCoroutine("FadeOut");
     }
 
     private void Update()
     {
-        offset += Vector3.up * moveSpeed * Time.deltaTime;
+        offset += Vector3.forward * moveSpeed * Time.deltaTime;
         Vector3 newPos = originPos + offset;
-        newPos.z = 0;
         transform.position = newPos;
     }
 
@@ -41,7 +38,7 @@ public class FloatingDamage : MonoBehaviour
         float percent = 0;
         while (percent < 1)
         {
-            alpha.a = Mathf.Lerp(alpha.a, 0, percent);
+            alpha.a = Mathf.Lerp(1, 0, percent);
             damageText.color = alpha;
 
             percent += Time.deltaTime / fadeOutTime;
@@ -51,11 +48,13 @@ public class FloatingDamage : MonoBehaviour
 
     public void SetPos(float moveValue)
     {
-        offset += Vector3.up * (moveValue / distance);
+        offset += Vector3.forward * (moveValue / distance);
     }
 
-    private void OnDestroy()
+    private IEnumerator InactiveTimer(float t)
     {
-        FloatingDamageManager.instance.RemoveDamage(executor, this);
+        yield return new WaitForSeconds(t);
+
+        ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.floatingDamageHolder, gameObject);
     }
 }

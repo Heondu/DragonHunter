@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public enum MarbleType { Blue, Yellow }
@@ -13,7 +14,30 @@ public class Marble : MonoBehaviour
         {
             if (type == MarbleType.Blue) CardManager.Instance.ShowCard();
             else if (type == MarbleType.Yellow) CardManager.Instance.ShowSpecialCard();
-            Destroy(gameObject);
+            ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.itemHolder, gameObject);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        if (gameObject.activeSelf)
+            StartCoroutine("InactiveTimer", 20);
+    }
+
+    private void OnBecameVisible()
+    {
+        StopCoroutine("InactiveTimer");
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine("InactiveTimer");
+    }
+
+    private IEnumerator InactiveTimer(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.itemHolder, gameObject);
     }
 }

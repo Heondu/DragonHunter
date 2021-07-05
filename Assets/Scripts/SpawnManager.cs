@@ -49,9 +49,9 @@ public class SpawnManager : MonoBehaviour
         {
             GameObject prefab = Resources.Load<GameObject>("Prefabs/Monsters/" + id);
             Vector3 pos = GetRandomPos(prefab.transform.position);
-            prefab = Instantiate(prefab, pos, prefab.transform.rotation);
+            prefab = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.monsterHolder, prefab, pos, prefab.transform.rotation);
             prefab.GetComponent<Monster>().Init(id);
-            wall = Instantiate(wallPrefab, (player.position + pos) / 2, prefab.transform.rotation);
+            wall = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.monsterHolder, wallPrefab, (player.position + pos) / 2, prefab.transform.rotation);
             return;
         }
 
@@ -70,7 +70,7 @@ public class SpawnManager : MonoBehaviour
             if (rand < sum)
             {
                 GameObject prefab = Resources.Load<GameObject>("Prefabs/Monsters/" + key);
-                prefab = Instantiate(prefab, GetRandomPos(prefab.transform.position), prefab.transform.rotation);
+                prefab = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.monsterHolder, prefab, GetRandomPos(prefab.transform.position), prefab.transform.rotation);
                 prefab.GetComponent<Monster>().Init(key);
                 return;
             }
@@ -97,7 +97,7 @@ public class SpawnManager : MonoBehaviour
             if (rand < sum)
             {
                 GameObject prefab = Resources.Load<GameObject>("Prefabs/Traps/" + key);
-                prefab = Instantiate(prefab, GetRandomPos(prefab.transform.position), prefab.transform.rotation);
+                prefab = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.trapHolder, prefab, GetRandomPos(prefab.transform.position), prefab.transform.rotation);
                 prefab.GetComponent<Trap>().Init(key, player);
                 return;
             }

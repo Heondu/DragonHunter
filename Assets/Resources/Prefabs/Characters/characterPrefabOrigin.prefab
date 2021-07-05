@@ -121,6 +121,7 @@ MonoBehaviour:
   backAttack: 0
   skills:
   - {fileID: 6032832313511909376, guid: f00446f49c3dccd41b01743c00ecf928, type: 3}
+  hpBar: {fileID: 7070128862640069623, guid: 66575a2dd451ef84e9de9747f09fdeed, type: 3}
 --- !u!114 &6372077741701351300
 MonoBehaviour:
   m_ObjectHideFlags: 0

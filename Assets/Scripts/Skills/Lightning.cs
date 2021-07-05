@@ -12,7 +12,7 @@ public class Lightning : Skill
         {
             Vector3 pos = new Vector3(transform.position.x, lightningBolt.transform.position.y, transform.position.z);
             Quaternion rotation = Quaternion.Euler(lightningBolt.transform.eulerAngles.x, 0, Random.Range(0, 360));
-            GameObject clone = Instantiate(lightningBolt, pos, rotation, transform);
+            GameObject clone = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.skillHolder, lightningBolt, pos, rotation, transform);
             clone.GetComponent<AttackBounds>().Init(skillData);
             Destroy(clone, 1);
         }

@@ -1,25 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum DamageType { normal = 0, critical, heal, miss }
+public enum DamageType { Normal, Critical, Heal, Miss }
 
 public class FloatingDamageManager : MonoBehaviour
 {
-    public static FloatingDamageManager instance;
+    private static FloatingDamageManager instance;
+    public static FloatingDamageManager Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<FloatingDamageManager>();
+            return instance;
+        }
+    }
     [SerializeField]
     private GameObject[] damagePrefab;
+    [SerializeField]
+    private GameObject hpBar;
     private Dictionary<GameObject, List<FloatingDamage>> damageList = new Dictionary<GameObject, List<FloatingDamage>>();
+    [SerializeField]
+    private Transform holder;
 
-    private void Awake()
+    public void FloatingDamage(GameObject executor, string damage, DamageType damageType)
     {
-        if (instance != null) Destroy(this);
-        else instance = this;
-    }
-
-    public void FloatingDamage(GameObject executor, string damage, Vector3 position, DamageType damageType)
-    {
-        GameObject clone = Instantiate(damagePrefab[(int)damageType], position, Quaternion.identity, transform);
-        clone.GetComponent<FloatingDamage>().Init(executor, damage, position);
+        GameObject clone = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.floatingDamageHolder, damagePrefab[(int)damageType], executor.transform.position, Quaternion.identity, holder);
+        clone.GetComponent<FloatingDamage>().Init(damage, executor.transform.position);
 
         if (damageList.ContainsKey(executor) == false)
         {
@@ -43,5 +49,10 @@ public class FloatingDamageManager : MonoBehaviour
     public void RemoveDamage(GameObject executor, FloatingDamage floatingDamage)
     {
         damageList[executor].Remove(floatingDamage);
+    }
+
+    public void InitHPBar(ILivingEntity entity, Transform target)
+    {
+        Instantiate(hpBar, target.transform.position, Quaternion.identity, holder).GetComponent<HPViewer>().Init(entity, target);
     }
 }

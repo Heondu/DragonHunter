@@ -37,6 +37,8 @@ public class Monster : MonoBehaviour, ILivingEntity
         target = FindObjectOfType<Player>().transform;
         pathFinder.SetTarget(target);
 
+        //FloatingDamageManager.Instance.InitHPBar(this, transform);
+
         for (int i = 0; i < skills.Length; i++)
         {
             skills[i] = Instantiate(skills[i], transform);
@@ -110,11 +112,12 @@ public class Monster : MonoBehaviour, ILivingEntity
     public void TakeDamage(int damage)
     {
         hp = Mathf.Max(0, hp - damage);
+        FloatingDamageManager.Instance.FloatingDamage(gameObject, damage.ToString(), DamageType.Normal);
 
         if (hp == 0)
         {
             OnDeath();
-            Destroy(gameObject);
+            ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.monsterHolder, gameObject);
         }
     }
 
@@ -123,7 +126,8 @@ public class Monster : MonoBehaviour, ILivingEntity
         if (CardManager.Instance.PoisonExplosion)
         {
             Vector3 pos = new Vector3(transform.position.x, poisonExplosion.transform.position.y, transform.position.z);
-            Instantiate(poisonExplosion, pos, poisonExplosion.transform.rotation).Attack(GetSkillData());
+            GameObject clone = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.skillHolder, poisonExplosion.gameObject, pos, poisonExplosion.transform.rotation);
+            clone.GetComponent<Skill>().Attack(GetSkillData());
         }
 
         int sumOfProb = 0;
@@ -140,19 +144,11 @@ public class Monster : MonoBehaviour, ILivingEntity
             if (rand < sum)
             {
                 Vector3 pos = new Vector3(transform.position.x, marbles[i].transform.position.y, transform.position.z);
-                Instantiate(marbles[i], pos, marbles[i].transform.rotation);
+                ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.itemHolder, marbles[i], pos, marbles[i].transform.rotation);
                 break;
             }
         }
 
-    }
-
-    private void AutoDestroy()
-    {
-        if (Vector3.Distance(target.position, transform.position) > 20)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public SkillData GetSkillData()
@@ -177,5 +173,10 @@ public class Monster : MonoBehaviour, ILivingEntity
         yield return new WaitForSeconds(t);
 
         state = State.None;
+    }
+
+    public float GetHP()
+    {
+        return (float)hp / maxHp;
     }
 }

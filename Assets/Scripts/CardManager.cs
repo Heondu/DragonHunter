@@ -10,10 +10,6 @@ public class CardManager : MonoBehaviour
             if (instance == null) instance = FindObjectOfType<CardManager>();
             return instance;
         }
-        set
-        {
-            instance = value;
-        }
     }
     [SerializeField] private CardViewer[] cardViewers;
     [SerializeField] private CardViewer[] specialCardViewers;

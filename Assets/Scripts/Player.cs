@@ -32,6 +32,8 @@ public class Player : MonoBehaviour, ILivingEntity
             skills[i] = Instantiate(skills[i], transform);
         }
 
+        //FloatingDamageManager.Instance.InitHPBar(this, transform);
+
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
 
@@ -93,6 +95,7 @@ public class Player : MonoBehaviour, ILivingEntity
     public void TakeDamage(int damage)
     {
         hp = Mathf.Max(0, hp - damage);
+        FloatingDamageManager.Instance.FloatingDamage(gameObject, damage.ToString(), DamageType.Normal);
     }
 
     /// <summary>
@@ -141,5 +144,10 @@ public class Player : MonoBehaviour, ILivingEntity
         yield return new WaitForSeconds(t);
 
         state = State.None;
+    }
+
+    public float GetHP()
+    {
+        return (float)hp / StatusManager.GetStatus("hp").Value;
     }
 }

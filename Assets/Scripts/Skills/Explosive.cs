@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Explosive : MonoBehaviour
@@ -19,7 +20,7 @@ public class Explosive : MonoBehaviour
                 Attack(entity);
             }
         }
-        Destroy(gameObject, destroyTime);
+        StartCoroutine("DestroyTimer", destroyTime);
     }
 
     protected virtual void Attack(ILivingEntity entity)
@@ -30,5 +31,12 @@ public class Explosive : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    private IEnumerator DestroyTimer(float t)
+    {
+        yield return new WaitForSeconds(t);
+
+        ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.skillHolder, gameObject);
     }
 }

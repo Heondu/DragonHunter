@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
             skillData.penetrate--;
             if (skillData.penetrate <= 0)
             {
-                Destroy(gameObject);
+                ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.skillHolder, gameObject);
             }
         }
     }
@@ -38,9 +38,26 @@ public class Projectile : MonoBehaviour
         entity.TakeDamage(skillData.damage);
     }
 
-    private IEnumerator DestroyTimer(float t)
+    private void OnBecameInvisible()
+    {
+        if (gameObject.activeSelf)
+            StartCoroutine("InactiveTimer", 5);
+    }
+
+    private void OnBecameVisible()
+    {
+        StopCoroutine("InactiveTimer");
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine("InactiveTimer");
+    }
+
+    private IEnumerator InactiveTimer(float t)
     {
         yield return new WaitForSeconds(t);
-        Destroy(gameObject);
+
+        ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.skillHolder, gameObject);
     }
 }

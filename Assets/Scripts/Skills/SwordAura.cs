@@ -48,7 +48,7 @@ public class SwordAura : Skill
     private void Execute(SkillData skillData)
     {
         Vector3 pos = new Vector3(transform.position.x, projectile.transform.position.y, transform.position.z);
-        GameObject clone = Instantiate(projectile, pos, projectile.transform.rotation);
+        GameObject clone = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.skillHolder, projectile, pos, projectile.transform.rotation);
         clone.GetComponent<Projectile>().Init(skillData, 5);
     }
 }

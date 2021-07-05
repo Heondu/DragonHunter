@@ -18,6 +18,7 @@ MonoBehaviour:
   marbles:
   - {fileID: 5189197926805169057, guid: 4249fe6aa5a0d954e84eabd95b16e8ae, type: 3}
   - {fileID: 5689345467611994300, guid: a827ef756a094c943b63ac31211e15bf, type: 3}
+  hpBar: {fileID: 7070128862640069623, guid: 66575a2dd451ef84e9de9747f09fdeed, type: 3}
 --- !u!1001 &2107546957392630324
 PrefabInstance:
   m_ObjectHideFlags: 0
