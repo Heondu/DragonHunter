@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f83c7591ea51b0445a17fe0d50eb9f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 6
+  attackRange: 4
   skills:
   - {fileID: 8940564576984304749, guid: 239636c6306145d4e878071d892c22e1, type: 3}
   poisonExplosion: {fileID: 7100025510798505449, guid: e3b3421f2f256ec4fb8e4036e45bc371, type: 3}
   marbles:
   - {fileID: 5189197926805169057, guid: 4249fe6aa5a0d954e84eabd95b16e8ae, type: 3}
   - {fileID: 5689345467611994300, guid: a827ef756a094c943b63ac31211e15bf, type: 3}
-  hpBar: {fileID: 7070128862640069623, guid: 66575a2dd451ef84e9de9747f09fdeed, type: 3}
 --- !u!1001 &5846084293420803674
 PrefabInstance:
   m_ObjectHideFlags: 0

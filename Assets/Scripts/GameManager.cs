@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -24,8 +25,16 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (spawnManager.IsBossSpawn == false)
+        if (SpawnManager.IsBossSpawn == false)
         {
+            if (tElapsed > 3)
+            {
+                int rand = Random.Range(0, DataManager.items.Count);
+                Dictionary<string, object> data = DataManager.items[rand];
+                ItemData itemDate = new ItemData(data["ID"].ToString(), Random.Range(0, 6));
+                Inventory.AddItem(itemDate);
+                LoadingSceneManager.LoadScene("Main");
+            }
             tElapsed += Time.deltaTime;
         }
     }

@@ -49,8 +49,10 @@ public class Monster : MonoBehaviour, ILivingEntity
     {
         if (state == State.None)
         {
-            Move();
-            Attack();
+            if (attackRange - 1 < Vector3.Distance(target.position, transform.position))
+                Move();
+            else
+                Attack();
         }
     }
 
@@ -151,7 +153,7 @@ public class Monster : MonoBehaviour, ILivingEntity
 
     }
 
-    public SkillData GetSkillData()
+    public virtual SkillData GetSkillData()
     {
         Transform target = FindTarget(attackRange);
         SkillData skillData = new SkillData();

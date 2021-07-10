@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
     private List<string> bossList = new List<string>();
-    public bool IsBossSpawn = false;
+    public static bool IsBossSpawn = false;
     [SerializeField]
     private float spawnTime = 1;
     [SerializeField]

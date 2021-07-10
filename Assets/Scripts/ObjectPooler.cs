@@ -48,12 +48,6 @@ public class ObjectPooler : MonoBehaviour
         return ObjectPool(holderName, obj, Vector3.zero, rotation, parent);
     }
 
-    /// <summary>
-    /// 오브젝트 풀링 메소드
-    /// </summary>
-    /// <param name="holder">오브젝트를 찾거나 생성 시 부모로 등록할 오브젝트의 트랜스폼</param>
-    /// <param name="obj">찾거나 없을 시 생성할 오브젝트</param>
-    /// <returns></returns>
     public GameObject ObjectPool(string holderName, GameObject obj, Vector3 position, Quaternion rotation, Transform parent)
     {
         Transform holder = this.holder.Find(holderName);
@@ -62,7 +56,12 @@ public class ObjectPooler : MonoBehaviour
             holder = new GameObject(holderName).transform;
             holder.SetParent(this.holder);
         }
-        
+
+        return ObjectPool(holder, obj, position, rotation, parent);
+    }
+
+    public GameObject ObjectPool(Transform holder, GameObject obj, Vector3 position, Quaternion rotation, Transform parent)
+    {   
         string name = obj.name + "(Clone)";
 
         GameObject clone = null;
@@ -103,6 +102,11 @@ public class ObjectPooler : MonoBehaviour
             holder.SetParent(this.holder);
         }
 
+        ObjectInactive(holder, obj);
+    }
+
+    public void ObjectInactive(Transform holder, GameObject obj)
+    {
         obj.transform.SetParent(holder);
         obj.SetActive(false);
     }

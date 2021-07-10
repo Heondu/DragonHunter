@@ -113,6 +113,8 @@ public class CharacterManager : MonoBehaviour
                 list.characters.Add(saveData.data[i].ID, new Character(saveData.data[i].ID, saveData.data[i].LV));
             }
         }
+        StatusManager.GetStatus("atk").AddModifier(new StatusModifier(GetCharacter().ATK, StatusModType.Flat, GetCharacter()));
+        StatusManager.GetStatus("hp").AddModifier(new StatusModifier(GetCharacter().HP, StatusModType.Flat, GetCharacter()));
     }
 
     public void LevelUp()
@@ -128,7 +130,11 @@ public class CharacterManager : MonoBehaviour
 
     public void Accept()
     {
+        StatusManager.GetStatus("atk").RemoveAllModifiersFromSource(GetCharacter());
+        StatusManager.GetStatus("hp").RemoveAllModifiersFromSource(GetCharacter());
         currentID = selectedID;
+        StatusManager.GetStatus("atk").AddModifier(new StatusModifier(GetCharacter().ATK, StatusModType.Flat, GetCharacter()));
+        StatusManager.GetStatus("hp").AddModifier(new StatusModifier(GetCharacter().HP, StatusModType.Flat, GetCharacter()));
     }
 
     public static Character GetCharacter()

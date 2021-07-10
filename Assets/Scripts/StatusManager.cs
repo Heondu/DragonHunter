@@ -110,4 +110,13 @@ public class StatusManager : MonoBehaviour
         }
         return newList;
     }
+
+    public static void Print()
+    {
+        List<Status> newList = list.GetList();
+        for (int i = 0; i < newList.Count; i++)
+        {
+            Debug.Log($"{newList[i].Name} : {newList[i].Value}");
+        }
+    }
 }
