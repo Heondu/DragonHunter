@@ -27,12 +27,12 @@ public class GameManager : MonoBehaviour
     {
         if (SpawnManager.IsBossSpawn == false)
         {
-            if (tElapsed > 3)
+            if (tElapsed > 1200)
             {
                 int rand = Random.Range(0, DataManager.items.Count);
                 Dictionary<string, object> data = DataManager.items[rand];
-                ItemData itemDate = new ItemData(data["ID"].ToString(), Random.Range(0, 6));
-                Inventory.AddItem(itemDate);
+                ItemData itemData = new ItemData(data["ID"].ToString(), Random.Range(0, 6));
+                Inventory.AddItem(itemData);
                 LoadingSceneManager.LoadScene("Main");
             }
             tElapsed += Time.deltaTime;

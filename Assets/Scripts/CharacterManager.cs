@@ -135,6 +135,7 @@ public class CharacterManager : MonoBehaviour
         currentID = selectedID;
         StatusManager.GetStatus("atk").AddModifier(new StatusModifier(GetCharacter().ATK, StatusModType.Flat, GetCharacter()));
         StatusManager.GetStatus("hp").AddModifier(new StatusModifier(GetCharacter().HP, StatusModType.Flat, GetCharacter()));
+        Save();
     }
 
     public static Character GetCharacter()

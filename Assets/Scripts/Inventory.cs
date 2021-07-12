@@ -53,26 +53,39 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void Save()
+    private static void Save()
     {
         SaveData saveData = new SaveData(weapon, armor, itemList);
         JsonIO.SaveToJson(saveData, SaveDataManager.saveFile[SaveFile.Inventory]);
     }
 
-    private void Load()
+    private static void Load()
     {
         SaveData saveData = JsonIO.LoadFromJson<SaveData>(SaveDataManager.saveFile[SaveFile.Inventory]);
         if (saveData != null)
         {
             itemList = saveData.itemList;
-            if (saveData.weapon.id != "") weapon = saveData.weapon;
-            if (saveData.armor.id != "") armor = saveData.armor;
+            for (int i = 0; i < itemList.Count; i++)
+            {
+                itemList[i].Init();
+            }
+            if (saveData.weapon.id != "")
+            {
+                weapon = saveData.weapon;
+                weapon.Init();
+            }
+            if (saveData.armor.id != "")
+            {
+                armor = saveData.armor;
+                armor.Init();
+            }
         }
     }
 
     public static void AddItem(ItemData itemData)
     {
         itemList.Add(itemData);
+        Save();
     }
 
     public void UpdateInventory()
@@ -129,13 +142,21 @@ public class Inventory : MonoBehaviour
             {
                 case "weapon":
                     ItemData itemData = weaponSlot.GetItem();
-                    if (itemData != null) itemList.Add(itemData);
+                    if (itemData != null)
+                    {
+                        itemList.Add(itemData);
+                        weaponSlot.SetItem(null);
+                    }
                     itemList.Remove(selectedSlot.GetItem());
                     weapon = selectedSlot.GetItem();
                     break;
                 case "armor":
                     itemData = armorSlot.GetItem();
-                    if (itemData != null) itemList.Add(itemData);
+                    if (itemData != null)
+                    {
+                        itemList.Add(itemData);
+                        armorSlot.SetItem(null);
+                    }
                     itemList.Remove(selectedSlot.GetItem());
                     armor = selectedSlot.GetItem();
                     break;

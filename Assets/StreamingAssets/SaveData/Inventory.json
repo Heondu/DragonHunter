@@ -1,25 +1,81 @@
 {
     "weapon": {
         "id": "weapon005",
-        "lv": 2,
+        "lv": 3,
         "itemType": "weapon",
         "statType": "atk",
         "amount": {
             "Name": "atk",
-            "LV": 2,
+            "LV": 3,
             "BaseValue": 170.0
         }
     },
     "armor": {
-        "id": "armor001",
-        "lv": 4,
+        "id": "armor004",
+        "lv": 5,
         "itemType": "armor",
         "statType": "hp",
         "amount": {
             "Name": "hp",
-            "LV": 4,
-            "BaseValue": 200.0
+            "LV": 5,
+            "BaseValue": 300.0
         }
     },
-    "itemList": []
+    "itemList": [
+        {
+            "id": "armor004",
+            "lv": 0,
+            "itemType": "armor",
+            "statType": "hp",
+            "amount": {
+                "Name": "hp",
+                "LV": 0,
+                "BaseValue": 300.0
+            }
+        },
+        {
+            "id": "armor004",
+            "lv": 3,
+            "itemType": "armor",
+            "statType": "hp",
+            "amount": {
+                "Name": "hp",
+                "LV": 3,
+                "BaseValue": 300.0
+            }
+        },
+        {
+            "id": "armor003",
+            "lv": 2,
+            "itemType": "armor",
+            "statType": "hp",
+            "amount": {
+                "Name": "hp",
+                "LV": 2,
+                "BaseValue": 270.0
+            }
+        },
+        {
+            "id": "weapon001",
+            "lv": 0,
+            "itemType": "weapon",
+            "statType": "atk",
+            "amount": {
+                "Name": "atk",
+                "LV": 0,
+                "BaseValue": 100.0
+            }
+        },
+        {
+            "id": "weapon003",
+            "lv": 5,
+            "itemType": "weapon",
+            "statType": "atk",
+            "amount": {
+                "Name": "atk",
+                "LV": 5,
+                "BaseValue": 135.0
+            }
+        }
+    ]
 }

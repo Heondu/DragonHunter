@@ -22,4 +22,13 @@ public class ItemData
             amount.AddModifier(new StatusModifier((int)data["Level" + i], StatusModType.Flat));
         }
     }
+
+    public void Init()
+    {
+        Dictionary<string, object> data = DataManager.items.FindDic("ID", id);
+        for (int i = 1; i <= lv; i++)
+        {
+            amount.AddModifier(new StatusModifier((int)data["Level" + i], StatusModType.Flat));
+        }
+    }
 }
