@@ -9,9 +9,9 @@ public class SpriteSetup : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.receiveShadows = receiveShadows;
-        spriteRenderer.shadowCastingMode = shadowCastingMode;
+        //spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer.receiveShadows = receiveShadows;
+        //spriteRenderer.shadowCastingMode = shadowCastingMode;
         transform.localScale = new Vector3(transform.localScale.x, Mathf.Sqrt(Mathf.Pow(transform.localScale.y, 2) * 2), transform.localScale.z);
     }
 }

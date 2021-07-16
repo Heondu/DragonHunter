@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
 
     private void Update()
     {
-        transform.position += skillData.dir * speed * Time.deltaTime;
+        transform.position += new Vector3(skillData.dir.x * speed * Time.deltaTime, skillData.dir.y * speed * Time.deltaTime, skillData.dir.z * speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
