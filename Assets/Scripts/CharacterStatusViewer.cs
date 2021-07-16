@@ -15,7 +15,7 @@ public class CharacterStatusViewer : MonoBehaviour
     {
         image.sprite = Resources.Load<GameObject>("Prefabs/Characters/" + id).GetComponent<SpriteRenderer>().sprite;
         textStatus.text = $"{DataManager.Localization(id)} LV.{CharacterManager.List.characters[id].LV}\n" +
-            $"{DataManager.Localization("atk")} : {CharacterManager.List.characters[id].ATK}\n" +
-            $"{DataManager.Localization("hp")} : {CharacterManager.List.characters[id].HP}";
+            $"{DataManager.Localization("atk")} : {(int)CharacterManager.List.characters[id].list.status["atk"].Value}\n" +
+            $"{DataManager.Localization("hp")} : {(int)CharacterManager.List.characters[id].list.status["hp"].Value}";
     }
 }

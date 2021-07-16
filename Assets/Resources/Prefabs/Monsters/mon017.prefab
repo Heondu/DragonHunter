@@ -18,7 +18,6 @@ MonoBehaviour:
   marbles:
   - {fileID: 5189197926805169057, guid: 4249fe6aa5a0d954e84eabd95b16e8ae, type: 3}
   - {fileID: 5689345467611994300, guid: a827ef756a094c943b63ac31211e15bf, type: 3}
-  hpBar: {fileID: 7070128862640069623, guid: 66575a2dd451ef84e9de9747f09fdeed, type: 3}
 --- !u!1001 &3718061448215798481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37,6 +36,18 @@ PrefabInstance:
     - target: {fileID: 4760079236740922483, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760079236740922483, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760079236740922483, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4760079236740922483, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4760079236740922483, guid: 322d61f6fd529b14a8b213f64696e7f7, type: 3}
       propertyPath: m_LocalPosition.x

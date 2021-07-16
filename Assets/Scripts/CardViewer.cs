@@ -4,8 +4,9 @@ using TMPro;
 
 public class CardViewer : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Image image;
+    [SerializeField] private TextMeshProUGUI textName;
+    [SerializeField] private TextMeshProUGUI textDesc;
     private Button button;
 
     private string id;
@@ -19,8 +20,9 @@ public class CardViewer : MonoBehaviour
     public void SetCard(string _id)
     {
         id = _id;
-        text.text = DataManager.Localization(id);
         image.sprite = DataManager.LoadImage(id);
+        textName.text = DataManager.Localization(id);
+        textDesc.text = DataManager.Localization(id + "_Desc");
     }
 
     public void Select()

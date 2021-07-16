@@ -11,7 +11,7 @@ public class CharacterImageViewer : MonoBehaviour
     private void Update()
     {
         image.sprite = Resources.Load<GameObject>("Prefabs/Characters/" + CharacterManager.currentID).GetComponent<SpriteRenderer>().sprite;
-        atk.text = $"{DataManager.Localization("atk")} : {StatusManager.GetStatus("atk").Value}";
-        hp.text = $"{DataManager.Localization("hp")} : {StatusManager.GetStatus("hp").Value}";
+        atk.text = $"{DataManager.Localization("atk")} : {(int)CharacterManager.GetCharacter().list.status["atk"].Value}";
+        hp.text = $"{DataManager.Localization("hp")} : {(int)CharacterManager.GetCharacter().list.status["hp"].Value}";
     }
 }

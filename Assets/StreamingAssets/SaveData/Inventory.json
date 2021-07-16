@@ -1,24 +1,24 @@
 {
     "weapon": {
-        "id": "weapon005",
-        "lv": 3,
-        "itemType": "weapon",
-        "statType": "atk",
+        "id": "",
+        "lv": 0,
+        "itemType": "",
+        "statType": "",
         "amount": {
-            "Name": "atk",
-            "LV": 3,
-            "BaseValue": 170.0
+            "Name": "",
+            "LV": 0,
+            "BaseValue": 0.0
         }
     },
     "armor": {
-        "id": "armor004",
-        "lv": 5,
-        "itemType": "armor",
-        "statType": "hp",
+        "id": "",
+        "lv": 0,
+        "itemType": "",
+        "statType": "",
         "amount": {
-            "Name": "hp",
-            "LV": 5,
-            "BaseValue": 300.0
+            "Name": "",
+            "LV": 0,
+            "BaseValue": 0.0
         }
     },
     "itemList": [
@@ -75,6 +75,61 @@
                 "Name": "atk",
                 "LV": 5,
                 "BaseValue": 135.0
+            }
+        },
+        {
+            "id": "weapon005",
+            "lv": 3,
+            "itemType": "weapon",
+            "statType": "atk",
+            "amount": {
+                "Name": "atk",
+                "LV": 3,
+                "BaseValue": 170.0
+            }
+        },
+        {
+            "id": "armor004",
+            "lv": 5,
+            "itemType": "armor",
+            "statType": "hp",
+            "amount": {
+                "Name": "hp",
+                "LV": 5,
+                "BaseValue": 300.0
+            }
+        },
+        {
+            "id": "weapon003",
+            "lv": 0,
+            "itemType": "weapon",
+            "statType": "atk",
+            "amount": {
+                "Name": "atk",
+                "LV": 0,
+                "BaseValue": 135.0
+            }
+        },
+        {
+            "id": "armor005",
+            "lv": 0,
+            "itemType": "armor",
+            "statType": "hp",
+            "amount": {
+                "Name": "hp",
+                "LV": 0,
+                "BaseValue": 340.0
+            }
+        },
+        {
+            "id": "weapon001",
+            "lv": 2,
+            "itemType": "weapon",
+            "statType": "atk",
+            "amount": {
+                "Name": "atk",
+                "LV": 2,
+                "BaseValue": 100.0
             }
         }
     ]

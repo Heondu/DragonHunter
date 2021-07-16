@@ -6,26 +6,40 @@ public class Character
 {
     public string ID;
     public int LV;
-    public int ATK { get; private set; }
-    public int HP { get; private set; }
+    public StatusList list = new StatusList();
 
     private Dictionary<string, object> data = new Dictionary<string, object>();
 
-    public Character(string id, int lv)
+    public Character(string id)
     {
         ID = id;
-        LV = lv;
+        LV = 1;
         data = DataManager.characters.FindDic("ID", id);
-        ATK = (int)data["ATK"] + (int)data["ATKAmount"] * (lv - 1);
-        HP = (int)data["HP"] + (int)data["HPAmount"] * (lv - 1);
+        list.Init();
+        list.status["atk"].BaseValue = (int)data["ATK"];
+        list.status["hp"].BaseValue = (int)data["HP"];
+    }
+
+    public void Init(int lv)
+    {
+        for (int i = 1; i < lv; i++)
+        {
+            LevelUp();
+        }
     }
 
     public void LevelUp()
     {
         if (LV >= 50) return;
         LV++;
-        ATK += (int)data["ATKAmount"];
-        HP += (int)data["HPAmount"];
+        list.status["atk"].AddModifier(new StatusModifier((int)data["ATKAmount"], StatusModType.Flat, this));
+        list.status["hp"].AddModifier(new StatusModifier((int)data["HPAmount"], StatusModType.Flat, this));
+        Ability();
+    }
+
+    protected virtual void Ability()
+    {
+
     }
 }
 
@@ -39,7 +53,20 @@ public class CharacterList
         for (int i = 0; i < DataManager.characters.Count; i++)
         {
             string id = DataManager.characters[i]["ID"].ToString();
-            characters.Add(id, new Character(id, 1));
+            switch (id)
+            {
+                case "character001": characters.Add(id, new Warrior(id)); break;
+                case "character002": characters.Add(id, new Assassin(id)); break;
+                case "character003": characters.Add(id, new Wizard(id)); break;
+                case "character004": characters.Add(id, new Savage(id)); break;
+                case "character005": characters.Add(id, new Onyx(id)); break;
+                case "character006": characters.Add(id, new Violetta(id)); break;
+            }
+        }
+        for (int i = 0; i < DataManager.characters.Count; i++)
+        {
+            string id = DataManager.characters[i]["ID"].ToString();
+            characters[id].Init(1);
         }
     }
 
@@ -110,11 +137,21 @@ public class CharacterManager : MonoBehaviour
             currentID = saveData.currentID;
             for (int i = 0; i < saveData.data.Count; i++)
             {
-                list.characters.Add(saveData.data[i].ID, new Character(saveData.data[i].ID, saveData.data[i].LV));
+                switch (saveData.data[i].ID)
+                {
+                    case "character001": list.characters.Add(saveData.data[i].ID, new Warrior(saveData.data[i].ID)); break;
+                    case "character002": list.characters.Add(saveData.data[i].ID, new Assassin(saveData.data[i].ID)); break;
+                    case "character003": list.characters.Add(saveData.data[i].ID, new Wizard(saveData.data[i].ID)); break;
+                    case "character004": list.characters.Add(saveData.data[i].ID, new Savage(saveData.data[i].ID)); break;
+                    case "character005": list.characters.Add(saveData.data[i].ID, new Onyx(saveData.data[i].ID)); break;
+                    case "character006": list.characters.Add(saveData.data[i].ID, new Violetta(saveData.data[i].ID)); break;
+                }
+            }
+            for (int i = 0; i < saveData.data.Count; i++)
+            {
+                list.characters[saveData.data[i].ID].Init(saveData.data[i].LV);
             }
         }
-        StatusManager.GetStatus("atk").AddModifier(new StatusModifier(GetCharacter().ATK, StatusModType.Flat, GetCharacter()));
-        StatusManager.GetStatus("hp").AddModifier(new StatusModifier(GetCharacter().HP, StatusModType.Flat, GetCharacter()));
     }
 
     public void LevelUp()
@@ -130,11 +167,7 @@ public class CharacterManager : MonoBehaviour
 
     public void Accept()
     {
-        StatusManager.GetStatus("atk").RemoveAllModifiersFromSource(GetCharacter());
-        StatusManager.GetStatus("hp").RemoveAllModifiersFromSource(GetCharacter());
         currentID = selectedID;
-        StatusManager.GetStatus("atk").AddModifier(new StatusModifier(GetCharacter().ATK, StatusModType.Flat, GetCharacter()));
-        StatusManager.GetStatus("hp").AddModifier(new StatusModifier(GetCharacter().HP, StatusModType.Flat, GetCharacter()));
         Save();
     }
 

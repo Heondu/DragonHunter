@@ -81,7 +81,7 @@ public class StatusManager : MonoBehaviour
         }
     }
 
-    public void LevelUp(string name)
+    public static void LevelUp(string name)
     {
         if (!List.status.ContainsKey(name)) return;
         List.status[name].LevelUp(name);
@@ -114,9 +114,32 @@ public class StatusManager : MonoBehaviour
     public static void Print()
     {
         List<Status> newList = list.GetList();
+        Debug.Log("================Ω∫≈»===============");
         for (int i = 0; i < newList.Count; i++)
         {
             Debug.Log($"{newList[i].Name} : {newList[i].Value}");
+        }
+        Debug.Log("==================================");
+    }
+
+    public static void Sum(StatusList statusList)
+    {
+        List<Status> playerStatus = List.GetList();
+        List<Status> characterStatus = statusList.GetList();
+
+        for (int i = 0; i < playerStatus.Count; i++)
+        {
+            playerStatus[i].AddModifier(new StatusModifier(characterStatus[i].Value, StatusModType.Flat, statusList));
+        }
+    }
+
+    public static void Sub(StatusList statusList)
+    {
+        List<Status> playerStatus = List.GetList();
+
+        for (int i = 0; i < playerStatus.Count; i++)
+        {
+            playerStatus[i].RemoveAllModifiersFromSource(statusList);
         }
     }
 }

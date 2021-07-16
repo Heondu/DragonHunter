@@ -1,29 +1,35 @@
 {
-    "currentID": "character003",
+    "currentID": "character001",
     "data": [
         {
             "ID": "character001",
-            "LV": 1
+            "LV": 10,
+            "list": {}
         },
         {
             "ID": "character002",
-            "LV": 1
+            "LV": 4,
+            "list": {}
         },
         {
             "ID": "character003",
-            "LV": 1
+            "LV": 4,
+            "list": {}
         },
         {
             "ID": "character004",
-            "LV": 1
+            "LV": 4,
+            "list": {}
         },
         {
             "ID": "character005",
-            "LV": 1
+            "LV": 4,
+            "list": {}
         },
         {
             "ID": "character006",
-            "LV": 1
+            "LV": 4,
+            "list": {}
         }
     ]
 }

@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        StatusManager.Sum(CharacterManager.GetCharacter().list);
+        StatusManager.Print();
         GameObject prefab = Resources.Load<GameObject>("Prefabs/Characters/" + CharacterManager.currentID);
         prefab = Instantiate(prefab, Vector3.zero, prefab.transform.rotation);
         cameraController.SetTarget(prefab.transform);
@@ -27,8 +29,11 @@ public class GameManager : MonoBehaviour
     {
         if (SpawnManager.IsBossSpawn == false)
         {
-            if (tElapsed > 1200)
+            //if (tElapsed > 1200)
+            if (tElapsed > 3)
             {
+                StatusManager.Sub(CharacterManager.GetCharacter().list);
+                StatusManager.Print();
                 int rand = Random.Range(0, DataManager.items.Count);
                 Dictionary<string, object> data = DataManager.items[rand];
                 ItemData itemData = new ItemData(data["ID"].ToString(), Random.Range(0, 6));

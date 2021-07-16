@@ -23,8 +23,6 @@ public class Player : MonoBehaviour, ILivingEntity
 
     private void Start()
     {
-        //StatusManager.GetStatus("atk").AddModifier(new StatusModifier(CharacterManager.GetCharacter().ATK, StatusModType.Flat, this));
-        //StatusManager.GetStatus("hp").AddModifier(new StatusModifier(CharacterManager.GetCharacter().HP, StatusModType.Flat, this));
         hp = (int)StatusManager.GetStatus("hp").Value;
 
         for (int i = 0; i < skills.Count; i++)
@@ -36,8 +34,6 @@ public class Player : MonoBehaviour, ILivingEntity
 
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
-
-        StatusManager.Print();
     }
 
     private void Update()
@@ -149,6 +145,6 @@ public class Player : MonoBehaviour, ILivingEntity
 
     public float GetHP()
     {
-        return (float)hp / StatusManager.GetStatus("hp").Value;
+        return hp / StatusManager.GetStatus("hp").Value;
     }
 }

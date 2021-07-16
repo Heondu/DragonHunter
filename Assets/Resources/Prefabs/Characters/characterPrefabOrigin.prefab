@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6372077741701351299}
   - component: {fileID: 6372077741701351301}
   - component: {fileID: 6372077741701351297}
-  - component: {fileID: 6372077741701351296}
   - component: {fileID: 6372077741701351300}
   - component: {fileID: 6372077741701351298}
   - component: {fileID: 6372077741701351358}
+  - component: {fileID: 3423532293225082977}
   m_Layer: 0
   m_Name: characterPrefabOrigin
   m_TagString: Player
@@ -103,25 +103,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &6372077741701351296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6372077741701351303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bda36b1d45058b646b58a7ef677cfa14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  penetrate: 1
-  repeat: 1
-  diagonalAttack: 0
-  backAttack: 0
-  skills:
-  - {fileID: 6032832313511909376, guid: f00446f49c3dccd41b01743c00ecf928, type: 3}
-  hpBar: {fileID: 7070128862640069623, guid: 66575a2dd451ef84e9de9747f09fdeed, type: 3}
 --- !u!114 &6372077741701351300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +150,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3423532293225082977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6372077741701351303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2942cc235e2410242adad5358706921f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  penetrate: 1
+  repeat: 1
+  diagonalAttack: 0
+  backAttack: 0
+  skills:
+  - {fileID: 6032832313511909376, guid: f00446f49c3dccd41b01743c00ecf928, type: 3}
