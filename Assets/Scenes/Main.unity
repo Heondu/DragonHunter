@@ -5222,11 +5222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fa5ab1cbcdf0a44b575f524317461f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillHolder: SkillHolder
-  monsterHolder: MonsterHolder
-  trapHolder: TrapHolder
-  itemHolder: ItemHolder
-  floatingDamageHolder: FloatingDamageHolder
 --- !u!1 &869822277
 GameObject:
   m_ObjectHideFlags: 0

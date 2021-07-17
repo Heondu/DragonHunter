@@ -118,9 +118,9 @@ public class Status
     public void LevelUp(string statName)
     {
         int price = (int)DataManager.status.Find("Name", statName, "Price") + (int)DataManager.status.Find("Name", statName, "GoldAmount") * (LV - 1);
-        if (PlayerData.gold >= price)
+        if (PlayerData.Gold.Value >= price)
         {
-            PlayerData.gold -= price;
+            PlayerData.Gold.Set(price, ResourcesModType.Sub);
             float amount = (float)DataManager.status.Find("Name", statName, "StatAmount");
             LV++;
             BaseValue += amount;

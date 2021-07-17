@@ -29,16 +29,11 @@ public class GameManager : MonoBehaviour
     {
         if (SpawnManager.IsBossSpawn == false)
         {
-            //if (tElapsed > 1200)
-            if (tElapsed > 3)
+            if (tElapsed > 1200)
+            //if (tElapsed > 3)
             {
-                StatusManager.Sub(CharacterManager.GetCharacter().list);
-                StatusManager.Print();
-                int rand = Random.Range(0, DataManager.items.Count);
-                Dictionary<string, object> data = DataManager.items[rand];
-                ItemData itemData = new ItemData(data["ID"].ToString(), Random.Range(0, 6));
-                Inventory.AddItem(itemData);
-                LoadingSceneManager.LoadScene("Main");
+                SetItem();
+                GoToMain();
             }
             tElapsed += Time.deltaTime;
         }
@@ -47,5 +42,40 @@ public class GameManager : MonoBehaviour
     public float GetTime()
     {
         return tElapsed;
+    }
+
+    private void SetItem()
+    {
+        int rand = Random.Range(0, DataManager.items.Count);
+        Dictionary<string, object> data = DataManager.items[rand];
+        ItemData itemData = new ItemData(data["ID"].ToString(), Random.Range(0, 6));
+        Inventory.AddItem(itemData);
+    }
+
+    public void Pause(bool value)
+    {
+        if (value) Time.timeScale = 0;
+        else Time.timeScale = 1;
+    }
+
+    public void Mute(bool value)
+    {
+        if (value)
+        {
+            SettingsManager.setBGM(0);
+            SettingsManager.setSE(0);
+        }
+        else
+        {
+            SettingsManager.setBGM(1);
+            SettingsManager.setSE(1);
+        }
+    }
+
+    public void GoToMain()
+    {
+        StatusManager.Sub(CharacterManager.GetCharacter().list);
+        StatusManager.Print();
+        LoadingSceneManager.LoadScene("Main");
     }
 }

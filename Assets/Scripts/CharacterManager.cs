@@ -15,7 +15,7 @@ public class Character
         ID = id;
         LV = 1;
         data = DataManager.characters.FindDic("ID", id);
-        list.Init();
+        list.Init(true);
         list.status["atk"].BaseValue = (int)data["ATK"];
         list.status["hp"].BaseValue = (int)data["HP"];
     }
@@ -120,12 +120,12 @@ public class CharacterManager : MonoBehaviour
         SaveData saveData = new SaveData();
         saveData.currentID = currentID;
         saveData.data = List.GetList();
-        JsonIO.SaveToJson(saveData, SaveDataManager.saveFile[SaveFile.Characters]);
+        SaveManager.SaveToJson(saveData, SaveDataManager.saveFile[SaveFile.Characters]);
     }
 
     private static void Load()
     {
-        SaveData saveData = JsonIO.LoadFromJson<SaveData>(SaveDataManager.saveFile[SaveFile.Characters]);
+        SaveData saveData = SaveManager.LoadFromJson<SaveData>(SaveDataManager.saveFile[SaveFile.Characters]);
         list = new CharacterList();
         if (saveData == null)
         {

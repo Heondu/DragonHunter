@@ -8,7 +8,7 @@ public class GoldDiamondViewer : MonoBehaviour
 
     private void Update()
     {
-        textGold.text = PlayerData.gold.ToString();
-        textDiamond.text = PlayerData.diamond.ToString();
+        textGold.text = PlayerData.Gold.Value.ToString();
+        textDiamond.text = PlayerData.Diamond.Value.ToString();
     }
 }

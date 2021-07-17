@@ -24,7 +24,7 @@ public class FloatingDamageManager : MonoBehaviour
 
     public void FloatingDamage(GameObject executor, string damage, DamageType damageType)
     {
-        GameObject clone = ObjectPooler.Instance.ObjectPool(holder, damagePrefab[(int)damageType], executor.transform.position, Quaternion.identity, holder);
+        GameObject clone = ObjectPooler.ObjectPool(holder, damagePrefab[(int)damageType], executor.transform.position, Quaternion.identity, holder);
         clone.GetComponent<FloatingDamage>().Init(damage, executor.transform.position);
 
         if (damageList.ContainsKey(executor) == false)

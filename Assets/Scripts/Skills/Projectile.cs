@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
             skillData.penetrate--;
             if (skillData.penetrate <= 0)
             {
-                ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.skillHolder, gameObject);
+                ObjectPooler.ObjectInactive(ObjectPooler.skillHolder, gameObject);
             }
         }
     }
@@ -58,6 +58,6 @@ public class Projectile : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
 
-        ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.skillHolder, gameObject);
+        ObjectPooler.ObjectInactive(ObjectPooler.skillHolder, gameObject);
     }
 }

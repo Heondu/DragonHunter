@@ -38,6 +38,6 @@ public class Trap : MonoBehaviour
             yield return null;
         }
 
-        ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.trapHolder, gameObject);
+        ObjectPooler.ObjectInactive(ObjectPooler.trapHolder, gameObject);
     }
 }

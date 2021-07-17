@@ -56,12 +56,12 @@ public class Inventory : MonoBehaviour
     private static void Save()
     {
         SaveData saveData = new SaveData(weapon, armor, itemList);
-        JsonIO.SaveToJson(saveData, SaveDataManager.saveFile[SaveFile.Inventory]);
+        SaveManager.SaveToJson(saveData, SaveDataManager.saveFile[SaveFile.Inventory]);
     }
 
     private static void Load()
     {
-        SaveData saveData = JsonIO.LoadFromJson<SaveData>(SaveDataManager.saveFile[SaveFile.Inventory]);
+        SaveData saveData = SaveManager.LoadFromJson<SaveData>(SaveDataManager.saveFile[SaveFile.Inventory]);
         if (saveData != null)
         {
             itemList = saveData.itemList;
@@ -95,7 +95,7 @@ public class Inventory : MonoBehaviour
         {
             if (i >= slotList.Count)
             {
-                Slot newSlot = ObjectPooler.Instance.ObjectPool(holder, slotPrefab, Vector3.zero, Quaternion.identity, holder).GetComponent<Slot>();
+                Slot newSlot = ObjectPooler.ObjectPool(holder, slotPrefab, Vector3.zero, Quaternion.identity, holder).GetComponent<Slot>();
                 newSlot.Init();
                 slotList.Add(newSlot);
             }

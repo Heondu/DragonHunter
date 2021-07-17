@@ -23,6 +23,6 @@ public class MonsterMelee : Monster
     {
         yield return new WaitForSeconds(t);
 
-        ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.skillHolder, gameObject);
+        ObjectPooler.ObjectInactive(ObjectPooler.skillHolder, gameObject);
     }
 }

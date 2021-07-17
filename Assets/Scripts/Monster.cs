@@ -119,7 +119,7 @@ public class Monster : MonoBehaviour, ILivingEntity
         if (hp == 0)
         {
             OnDeath();
-            ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.monsterHolder, gameObject);
+            ObjectPooler.ObjectInactive(ObjectPooler.monsterHolder, gameObject);
         }
     }
 
@@ -128,7 +128,7 @@ public class Monster : MonoBehaviour, ILivingEntity
         if (CardManager.Instance.PoisonExplosion)
         {
             Vector3 pos = new Vector3(transform.position.x, poisonExplosion.transform.position.y, transform.position.z);
-            GameObject clone = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.skillHolder, poisonExplosion.gameObject, pos, poisonExplosion.transform.rotation);
+            GameObject clone = ObjectPooler.ObjectPool(ObjectPooler.skillHolder, poisonExplosion.gameObject, pos, poisonExplosion.transform.rotation);
             clone.GetComponent<Skill>().Attack(GetSkillData());
         }
 
@@ -146,7 +146,7 @@ public class Monster : MonoBehaviour, ILivingEntity
             if (rand < sum)
             {
                 Vector3 pos = new Vector3(transform.position.x, marbles[i].transform.position.y, transform.position.z);
-                ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.itemHolder, marbles[i], pos, marbles[i].transform.rotation);
+                ObjectPooler.ObjectPool(ObjectPooler.itemHolder, marbles[i], pos, marbles[i].transform.rotation);
                 break;
             }
         }

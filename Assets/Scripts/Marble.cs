@@ -14,7 +14,7 @@ public class Marble : MonoBehaviour
         {
             if (type == MarbleType.Blue) CardManager.Instance.ShowCard();
             else if (type == MarbleType.Yellow) CardManager.Instance.ShowSpecialCard();
-            ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.itemHolder, gameObject);
+            ObjectPooler.ObjectInactive(ObjectPooler.itemHolder, gameObject);
         }
     }
 
@@ -38,6 +38,6 @@ public class Marble : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
 
-        ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.itemHolder, gameObject);
+        ObjectPooler.ObjectInactive(ObjectPooler.itemHolder, gameObject);
     }
 }

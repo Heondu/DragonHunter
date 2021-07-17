@@ -23,7 +23,7 @@ public class MonsterRanged : Monster
     {
         yield return new WaitForSeconds(t);
 
-        ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.skillHolder, gameObject);
+        ObjectPooler.ObjectInactive(ObjectPooler.skillHolder, gameObject);
     }
 
     public override SkillData GetSkillData()

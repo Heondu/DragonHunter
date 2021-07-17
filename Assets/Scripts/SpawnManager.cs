@@ -16,6 +16,10 @@ public class SpawnManager : MonoBehaviour
     private GameObject wallPrefab;
     private GameObject wall;
     public bool CanTrapSpawn = true;
+    [SerializeField]
+    private Transform canvas;
+    [SerializeField]
+    private GameObject bossHP;
 
     private void Start()
     {
@@ -49,9 +53,10 @@ public class SpawnManager : MonoBehaviour
         {
             GameObject prefab = Resources.Load<GameObject>("Prefabs/Monsters/" + id);
             Vector3 pos = GetRandomPos(prefab.transform.position);
-            prefab = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.monsterHolder, prefab, pos, prefab.transform.rotation);
+            prefab = ObjectPooler.ObjectPool(ObjectPooler.monsterHolder, prefab, pos, prefab.transform.rotation);
             prefab.GetComponent<Monster>().Init(id);
-            wall = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.monsterHolder, wallPrefab, (player.position + pos) / 2, prefab.transform.rotation);
+            Instantiate(bossHP, canvas).GetComponent<BossHPViewer>().Init(prefab.GetComponent<ILivingEntity>());
+            wall = ObjectPooler.ObjectPool(ObjectPooler.monsterHolder, wallPrefab, (player.position + pos) / 2, prefab.transform.rotation);
             return;
         }
 
@@ -70,7 +75,7 @@ public class SpawnManager : MonoBehaviour
             if (rand < sum)
             {
                 GameObject prefab = Resources.Load<GameObject>("Prefabs/Monsters/" + key);
-                prefab = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.monsterHolder, prefab, GetRandomPos(prefab.transform.position), prefab.transform.rotation);
+                prefab = ObjectPooler.ObjectPool(ObjectPooler.monsterHolder, prefab, GetRandomPos(prefab.transform.position), prefab.transform.rotation);
                 prefab.GetComponent<Monster>().Init(key);
                 return;
             }
@@ -97,7 +102,7 @@ public class SpawnManager : MonoBehaviour
             if (rand < sum)
             {
                 GameObject prefab = Resources.Load<GameObject>("Prefabs/Traps/" + key);
-                prefab = ObjectPooler.Instance.ObjectPool(ObjectPooler.Instance.trapHolder, prefab, GetRandomPos(prefab.transform.position), prefab.transform.rotation);
+                prefab = ObjectPooler.ObjectPool(ObjectPooler.trapHolder, prefab, GetRandomPos(prefab.transform.position), prefab.transform.rotation);
                 prefab.GetComponent<Trap>().Init(key, player);
                 return;
             }

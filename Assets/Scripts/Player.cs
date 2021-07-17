@@ -50,11 +50,8 @@ public class Player : MonoBehaviour, ILivingEntity
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
         transform.position += new Vector3(x, 0, z).normalized * StatusManager.GetStatus("speed").Value * Time.deltaTime;
-        if (x != 0 || z != 0)
-        {
-            animator.SetBool("IsMove", true);
-            sr.flipX = x > 0;
-        }
+        if (x != 0 || z != 0) animator.SetBool("IsMove", true);
+        if (x != 0) sr.flipX = x > 0;
     }
 
     private void Attack()

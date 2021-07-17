@@ -6,12 +6,12 @@ public class StatusList
 {
     public Dictionary<string, Status> status = new Dictionary<string, Status>();
 
-    public void Init()
+    public void Init(bool flag = false, int num = 0)
     {
         for (int i = 0; i < DataManager.status.Count; i++)
         {
             string name = DataManager.status[i]["Name"].ToString();
-            status.Add(name, new Status(name, 1, (float)DataManager.status[i]["Default"]));
+            status.Add(name, new Status(name, 1, flag ? (float)DataManager.status[i]["Default"] : num));
         }
     }
 
@@ -58,12 +58,12 @@ public class StatusManager : MonoBehaviour
     {
         SaveData saveData = new SaveData();
         saveData.data = List.GetList();
-        JsonIO.SaveToJson(saveData, SaveDataManager.saveFile[SaveFile.PlayerStatus]);
+        SaveManager.SaveToJson(saveData, SaveDataManager.saveFile[SaveFile.PlayerStatus]);
     }
 
     private static void Load()
     {
-        SaveData saveData = JsonIO.LoadFromJson<SaveData>(SaveDataManager.saveFile[SaveFile.PlayerStatus]);
+        SaveData saveData = SaveManager.LoadFromJson<SaveData>(SaveDataManager.saveFile[SaveFile.PlayerStatus]);
         list = new StatusList();
         if (saveData == null)
         {

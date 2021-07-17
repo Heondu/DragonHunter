@@ -5,7 +5,8 @@ public enum SaveFile
 {
     PlayerStatus,
     Characters,
-    Inventory
+    Inventory,
+    Resources
 }
 
 public class SaveDataManager : MonoBehaviour
@@ -17,5 +18,6 @@ public class SaveDataManager : MonoBehaviour
         saveFile[SaveFile.PlayerStatus] = "Player Status";
         saveFile[SaveFile.Characters] = "Characters";
         saveFile[SaveFile.Inventory] = "Inventory";
+        saveFile[SaveFile.Resources] = "Resources";
     }
 }

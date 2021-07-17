@@ -55,6 +55,6 @@ public class FloatingDamage : MonoBehaviour
     {
         yield return new WaitForSeconds(t);
 
-        ObjectPooler.Instance.ObjectInactive(ObjectPooler.Instance.floatingDamageHolder, gameObject);
+        ObjectPooler.ObjectInactive(ObjectPooler.floatingDamageHolder, gameObject);
     }
 }

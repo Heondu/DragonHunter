@@ -2,66 +2,60 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    private static ObjectPooler instance;
-    public static ObjectPooler Instance
+    private static Transform holder;
+    private static Transform Holder
     {
         get
         {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<ObjectPooler>();
-                instance.holder = new GameObject("Holder").transform;
-            }
-            return instance;
+            if (holder == null) holder = new GameObject("Holder").transform;
+            return holder;
         }
     }
+    public static string skillHolder = "SkillHolder";
+    public static string monsterHolder = "MonsterHolder";
+    public static string trapHolder = "TrapHolder";
+    public static string itemHolder = "ItemHolder";
+    public static string floatingDamageHolder = "FloatingDamageHolder";
 
-    private Transform holder;
-    public string skillHolder = "SkillHolder";
-    public string monsterHolder = "MonsterHolder";
-    public string trapHolder = "TrapHolder";
-    public string itemHolder = "ItemHolder";
-    public string floatingDamageHolder = "FloatingDamageHolder";
-
-    public GameObject ObjectPool(string holderName, GameObject obj)
+    public static GameObject ObjectPool(string holderName, GameObject obj)
     {
         return ObjectPool(holderName, obj, Vector3.zero, Quaternion.identity, null);
     }
 
-    public GameObject ObjectPool(string holderName, GameObject obj, Vector3 position)
+    public static GameObject ObjectPool(string holderName, GameObject obj, Vector3 position)
     {
         return ObjectPool(holderName, obj, position, Quaternion.identity, null);
     }
 
-    public GameObject ObjectPool(string holderName, GameObject obj, Quaternion rotation)
+    public static GameObject ObjectPool(string holderName, GameObject obj, Quaternion rotation)
     {
         return ObjectPool(holderName, obj, Vector3.zero, rotation, null);
     }
 
-    public GameObject ObjectPool(string holderName, GameObject obj, Vector3 position, Quaternion rotation)
+    public static GameObject ObjectPool(string holderName, GameObject obj, Vector3 position, Quaternion rotation)
     {
         return ObjectPool(holderName, obj, position, rotation, null);
     }
 
-    public GameObject ObjectPool(string holderName, GameObject obj, Quaternion rotation, Transform parent)
+    public static GameObject ObjectPool(string holderName, GameObject obj, Quaternion rotation, Transform parent)
     {
         return ObjectPool(holderName, obj, Vector3.zero, rotation, parent);
     }
 
-    public GameObject ObjectPool(string holderName, GameObject obj, Vector3 position, Quaternion rotation, Transform parent)
+    public static GameObject ObjectPool(string holderName, GameObject obj, Vector3 position, Quaternion rotation, Transform parent)
     {
-        Transform holder = this.holder.Find(holderName);
+        Transform holder = Holder.Find(holderName);
         if (holder == null)
         {
             holder = new GameObject(holderName).transform;
-            holder.SetParent(this.holder);
+            holder.SetParent(Holder);
         }
 
         return ObjectPool(holder, obj, position, rotation, parent);
     }
 
-    public GameObject ObjectPool(Transform holder, GameObject obj, Vector3 position, Quaternion rotation, Transform parent)
-    {   
+    public static GameObject ObjectPool(Transform holder, GameObject obj, Vector3 position, Quaternion rotation, Transform parent)
+    {
         string name = obj.name + "(Clone)";
 
         GameObject clone = null;
@@ -93,19 +87,19 @@ public class ObjectPooler : MonoBehaviour
         return clone;
     }
 
-    public void ObjectInactive(string holderName, GameObject obj)
+    public static void ObjectInactive(string holderName, GameObject obj)
     {
-        Transform holder = this.holder.Find(holderName);
+        Transform holder = Holder.Find(holderName);
         if (holder == null)
         {
             holder = new GameObject(holderName).transform;
-            holder.SetParent(this.holder);
+            holder.SetParent(Holder);
         }
 
         ObjectInactive(holder, obj);
     }
 
-    public void ObjectInactive(Transform holder, GameObject obj)
+    public static void ObjectInactive(Transform holder, GameObject obj)
     {
         obj.transform.SetParent(holder);
         obj.SetActive(false);
