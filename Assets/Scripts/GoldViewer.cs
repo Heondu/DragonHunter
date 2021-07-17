@@ -1,14 +1,12 @@
 using UnityEngine;
 using TMPro;
 
-public class GoldDiamondViewer : MonoBehaviour
+public class GoldViewer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textGold;
-    [SerializeField] private TextMeshProUGUI textDiamond;
 
     private void Update()
     {
         textGold.text = PlayerData.Gold.Value.ToString();
-        textDiamond.text = PlayerData.Diamond.Value.ToString();
     }
 }

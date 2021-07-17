@@ -43,11 +43,6 @@ public class StatusManager : MonoBehaviour
         Load();
     }
 
-    private void OnApplicationQuit()
-    {
-        Save();
-    }
-
     [System.Serializable]
     private class SaveData
     {

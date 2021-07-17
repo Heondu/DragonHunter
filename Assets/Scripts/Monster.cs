@@ -16,10 +16,10 @@ public class Monster : MonoBehaviour, ILivingEntity
     protected float attackRange = 1;
     protected State state = State.None;
 
-    private PathFinder pathFinder;
-    private Transform target;
+    protected PathFinder pathFinder;
+    protected Transform target;
     protected Animator animator;
-    private SpriteRenderer sr;
+    protected SpriteRenderer sr;
 
     [SerializeField]
     protected Skill[] skills;
@@ -27,6 +27,8 @@ public class Monster : MonoBehaviour, ILivingEntity
     protected Skill poisonExplosion;
     [SerializeField]
     protected GameObject[] marbles;
+
+    private Vector3[] dirs = { Vector3.forward, Vector3.back, Vector3.left, Vector3.right };
 
     private void Start()
     {
@@ -45,12 +47,12 @@ public class Monster : MonoBehaviour, ILivingEntity
         }
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (state == State.None)
         {
             if (attackRange - 1 < Vector3.Distance(target.position, transform.position))
-                Move();
+                Move(true);
             else
                 Attack();
         }
@@ -68,14 +70,17 @@ public class Monster : MonoBehaviour, ILivingEntity
         spawnTime = (int)data["SpawnTime"];
     }
 
-    protected void Move()
+    protected virtual void Move(bool chase)
     {
-        Vector3 dir = pathFinder.GetMoveDir(target.position - transform.position);
-        transform.position += dir * speed * Time.deltaTime;
-        if (dir != Vector3.zero)
+        if (chase)
         {
-            animator.SetBool("IsMove", true);
-            sr.flipX = dir.x > 0;
+            Vector3 dir = pathFinder.GetMoveDir(target.position - transform.position);
+            transform.position += dir * speed * Time.deltaTime;
+            if (dir != Vector3.zero)
+            {
+                animator.SetBool("IsMove", true);
+                sr.flipX = dir.x > 0;
+            }
         }
     }
 
@@ -132,18 +137,15 @@ public class Monster : MonoBehaviour, ILivingEntity
             clone.GetComponent<Skill>().Attack(GetSkillData());
         }
 
-        int sumOfProb = 0;
         Dictionary<string, object> data = DataManager.monsters.FindDic("ID", id);
-        int[] probs = { (int)data["BlueMarbleProb"], (int)data["YellowMarbleProb"] }; 
-        sumOfProb += probs[0];
-        sumOfProb += probs[1];
+        int[] probs = { (int)data["BlueMarbleProb"], (int)data["YellowMarbleProb"] };
 
         int rand = Random.Range(0, 100);
-        int sum = 0;
+        int sumOfProb = 0;
         for (int i = 0; i < probs.Length; i++)
         {
-            sum += probs[i];
-            if (rand < sum)
+            sumOfProb += probs[i];
+            if (rand < sumOfProb)
             {
                 Vector3 pos = new Vector3(transform.position.x, marbles[i].transform.position.y, transform.position.z);
                 ObjectPooler.ObjectPool(ObjectPooler.itemHolder, marbles[i], pos, marbles[i].transform.rotation);
@@ -151,6 +153,7 @@ public class Monster : MonoBehaviour, ILivingEntity
             }
         }
 
+        PlayerData.Gold.Set((int)data["Gold"], ResourcesModType.Add);
     }
 
     public virtual SkillData GetSkillData()

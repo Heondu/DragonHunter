@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     {
         StatusManager.Sub(CharacterManager.GetCharacter().list);
         StatusManager.Print();
+        Time.timeScale = 1;
         LoadingSceneManager.LoadScene("Main");
     }
 }
