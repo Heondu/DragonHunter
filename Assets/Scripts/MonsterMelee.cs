@@ -3,6 +3,15 @@ using UnityEngine;
 
 public class MonsterMelee : Monster
 {
+    private GameObject hpBar;
+
+    public override void Init(string _id)
+    {
+        base.Init(_id);
+        hpBar = FloatingDamageManager.Instance.InitHPBar(this, transform);
+        hpBar.SetActive(true);
+    }
+
     private void OnBecameInvisible()
     {
         if (gameObject.activeSelf)

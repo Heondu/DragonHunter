@@ -16,6 +16,7 @@ public class ObjectPooler : MonoBehaviour
     public static string trapHolder = "TrapHolder";
     public static string itemHolder = "ItemHolder";
     public static string floatingDamageHolder = "FloatingDamageHolder";
+    public static string hpBarHolder = "HPBarHolder";
 
     public static GameObject ObjectPool(string holderName, GameObject obj)
     {

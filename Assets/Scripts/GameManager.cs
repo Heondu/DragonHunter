@@ -3,11 +3,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (instance == null) instance = FindObjectOfType<GameManager>();
+            return instance;
+        }
+    }
+
+    public const int MAX_TIME = 1200;
     public static int playCount = 0;
     public static float playTime = 0;
-    private int killCount;
     private float tElapsed = 0;
-    private int score;
+    public float speed = 1;
 
     [SerializeField] private SpawnManager spawnManager;
     [SerializeField] private CameraController cameraController;
@@ -16,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         StatusManager.Sum(CharacterManager.GetCharacter().list);
         StatusManager.Print();
         GameObject prefab = Resources.Load<GameObject>("Prefabs/Characters/" + CharacterManager.currentID);
@@ -30,13 +41,7 @@ public class GameManager : MonoBehaviour
     {
         if (SpawnManager.IsBossSpawn == false)
         {
-            if (tElapsed > 1200)
-            //if (tElapsed > 3)
-            {
-                SetItem();
-                GoToMain();
-            }
-            tElapsed += Time.deltaTime;
+            tElapsed += Time.deltaTime * StatusManager.GetStatus("dungeonSpeed").Value * speed;
         }
     }
 
@@ -47,10 +52,14 @@ public class GameManager : MonoBehaviour
 
     private void SetItem()
     {
-        int rand = Random.Range(0, DataManager.items.Count);
-        Dictionary<string, object> data = DataManager.items[rand];
-        ItemData itemData = new ItemData(data["ID"].ToString(), Random.Range(0, 6));
-        Inventory.AddItem(itemData);
+        int rand = Random.Range(0, 1200);
+        if (rand < tElapsed)
+        {
+            rand = Random.Range(0, DataManager.items.Count);
+            Dictionary<string, object> data = DataManager.items[rand];
+            ItemData itemData = new ItemData(data["ID"].ToString(), Random.Range(0, 6));
+            Inventory.AddItem(itemData);
+        }
     }
 
     public void Pause(bool value)
@@ -77,8 +86,9 @@ public class GameManager : MonoBehaviour
     {
         StatusManager.Sub(CharacterManager.GetCharacter().list);
         StatusManager.Print();
-        Time.timeScale = 1;
+        SetItem();
         SetPlayTime(GetPlayTime() + tElapsed);
+        Time.timeScale = 1;
         LoadingSceneManager.LoadScene("Main");
     }
 
@@ -96,4 +106,9 @@ public class GameManager : MonoBehaviour
         playTime += value;
     }
     public static float GetPlayTime() { return PlayerPrefs.GetFloat("PlayTime"); }
+
+    public void SetSpeed(float value)
+    {
+        speed = value;
+    }
 }

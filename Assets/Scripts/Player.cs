@@ -30,7 +30,7 @@ public class Player : MonoBehaviour, ILivingEntity
             skills[i] = Instantiate(skills[i], transform);
         }
 
-        //FloatingDamageManager.Instance.InitHPBar(this, transform);
+        FloatingDamageManager.Instance.InitHPBar(this, transform);
 
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
@@ -90,6 +90,11 @@ public class Player : MonoBehaviour, ILivingEntity
     {
         hp = Mathf.Max(0, hp - damage);
         FloatingDamageManager.Instance.FloatingDamage(gameObject, damage.ToString(), DamageType.Normal);
+
+        if (hp <= 0)
+        {
+            GameManager.Instance.GoToMain();
+        }
     }
 
     /// <summary>
@@ -105,7 +110,7 @@ public class Player : MonoBehaviour, ILivingEntity
         }
         else if (modifier == 1)
         {
-            hp = Mathf.Min(hp + (int)(StatusManager.GetStatus("hp").Value * 0.2f), (int)StatusManager.GetStatus("hp").Value);
+            hp = Mathf.Min(hp + (int)(StatusManager.GetStatus("hp").Value * value / 100), (int)StatusManager.GetStatus("hp").Value);
         }
     }
 

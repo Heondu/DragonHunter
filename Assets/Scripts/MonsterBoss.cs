@@ -2,10 +2,24 @@ using UnityEngine;
 
 public class MonsterBoss : Monster
 {
+    protected override void Update()
+    {
+        if (state == State.None)
+        {
+            if (attackRange / 2 < Vector3.Distance(target.position, transform.position))
+                Move(true);
+            else
+            {
+                Attack();
+                Move(true);
+            }
+        }
+    }
+
     protected override void OnDeath()
     {
         base.OnDeath();
-        FindObjectOfType<SpawnManager>().OnBossDeath();
+        FindObjectOfType<SpawnManager>().OnBossDeath(id);
     }
 
     public override SkillData GetSkillData()

@@ -20,11 +20,13 @@ public class FloatingDamageManager : MonoBehaviour
     private GameObject hpBar;
     private Dictionary<GameObject, List<FloatingDamage>> damageList = new Dictionary<GameObject, List<FloatingDamage>>();
     [SerializeField]
-    private Transform holder;
+    private Transform floatingDamageHolder;
+    [SerializeField]
+    private Transform hpBarHolder;
 
     public void FloatingDamage(GameObject executor, string damage, DamageType damageType)
     {
-        GameObject clone = ObjectPooler.ObjectPool(holder, damagePrefab[(int)damageType], executor.transform.position, Quaternion.identity, holder);
+        GameObject clone = ObjectPooler.ObjectPool(floatingDamageHolder, damagePrefab[(int)damageType], executor.transform.position, Quaternion.identity, floatingDamageHolder);
         clone.GetComponent<FloatingDamage>().Init(damage, executor.transform.position);
 
         if (damageList.ContainsKey(executor) == false)
@@ -51,8 +53,10 @@ public class FloatingDamageManager : MonoBehaviour
         damageList[executor].Remove(floatingDamage);
     }
 
-    public void InitHPBar(ILivingEntity entity, Transform target)
+    public GameObject InitHPBar(ILivingEntity entity, Transform target)
     {
-        Instantiate(hpBar, target.transform.position, Quaternion.identity, holder).GetComponent<HPViewer>().Init(entity, target);
+        GameObject clone = Instantiate(hpBar, target.transform.position, Quaternion.identity, hpBarHolder);
+        clone.GetComponent<HPViewer>().Init(entity, target);
+        return clone;
     }
 }

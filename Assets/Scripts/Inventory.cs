@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject slotPrefab;
     [SerializeField] private Slot weaponSlot;
     [SerializeField] private Slot armorSlot;
-    [SerializeField] private GameObject popup;
+    [SerializeField] private ItemPopup popup;
 
     private static ItemData weapon;
     private static ItemData armor;
@@ -117,8 +117,18 @@ public class Inventory : MonoBehaviour
 
         selectedSlot = _selectedSlot;
 
-        popup.SetActive(true);
-        popup.GetComponent<ItemPopup>().Display(selectedSlot);
+        popup.Display(selectedSlot);
+    }
+
+    public void LevelUp()
+    {
+        selectedSlot.GetItem().LevelUp();
+        popup.Display(selectedSlot);
+    }
+
+    public ItemData GetSelectedItem()
+    {
+        return selectedSlot.GetItem();
     }
 
     public void Equip()

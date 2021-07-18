@@ -16,23 +16,13 @@ public class HPViewer : MonoBehaviour
 
     private void Update()
     {
-        if (target == null)
+        if (entity.GetHP() <= 0 || target.gameObject.activeSelf == false)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 
         image.fillAmount = entity.GetHP();
-    }
-
-    private void LateUpdate()
-    {
-        if (target == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        transform.position = new Vector3(target.position.x, target.position.y + 0.75f, target.position.z);
+        transform.position = Camera.main.WorldToScreenPoint(target.position + new Vector3(0, 0.75f, 0));
     }
 }

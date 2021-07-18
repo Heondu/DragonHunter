@@ -3,6 +3,29 @@ using UnityEngine;
 
 public class MonsterRanged : Monster
 {
+    private GameObject hpBar;
+
+    public override void Init(string _id)
+    {
+        base.Init(_id);
+        hpBar = FloatingDamageManager.Instance.InitHPBar(this, transform);
+        hpBar.SetActive(true);
+    }
+
+    protected override void Update()
+    {
+        if (state == State.None)
+        {
+            if (attackRange / 2 < Vector3.Distance(target.position, transform.position))
+                Move(true);
+            else
+            {
+                Attack();
+                Move(true);
+            }
+        }
+    }
+
     private void OnBecameInvisible()
     {
         if (gameObject.activeSelf)

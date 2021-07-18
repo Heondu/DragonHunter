@@ -190,9 +190,10 @@ public class SpawnManager : MonoBehaviour
         return true;
     }
 
-    public void OnBossDeath()
+    public void OnBossDeath(string id)
     {
         wall.SetActive(false);
         IsBossSpawn = false;
+        if (id == "mon020") GameManager.Instance.GoToMain();
     }
 }

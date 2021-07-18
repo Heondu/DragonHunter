@@ -22,6 +22,8 @@ public class Quest : MonoBehaviour
     private Sprite[] clearIcons;
     [SerializeField]
     private Button button;
+    [SerializeField]
+    private TextMeshProUGUI textRecieve;
     private Dictionary<string, object> data;
     public QuestState questState = QuestState.Not;
 
@@ -38,7 +40,8 @@ public class Quest : MonoBehaviour
 
     private void Update()
     {
-        imageClear.sprite = clearIcons[(int)questState];
+        imageClear.sprite = questState == QuestState.Not ? clearIcons[0] : clearIcons[1];
+        textRecieve.text = questState == QuestState.Not ? "미완" : "수령";
     }
 
     private void RewardRecieve()

@@ -21,5 +21,17 @@
             "BaseValue": 0.0
         }
     },
-    "itemList": []
+    "itemList": [
+        {
+            "id": "weapon001",
+            "lv": 3,
+            "itemType": "weapon",
+            "statType": "atk",
+            "amount": {
+                "Name": "atk",
+                "LV": 1,
+                "BaseValue": 100.0
+            }
+        }
+    ]
 }

@@ -1,5 +1,5 @@
 ﻿ID,ATK,Lifetime,SpawnTime,Prob
-trap001,0,60,10,1
-trap002,200,40,20,1
+trap001,0,60,180,1
+trap002,200,40,300,1
 trap003,0,40,540,1
 trap004,300,40,720,1
