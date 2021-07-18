@@ -2,7 +2,7 @@
 
 public class Assassin : Character
 {
-    public Assassin(string id) : base(id) { }
+    public Assassin(string id, bool isLock) : base(id, isLock) { }
 
     protected override void Ability()
     {
@@ -33,5 +33,11 @@ public class Assassin : Character
                 list[i].list.status["atkSpeed"].AddModifier(new StatusModifier(5, StatusModType.PercentAdd, this));
             }
         }
+    }
+
+    public override void Unlock()
+    {
+        if (!IsLock) return;
+        if (GameManager.GetPlayCount() > 0) IsLock = false;
     }
 }

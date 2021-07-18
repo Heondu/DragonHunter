@@ -38,11 +38,6 @@ public class StatusManager : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        Load();
-    }
-
     [System.Serializable]
     private class SaveData
     {
@@ -85,7 +80,7 @@ public class StatusManager : MonoBehaviour
 
     public static int GetLevel(string name)
     {
-        if (!list.status.ContainsKey(name)) return 1;
+        if (!List.status.ContainsKey(name)) return 1;
         return List.status[name].LV;
     }
 

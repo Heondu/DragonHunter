@@ -2,7 +2,7 @@
 
 public class Warrior : Character
 {
-    public Warrior(string id) : base(id) { }
+    public Warrior(string id, bool isLock) : base(id, isLock) { }
 
     protected override void Ability()
     {
@@ -32,5 +32,11 @@ public class Warrior : Character
                 list[i].list.status["atk"].AddModifier(new StatusModifier(5, StatusModType.PercentAdd, this));
             }
         }
+    }
+
+    public override void Unlock()
+    {
+        if (!IsLock) return;
+        IsLock = false;
     }
 }

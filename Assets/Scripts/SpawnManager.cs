@@ -34,8 +34,9 @@ public class SpawnManager : MonoBehaviour
         {
             if (!IsBossSpawn)
             {
-                SpawnMonster();
-                SpawnTrap();
+                int rand = Random.Range(0, 5);
+                if (rand > 0) SpawnMonster();
+                else SpawnTrap();
                 yield return new WaitForSeconds(spawnTime);
             }
             else
@@ -85,8 +86,6 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnTrap()
     {
-        if (!CanTrapSpawn) return;
-
         Dictionary<string, int> traps = GetTrapList();
         int sumOfProb = 0;
         foreach (string key in traps.Keys)
@@ -147,6 +146,10 @@ public class SpawnManager : MonoBehaviour
         Dictionary<string, int> traps = new Dictionary<string, int>();
         for (int i = 0; i < DataManager.traps.Count; i++)
         {
+            if (!CanTrapSpawn)
+            {
+                if (DataManager.traps[i]["ID"].ToString() == "trap002") continue;
+            }
             if (CanSpawnTrap(i))
             {
                 traps.Add(DataManager.traps[i]["ID"].ToString(), (int)DataManager.traps[i]["Prob"]);

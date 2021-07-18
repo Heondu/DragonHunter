@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int difficulty;
+    public static int playCount = 0;
+    public static float playTime = 0;
     private int killCount;
     private float tElapsed = 0;
-    private int isClear;
     private int score;
 
     [SerializeField] private SpawnManager spawnManager;
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
         cameraController.SetTarget(prefab.transform);
         backgroundScroller.SetTarget(prefab.transform);
         cardManager.SetPlayer(prefab.GetComponent<Player>());
+        SetPlayCount(GetPlayCount() + 1);
     }
 
     private void Update()
@@ -77,6 +78,22 @@ public class GameManager : MonoBehaviour
         StatusManager.Sub(CharacterManager.GetCharacter().list);
         StatusManager.Print();
         Time.timeScale = 1;
+        SetPlayTime(GetPlayTime() + tElapsed);
         LoadingSceneManager.LoadScene("Main");
     }
+
+    public static void SetDifficulty(int value) { PlayerPrefs.SetInt("Difficulty", value); }
+    public static int GetDifficulty() { return PlayerPrefs.GetInt("Difficulty") == 0 ? 1 : PlayerPrefs.GetInt("Difficulty"); }
+    public static void SetPlayCount(int value) 
+    { 
+        PlayerPrefs.SetInt("PlayCount", value);
+        playCount += value;
+    }
+    public static int GetPlayCount() { return PlayerPrefs.GetInt("PlayCount"); }
+    public static void SetPlayTime(float value) 
+    {
+        PlayerPrefs.SetFloat("PlayTime", value);
+        playTime += value;
+    }
+    public static float GetPlayTime() { return PlayerPrefs.GetFloat("PlayTime"); }
 }

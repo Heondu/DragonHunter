@@ -12,6 +12,7 @@ public class SaveManager : MonoBehaviour
     public static void SaveToJson<T>(T t, string fileName)
     {
         string jsonString = DataToJson(t);
+        File.WriteAllText(dataPath + "/" + directoryName + "/" + fileName + ".json", jsonString);
         string encryptString = Encrypt(jsonString);
         SaveFile(encryptString, fileName);
     }

@@ -6,7 +6,8 @@ public enum SaveFile
     PlayerStatus,
     Characters,
     Inventory,
-    Resources
+    Resources,
+    Quest
 }
 
 public class SaveDataManager : MonoBehaviour
@@ -19,5 +20,6 @@ public class SaveDataManager : MonoBehaviour
         saveFile[SaveFile.Characters] = "Characters";
         saveFile[SaveFile.Inventory] = "Inventory";
         saveFile[SaveFile.Resources] = "Resources";
+        saveFile[SaveFile.Quest] = "Quest";
     }
 }

@@ -62,8 +62,8 @@ public class Monster : MonoBehaviour, ILivingEntity
     {
         id = _id;
         Dictionary<string, object> data = DataManager.monsters.FindDic("ID", _id);
-        atk = (int)data["ATK"];
-        hp = (int)data["HP"];
+        atk = (int)data["ATK"] * GameManager.GetDifficulty();
+        hp = (int)data["HP"] * (int)Mathf.Pow(2, GameManager.GetDifficulty() - 1);
         maxHp = hp;
         speed = 1;
         atkSpeed = 1;
@@ -153,7 +153,7 @@ public class Monster : MonoBehaviour, ILivingEntity
             }
         }
 
-        PlayerData.Gold.Set((int)data["Gold"], ResourcesModType.Add);
+        PlayerData.Gold.Set((int)data["Gold"] * GameManager.GetDifficulty(), ResourcesModType.Add);
     }
 
     public virtual SkillData GetSkillData()

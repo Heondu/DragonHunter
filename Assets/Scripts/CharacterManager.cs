@@ -6,14 +6,16 @@ public class Character
 {
     public string ID;
     public int LV;
+    public bool IsLock = true;
     public StatusList list = new StatusList();
 
     private Dictionary<string, object> data = new Dictionary<string, object>();
 
-    public Character(string id)
+    public Character(string id, bool isLock)
     {
         ID = id;
         LV = 1;
+        IsLock = isLock;
         data = DataManager.characters.FindDic("ID", id);
         list.Init(true);
         list.status["atk"].BaseValue = (int)data["ATK"];
@@ -41,6 +43,11 @@ public class Character
     {
 
     }
+
+    public virtual void Unlock()
+    {
+
+    }
 }
 
 [System.Serializable]
@@ -55,12 +62,12 @@ public class CharacterList
             string id = DataManager.characters[i]["ID"].ToString();
             switch (id)
             {
-                case "character001": characters.Add(id, new Warrior(id)); break;
-                case "character002": characters.Add(id, new Assassin(id)); break;
-                case "character003": characters.Add(id, new Wizard(id)); break;
-                case "character004": characters.Add(id, new Savage(id)); break;
-                case "character005": characters.Add(id, new Onyx(id)); break;
-                case "character006": characters.Add(id, new Violetta(id)); break;
+                case "character001": characters.Add(id, new Warrior(id, false)) ; break;
+                case "character002": characters.Add(id, new Assassin(id, true)); break;
+                case "character003": characters.Add(id, new Wizard(id, true)); break;
+                case "character004": characters.Add(id, new Savage(id, true)); break;
+                case "character005": characters.Add(id, new Onyx(id, true)); break;
+                case "character006": characters.Add(id, new Violetta(id, true)); break;
             }
         }
         for (int i = 0; i < DataManager.characters.Count; i++)
@@ -95,18 +102,8 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    private string selectedID;
+    private string selectedID = "";
     public static string currentID = "character001";
-
-    private void Awake()
-    {
-        Load();
-    }
-
-    private void OnApplicationQuit()
-    {
-        Save();
-    }
 
     [System.Serializable]
     private class SaveData
@@ -115,7 +112,7 @@ public class CharacterManager : MonoBehaviour
         public List<Character> data;
     }
 
-    private static void Save()
+    public static void Save()
     {
         SaveData saveData = new SaveData();
         saveData.currentID = currentID;
@@ -123,7 +120,7 @@ public class CharacterManager : MonoBehaviour
         SaveManager.SaveToJson(saveData, SaveDataManager.saveFile[SaveFile.Characters]);
     }
 
-    private static void Load()
+    public static void Load()
     {
         SaveData saveData = SaveManager.LoadFromJson<SaveData>(SaveDataManager.saveFile[SaveFile.Characters]);
         list = new CharacterList();
@@ -139,12 +136,12 @@ public class CharacterManager : MonoBehaviour
             {
                 switch (saveData.data[i].ID)
                 {
-                    case "character001": list.characters.Add(saveData.data[i].ID, new Warrior(saveData.data[i].ID)); break;
-                    case "character002": list.characters.Add(saveData.data[i].ID, new Assassin(saveData.data[i].ID)); break;
-                    case "character003": list.characters.Add(saveData.data[i].ID, new Wizard(saveData.data[i].ID)); break;
-                    case "character004": list.characters.Add(saveData.data[i].ID, new Savage(saveData.data[i].ID)); break;
-                    case "character005": list.characters.Add(saveData.data[i].ID, new Onyx(saveData.data[i].ID)); break;
-                    case "character006": list.characters.Add(saveData.data[i].ID, new Violetta(saveData.data[i].ID)); break;
+                    case "character001": list.characters.Add(saveData.data[i].ID, new Warrior(saveData.data[i].ID, saveData.data[i].IsLock)); break;
+                    case "character002": list.characters.Add(saveData.data[i].ID, new Assassin(saveData.data[i].ID, saveData.data[i].IsLock)); break;
+                    case "character003": list.characters.Add(saveData.data[i].ID, new Wizard(saveData.data[i].ID, saveData.data[i].IsLock)); break;
+                    case "character004": list.characters.Add(saveData.data[i].ID, new Savage(saveData.data[i].ID, saveData.data[i].IsLock)); break;
+                    case "character005": list.characters.Add(saveData.data[i].ID, new Onyx(saveData.data[i].ID, saveData.data[i].IsLock)); break;
+                    case "character006": list.characters.Add(saveData.data[i].ID, new Violetta(saveData.data[i].ID, saveData.data[i].IsLock)); break;
                 }
             }
             for (int i = 0; i < saveData.data.Count; i++)
@@ -162,13 +159,17 @@ public class CharacterManager : MonoBehaviour
 
     public void Select(string id)
     {
-        selectedID = id;
+        if (List.characters[id].IsLock) selectedID = "";
+        else selectedID = id;
     }
 
     public void Accept()
     {
-        currentID = selectedID;
-        Save();
+        if (selectedID != "")
+        {
+            currentID = selectedID;
+            Save();
+        }
     }
 
     public static Character GetCharacter()

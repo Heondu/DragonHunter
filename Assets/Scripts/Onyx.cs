@@ -2,7 +2,7 @@
 
 public class Onyx : Character
 {
-    public Onyx(string id) : base(id) { }
+    public Onyx(string id, bool isLock) : base(id, isLock) { }
 
     protected override void Ability()
     {
@@ -32,6 +32,16 @@ public class Onyx : Character
             {
                 list[i].list.status["critChance"].AddModifier(new StatusModifier(5, StatusModType.PercentAdd, this));
             }
+        }
+    }
+
+    public override void Unlock()
+    {
+        if (!IsLock) return;
+        if (PlayerData.Diamond.Value >= 1500)
+        {
+            PlayerData.Diamond.Set(1500, ResourcesModType.Sub);
+            IsLock = false;
         }
     }
 }

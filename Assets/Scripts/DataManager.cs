@@ -15,6 +15,7 @@ public class DataManager : MonoBehaviour
     public static List<Dictionary<string, object>> cards = new List<Dictionary<string, object>>();
     public static List<Dictionary<string, object>> specialCards = new List<Dictionary<string, object>>();
     public static List<Dictionary<string, object>> images = new List<Dictionary<string, object>>();
+    public static List<Dictionary<string, object>> quests = new List<Dictionary<string, object>>();
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class DataManager : MonoBehaviour
         cards = CSVReader.Read(path + "cards");
         specialCards = CSVReader.Read(path + "specialCards");
         images = CSVReader.Read(path + "images");
+        quests = CSVReader.Read(path + "quests");
     }
 
     public static bool Exists(List<Dictionary<string, object>> list, string key, object value)

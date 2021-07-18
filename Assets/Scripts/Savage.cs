@@ -2,7 +2,7 @@
 
 public class Savage : Character
 {
-    public Savage(string id) : base(id) { }
+    public Savage(string id, bool isLock) : base(id, isLock) { }
 
     protected override void Ability()
     {
@@ -33,5 +33,11 @@ public class Savage : Character
                 list[i].list.status["hp"].AddModifier(new StatusModifier(5, StatusModType.PercentAdd, this));
             }
         }
+    }
+
+    public override void Unlock()
+    {
+        if (!IsLock) return;
+        if (GameManager.GetPlayTime() >= 600) IsLock = false;
     }
 }

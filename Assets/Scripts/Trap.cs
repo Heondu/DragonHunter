@@ -13,7 +13,7 @@ public class Trap : MonoBehaviour
     {
         id = _id;
         Dictionary<string, object> data = DataManager.traps.FindDic("ID", _id);
-        atk = (int)data["ATK"];
+        atk = (int)data["ATK"] * GameManager.GetDifficulty();
         player = _player;
         stopAtPlayerVisible = true;
         StartCoroutine("Timer", (int)data["Lifetime"]);
