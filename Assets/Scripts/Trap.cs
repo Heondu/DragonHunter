@@ -8,6 +8,9 @@ public class Trap : MonoBehaviour
     protected int atk;
     protected Transform player;
     protected bool stopAtPlayerVisible;
+    private bool atkCool = false;
+    private float cooltime = 2;
+    private Timer timer = new Timer();
 
     public virtual void Init(string _id, Transform _player)
     {
@@ -17,6 +20,14 @@ public class Trap : MonoBehaviour
         player = _player;
         stopAtPlayerVisible = true;
         StartCoroutine("Timer", (int)data["Lifetime"]);
+    }
+
+    private void Update()
+    {
+        if (atkCool)
+        {
+            if (timer.GetTimer(cooltime)) atkCool = false;
+        }
     }
 
     protected IEnumerator Timer(int lifetime)
@@ -39,5 +50,17 @@ public class Trap : MonoBehaviour
         }
 
         ObjectPooler.ObjectInactive(ObjectPooler.trapHolder, gameObject);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (!atkCool)
+        {
+            if (other.CompareTag("Player"))
+            {
+                other.GetComponent<ILivingEntity>().TakeDamage(atk);
+                atkCool = true;
+            }
+        }
     }
 }

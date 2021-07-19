@@ -9,7 +9,7 @@ public class FloatingDamage : MonoBehaviour
     private float destroyTime = 2f;
     private float distance = 50f;
     private TextMeshProUGUI damageText;
-    private Color alpha = Color.black;
+    private Color alpha = Color.white;
     private Vector3 originPos;
     private Vector3 offset = Vector3.up;
 

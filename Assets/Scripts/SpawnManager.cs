@@ -26,6 +26,7 @@ public class SpawnManager : MonoBehaviour
         player = FindObjectOfType<Player>().transform;
         wallPrefab = Resources.Load<GameObject>("Prefabs/Wall/Wall");
         StartCoroutine("SpawnCo");
+        StartCoroutine("BossSpawnCo");
     }
 
     private IEnumerator SpawnCo()
@@ -34,9 +35,8 @@ public class SpawnManager : MonoBehaviour
         {
             if (!IsBossSpawn)
             {
-                int rand = Random.Range(0, 5);
-                if (rand > 0) SpawnMonster();
-                else SpawnTrap();
+                SpawnMonster();
+                SpawnTrap();
                 yield return new WaitForSeconds(spawnTime);
             }
             else
@@ -46,22 +46,35 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    private IEnumerator BossSpawnCo()
+    {
+        Dictionary<string, int> bosses = GetList("boss", false);
+        List<string> keys = new List<string>();
+
+        foreach (string key in bosses.Keys)
+        {
+            keys.Add(key);
+        }
+        int i = 0;
+        while (i < bosses.Count)
+        {
+            if (!IsBossSpawn)
+            {
+                if ((int)DataManager.monsters.Find("ID", keys[i], "SpawnTime") <= gameManager.GetTime())
+                {
+                    IsBossSpawn = true;
+                    SpawnBoss(keys[i]);
+                    i++;
+                }
+            }
+
+            yield return null;
+        }
+    }
+
     private void SpawnMonster()
     {
-        string id;
-        id = GetBoss();
-        if (id != "")
-        {
-            GameObject prefab = Resources.Load<GameObject>("Prefabs/Monsters/" + id);
-            Vector3 pos = GetRandomPos(prefab.transform.position);
-            prefab = ObjectPooler.ObjectPool(ObjectPooler.monsterHolder, prefab, pos, prefab.transform.rotation);
-            prefab.GetComponent<Monster>().Init(id);
-            Instantiate(bossHP, canvas).GetComponent<BossHPViewer>().Init(prefab.GetComponent<ILivingEntity>());
-            wall = ObjectPooler.ObjectPool(ObjectPooler.monsterHolder, wallPrefab, (player.position + pos) / 2, prefab.transform.rotation);
-            return;
-        }
-
-        Dictionary<string, int> monsters = GetMonsterList();
+        Dictionary<string, int> monsters = GetList("monster", true);
         int sumOfProb = 0;
         foreach (string key in monsters.Keys)
         {
@@ -84,9 +97,19 @@ public class SpawnManager : MonoBehaviour
 
     }
 
+    private void SpawnBoss(string id)
+    {
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/Monsters/" + id);
+        Vector3 pos = GetRandomPos(prefab.transform.position);
+        prefab = ObjectPooler.ObjectPool(ObjectPooler.monsterHolder, prefab, pos, prefab.transform.rotation);
+        prefab.GetComponent<Monster>().Init(id);
+        Instantiate(bossHP, canvas).GetComponent<BossHPViewer>().Init(prefab.GetComponent<ILivingEntity>());
+        wall = ObjectPooler.ObjectPool(ObjectPooler.monsterHolder, wallPrefab, (player.position + pos) / 2, prefab.transform.rotation);
+    }
+
     private void SpawnTrap()
     {
-        Dictionary<string, int> traps = GetTrapList();
+        Dictionary<string, int> traps = GetList("trap", true);
         int sumOfProb = 0;
         foreach (string key in traps.Keys)
         {
@@ -108,54 +131,57 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    private Dictionary<string, int> GetMonsterList()
+    private Dictionary<string, int> GetList(string type, bool canSpawn)
     {
-        Dictionary<string, int> monsters = new Dictionary<string, int>();
-        for (int i = 0; i < DataManager.monsters.Count; i++)
+        Dictionary<string, int> list = new Dictionary<string, int>();
+        if (type == "monster")
         {
-            if (CanSpawnMonster(i))
+            for (int i = 0; i < DataManager.monsters.Count; i++)
             {
-                if (!IsBoss(i))
+                if (!DataManager.monsters[i]["Type"].ToString().Equals("boss"))
                 {
-                    monsters.Add(DataManager.monsters[i]["ID"].ToString(), (int)DataManager.monsters[i]["Prob"]);
+                    if (canSpawn)
+                    {
+                        if (CanSpawn(i, type))
+                        {
+                            list.Add(DataManager.monsters[i]["ID"].ToString(), (int)DataManager.monsters[i]["Prob"]);
+                        }
+                    }
+                    else
+                    {
+                        list.Add(DataManager.monsters[i]["ID"].ToString(), (int)DataManager.monsters[i]["Prob"]);
+                    }
                 }
             }
         }
-        return monsters;
-    }
-
-    private string GetBoss()
-    {
-        for (int i = 0; i < DataManager.monsters.Count; i++)
+        if (type == "boss")
         {
-            if (CanSpawnMonster(i))
+            for (int i = 0; i < DataManager.monsters.Count; i++)
             {
-                if (IsBoss(i) && CanSpawnBoss(i))
+                if (DataManager.monsters[i]["Type"].ToString().Equals(type))
                 {
-                    bossList.Add(DataManager.monsters[i]["ID"].ToString());
-                    IsBossSpawn = true;
-                    return DataManager.monsters[i]["ID"].ToString();
+                    list.Add(DataManager.monsters[i]["ID"].ToString(), (int)DataManager.monsters[i]["Prob"]);
                 }
             }
         }
-        return "";
-    }
-
-    private Dictionary<string, int> GetTrapList()
-    {
-        Dictionary<string, int> traps = new Dictionary<string, int>();
-        for (int i = 0; i < DataManager.traps.Count; i++)
+        else if (type == "trap")
         {
-            if (!CanTrapSpawn)
+            for (int i = 0; i < DataManager.traps.Count; i++)
             {
-                if (DataManager.traps[i]["ID"].ToString() == "trap002") continue;
-            }
-            if (CanSpawnTrap(i))
-            {
-                traps.Add(DataManager.traps[i]["ID"].ToString(), (int)DataManager.traps[i]["Prob"]);
+                if (canSpawn)
+                {
+                    if (CanSpawn(i, type))
+                    {
+                        list.Add(DataManager.traps[i]["ID"].ToString(), (int)DataManager.traps[i]["Prob"]);
+                    }
+                }
+                else
+                {
+                    list.Add(DataManager.traps[i]["ID"].ToString(), (int)DataManager.traps[i]["Prob"]);
+                }
             }
         }
-        return traps;
+        return list;
     }
 
     private Vector3 GetRandomPos(Vector3 originPos)
@@ -166,28 +192,19 @@ public class SpawnManager : MonoBehaviour
         return new Vector3(x, originPos.y, z) + player.position;
     }
 
-    private bool CanSpawnMonster(int i)
+    private bool CanSpawn(int i, string type)
     {
-        if ((int)DataManager.monsters[i]["SpawnTime"] >= gameManager.GetTime()) return false;
-        return true;
-    }
-
-    private bool IsBoss(int i)
-    {
-        if (!DataManager.monsters[i]["Type"].ToString().Equals("boss")) return false;
-        return true;
-    }
-
-    private bool CanSpawnBoss(int i)
-    {
-        if (bossList.Contains(DataManager.monsters[i]["ID"].ToString())) return false;
-        return true;
-    }
-
-    private bool CanSpawnTrap(int i)
-    {
-        if ((int)DataManager.traps[i]["SpawnTime"] >= gameManager.GetTime()) return false;
-        return true;
+        if (type == "monster")
+        {
+            if ((int)DataManager.monsters[i]["SpawnTime"] <= gameManager.GetTime()) return true;
+            else return false;
+        }
+        else if (type == "trap")
+        {
+            if ((int)DataManager.traps[i]["SpawnTime"] <= gameManager.GetTime()) return true;
+            else return false;
+        }
+        return false;
     }
 
     public void OnBossDeath(string id)
