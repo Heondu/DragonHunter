@@ -20,6 +20,8 @@ public class Monster : MonoBehaviour, ILivingEntity
     protected Transform target;
     protected Animator animator;
     protected SpriteRenderer sr;
+    private CapsuleCollider cc;
+    private SpriteSetup ss;
 
     [SerializeField]
     protected Skill[] skills;
@@ -33,6 +35,9 @@ public class Monster : MonoBehaviour, ILivingEntity
         pathFinder = GetComponent<PathFinder>();
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        cc = GetComponent<CapsuleCollider>();
+        ss = GetComponent<SpriteSetup>();
+        ss.SetupShadow(new Vector3(cc.radius * 2, cc.radius, 1), transform);
 
         target = FindObjectOfType<Player>().transform;
         pathFinder.SetTarget(target);

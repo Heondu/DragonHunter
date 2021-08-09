@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CardManager : MonoBehaviour
@@ -19,6 +20,8 @@ public class CardManager : MonoBehaviour
     private Player player;
     [SerializeField]
     private SpawnManager spawnManager;
+    private List<Dictionary<string, object>> spawnableCards;
+    private List<Dictionary<string, object>> spawnableSpecialCards;
 
     public int Penetrate { get; private set; } = 1;
     public int Repeat { get; private set; } = 1;
@@ -32,22 +35,35 @@ public class CardManager : MonoBehaviour
         Time.timeScale = 0;
         panelCard.SetActive(true);
 
+        if (spawnableCards == null)
+        {
+            spawnableCards = new List<Dictionary<string, object>>();
+            spawnableCards = DataManager.cards;
+        }
+
+        List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();
+        for (int i = 0; i < spawnableCards.Count; i++)
+        {
+            list.Add(spawnableCards[i]);
+        }
+
         for (int i = 0; i < 3; i++)
         {
             int sumOfProb = 0;
-            for (int j = 0; j < DataManager.cards.Count; j++)
+            for (int j = 0; j < list.Count; j++)
             {
-                sumOfProb += (int)DataManager.cards[j]["Prob"];
+                sumOfProb += (int)list[j]["Prob"];
             }
 
             int rand = Random.Range(0, sumOfProb);
             int sum = 0;
-            for (int j = 0; j < DataManager.cards.Count; j++)
+            for (int j = 0; j < list.Count; j++)
             {
-                sum += (int)DataManager.cards[j]["Prob"];
+                sum += (int)list[j]["Prob"];
                 if (rand < sum)
                 {
-                    cardViewers[i].SetCard(DataManager.cards[j]["ID"].ToString());
+                    cardViewers[i].SetCard(list[j]["ID"].ToString());
+                    if (list.Count > 1) list.RemoveAt(j);
                     break;
                 }
             }
@@ -60,22 +76,35 @@ public class CardManager : MonoBehaviour
         Time.timeScale = 0;
         panelSpecialCard.SetActive(true);
 
+        if (spawnableSpecialCards == null)
+        {
+            spawnableSpecialCards = new List<Dictionary<string, object>>();
+            spawnableSpecialCards = DataManager.specialCards;
+        }
+
+        List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();
+        for (int i = 0; i < spawnableSpecialCards.Count; i++)
+        {
+            list.Add(spawnableSpecialCards[i]);
+        }
+
         for (int i = 0; i < 3; i++)
         {
             int sumOfProb = 0;
-            for (int j = 0; j < DataManager.specialCards.Count; j++)
+            for (int j = 0; j < list.Count; j++)
             {
-                sumOfProb += (int)DataManager.specialCards[j]["Prob"];
+                sumOfProb += (int)list[j]["Prob"];
             }
 
             int rand = Random.Range(0, sumOfProb);
             int sum = 0;
-            for (int j = 0; j < DataManager.specialCards.Count; j++)
+            for (int j = 0; j < list.Count; j++)
             {
-                sum += (int)DataManager.specialCards[j]["Prob"];
+                sum += (int)list[j]["Prob"];
                 if (rand < sum)
                 {
-                    specialCardViewers[i].SetCard(DataManager.specialCards[j]["ID"].ToString());
+                    specialCardViewers[i].SetCard(list[j]["ID"].ToString());
+                    if (list.Count > 1) list.RemoveAt(j);
                     break;
                 }
             }
@@ -145,6 +174,36 @@ public class CardManager : MonoBehaviour
             case "spcard009":
                 StatusManager.GetStatus("score").AddModifier(new StatusModifier(30, StatusModType.PercentAdd));
                 break;
+        }
+
+        if (spawnableCards != null)
+        {
+            for (int i = 0; i < spawnableCards.Count; i++)
+            {
+                if (spawnableCards[i]["ID"].ToString() == id)
+                {
+                    if (spawnableCards[i]["OnlyOnce"].ToString() == "TRUE")
+                    {
+                        spawnableCards.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (spawnableSpecialCards != null)
+        {
+            for (int i = 0; i < spawnableSpecialCards.Count; i++)
+            {
+                if (spawnableSpecialCards[i]["ID"].ToString() == id)
+                {
+                    if (spawnableSpecialCards[i]["OnlyOnce"].ToString() == "TRUE")
+                    {
+                        spawnableSpecialCards.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
         }
 
         panelCard.SetActive(false);

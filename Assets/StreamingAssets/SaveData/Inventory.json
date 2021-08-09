@@ -1,0 +1,37 @@
+{
+    "weapon": {
+        "id": "",
+        "lv": 0,
+        "itemType": "",
+        "statType": "",
+        "amount": {
+            "Name": "",
+            "LV": 0,
+            "BaseValue": 0.0
+        }
+    },
+    "armor": {
+        "id": "",
+        "lv": 0,
+        "itemType": "",
+        "statType": "",
+        "amount": {
+            "Name": "",
+            "LV": 0,
+            "BaseValue": 0.0
+        }
+    },
+    "itemList": [
+        {
+            "id": "weapon002",
+            "lv": 0,
+            "itemType": "weapon",
+            "statType": "atk",
+            "amount": {
+                "Name": "atk",
+                "LV": 0,
+                "BaseValue": 120.0
+            }
+        }
+    ]
+}

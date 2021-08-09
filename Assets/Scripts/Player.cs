@@ -17,6 +17,8 @@ public class Player : MonoBehaviour, ILivingEntity
 
     private Animator animator;
     private SpriteRenderer sr;
+    private CapsuleCollider cc;
+    private SpriteSetup ss;
 
     [SerializeField]
     private List<Skill> skills = new List<Skill>();
@@ -34,6 +36,9 @@ public class Player : MonoBehaviour, ILivingEntity
 
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        cc = GetComponent<CapsuleCollider>();
+        ss = GetComponent<SpriteSetup>();
+        ss.SetupShadow(new Vector3(cc.radius * 2, cc.radius, 1), transform);
     }
 
     private void Update()
