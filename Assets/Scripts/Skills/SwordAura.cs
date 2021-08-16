@@ -6,10 +6,12 @@ public class SwordAura : Skill
     [SerializeField]
     private GameObject projectile;
 
-    public override void Attack(SkillData skillData)
+    public override bool Attack(SkillData skillData)
     {
-        if (skillData.dir == Vector3.zero) return;
+        if (skillData.dir == Vector3.zero) return false;
         StartCoroutine("AttackCo", skillData);
+
+        return true;
     }
 
     private IEnumerator AttackCo(SkillData skillData)

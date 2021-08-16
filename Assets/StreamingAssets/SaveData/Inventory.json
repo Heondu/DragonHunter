@@ -32,6 +32,17 @@
                 "LV": 0,
                 "BaseValue": 120.0
             }
+        },
+        {
+            "id": "armor005",
+            "lv": 1,
+            "itemType": "armor",
+            "statType": "hp",
+            "amount": {
+                "Name": "hp",
+                "LV": 1,
+                "BaseValue": 340.0
+            }
         }
     ]
 }

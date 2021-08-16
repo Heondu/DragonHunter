@@ -34,4 +34,16 @@ public class MonsterMelee : Monster
 
         ObjectPooler.ObjectInactive(ObjectPooler.skillHolder, gameObject);
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            ILivingEntity entity = other.gameObject.GetComponent<ILivingEntity>();
+            if (entity != null)
+            {
+                entity.TakeDamage(GetSkillData().damage);
+            }
+        }
+    }
 }

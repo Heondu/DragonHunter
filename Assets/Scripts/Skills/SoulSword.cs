@@ -23,7 +23,7 @@ public class SoulSword : Skill
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
             for (int i = 0; i < bounds.Length; i++)
             {
-                bounds[i].Init(entity.GetSkillData());
+                bounds[i].Init(entity.GetSkillData(), -1, false);
             }
 
             yield return null;

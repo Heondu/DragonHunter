@@ -2,30 +2,17 @@ using UnityEngine;
 
 public class MonsterMeleeSkill : Skill
 {
-    private ILivingEntity entity;
-    private SkillData skillData;
+    [SerializeField]
+    private GameObject attackBounds;
 
-    private void Start()
+    public override bool Attack(SkillData skillData)
     {
-        entity = GetComponentInParent<ILivingEntity>();
-    }
-
-    private void Update()
-    {
-        skillData = entity.GetSkillData();
+        Vector3 pos = new Vector3(skillData.caster.transform.position.x, attackBounds.transform.position.y, skillData.caster.transform.position.z);
         float angle = Mathf.Atan2(skillData.dir.z, skillData.dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
-    }
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
+        GameObject clone = ObjectPooler.ObjectPool(ObjectPooler.skillHolder, attackBounds, pos, rotation, skillData.caster.transform);
+        clone.GetComponent<AttackBounds>().Init(skillData, 0.2f, true);
 
-    private void OnTriggerEnter(Collider other)
-    {
-        skillData = this.entity.GetSkillData();
-        if (other.CompareTag(skillData.casterTag)) return;
-
-        ILivingEntity entity = other.GetComponent<ILivingEntity>();
-        if (entity != null)
-        {
-            entity.TakeDamage(skillData.damage);
-        }
+        return true;
     }
 }

@@ -2620,6 +2620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 641160925}
+  IsBossSpawn: 0
   spawnTime: 1
   distance: 11
   CanTrapSpawn: 1

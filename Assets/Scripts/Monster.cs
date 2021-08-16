@@ -12,6 +12,7 @@ public class Monster : MonoBehaviour, ILivingEntity
     protected int speed;
     protected int atkSpeed;
     protected int spawnTime;
+    private bool attackImmediately;
     [SerializeField]
     protected float attackRange = 1;
     protected State state = State.None;
@@ -41,21 +42,20 @@ public class Monster : MonoBehaviour, ILivingEntity
 
         target = FindObjectOfType<Player>().transform;
         pathFinder.SetTarget(target);
-
-        for (int i = 0; i < skills.Length; i++)
-        {
-            skills[i] = Instantiate(skills[i], transform);
-        }
     }
 
     protected virtual void Update()
     {
         if (state == State.None)
         {
-            if (attackRange - 1 < Vector3.Distance(target.position, transform.position))
-                Move(true);
+            if (attackRange - 0.5f < Vector3.Distance(target.position, transform.position))
+            {
+                Move();
+            }
             else
+            {
                 Attack();
+            }
         }
     }
 
@@ -69,19 +69,17 @@ public class Monster : MonoBehaviour, ILivingEntity
         speed = 1;
         atkSpeed = 1;
         spawnTime = (int)data["SpawnTime"];
+        attackImmediately = true;
     }
 
-    protected virtual void Move(bool chase)
+    protected virtual void Move()
     {
-        if (chase)
+        Vector3 dir = pathFinder.GetMoveDir(target.position - transform.position);
+        transform.position += dir * speed * Time.deltaTime;
+        if (dir != Vector3.zero)
         {
-            Vector3 dir = pathFinder.GetMoveDir(target.position - transform.position);
-            transform.position += dir * speed * Time.deltaTime;
-            if (dir != Vector3.zero)
-            {
-                animator.SetBool("IsMove", true);
-                sr.flipX = dir.x > 0;
-            }
+            animator.SetBool("IsMove", true);
+            sr.flipX = dir.x > 0;
         }
     }
 
@@ -89,10 +87,16 @@ public class Monster : MonoBehaviour, ILivingEntity
     {
         for (int i = 0; i < skills.Length; i++)
         {
-            if (skills[i].timer.GetTimer(skills[i].delay))
+            if (attackImmediately || skills[i].timer.GetTimer(skills[i].delay))
             {
-                skills[i].Attack(GetSkillData());
-                animator.SetTrigger("Attack");
+                if (skills[i].Attack(GetSkillData()))
+                {
+                    attackImmediately = false;
+                    if (i == 0)
+                    {
+                        animator.SetTrigger("Attack");
+                    }
+                }
             }
         }
     }
@@ -161,6 +165,7 @@ public class Monster : MonoBehaviour, ILivingEntity
     {
         Transform target = FindTarget(attackRange);
         SkillData skillData = new SkillData();
+        skillData.caster = gameObject;
         skillData.casterTag = gameObject.tag;
         skillData.damage = atk;
         skillData.dir = target == null ? Vector3.zero : (target.position - transform.position).normalized;

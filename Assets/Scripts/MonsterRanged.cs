@@ -12,20 +12,6 @@ public class MonsterRanged : Monster
         hpBar.SetActive(true);
     }
 
-    protected override void Update()
-    {
-        if (state == State.None)
-        {
-            if (attackRange / 2 < Vector3.Distance(target.position, transform.position))
-                Move(true);
-            else
-            {
-                Attack();
-                Move(true);
-            }
-        }
-    }
-
     private void OnBecameInvisible()
     {
         if (gameObject.activeSelf)
@@ -53,6 +39,7 @@ public class MonsterRanged : Monster
     {
         Transform target = FindTarget(attackRange);
         SkillData skillData = new SkillData();
+        skillData.caster = gameObject;
         skillData.casterTag = gameObject.tag;
         skillData.damage = atk;
         if (target == null)

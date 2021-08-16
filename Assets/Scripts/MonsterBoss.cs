@@ -2,20 +2,6 @@ using UnityEngine;
 
 public class MonsterBoss : Monster
 {
-    protected override void Update()
-    {
-        if (state == State.None)
-        {
-            if (attackRange / 2 < Vector3.Distance(target.position, transform.position))
-                Move(true);
-            else
-            {
-                Attack();
-                Move(true);
-            }
-        }
-    }
-
     protected override void OnDeath()
     {
         base.OnDeath();
@@ -26,6 +12,7 @@ public class MonsterBoss : Monster
     {
         Transform target = FindTarget(attackRange);
         SkillData skillData = new SkillData();
+        skillData.caster = gameObject;
         skillData.casterTag = gameObject.tag;
         skillData.damage = atk;
         if (target == null)

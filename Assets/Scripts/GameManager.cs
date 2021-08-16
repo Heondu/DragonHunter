@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private float tElapsed = 0;
     public float speed = 1;
 
-    [SerializeField] private SpawnManager spawnManager;
+    public SpawnManager spawnManager;
     [SerializeField] private CameraController cameraController;
     [SerializeField] private BackgroundScroller backgroundScroller;
     [SerializeField] private CardManager cardManager;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (SpawnManager.IsBossSpawn == false)
+        if (spawnManager.IsBossSpawn == false)
         {
             tElapsed += Time.deltaTime * StatusManager.GetStatus("dungeonSpeed").Value * speed;
         }

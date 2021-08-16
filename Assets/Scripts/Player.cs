@@ -14,6 +14,7 @@ public class Player : MonoBehaviour, ILivingEntity
     public bool backAttack = false;
     private float attackRange = 6;
     private State state = State.None;
+    private bool attackImmediately = true;
 
     private Animator animator;
     private SpriteRenderer sr;
@@ -63,10 +64,16 @@ public class Player : MonoBehaviour, ILivingEntity
     {
         for (int i = 0; i < skills.Count; i++)
         {
-            if (skills[i].timer.GetTimer(skills[i].delay))
+            if (attackImmediately || skills[i].timer.GetTimer(skills[i].delay))
             {
-                skills[i].Attack(GetSkillData());
-                //animator.SetTrigger("Attack");
+                if (skills[i].Attack(GetSkillData()))
+                {
+                    attackImmediately = false;
+                    if (i == 0)
+                    {
+                        animator.SetTrigger("Attack");
+                    }
+                }
             }
         }
     }
@@ -130,6 +137,7 @@ public class Player : MonoBehaviour, ILivingEntity
     {
         Transform target = FindTarget(attackRange);
         SkillData skillData = new SkillData();
+        skillData.caster = gameObject;
         skillData.casterTag = gameObject.tag;
         skillData.damage = (int)StatusManager.GetStatus("atk").Value;
         skillData.dir = target == null ? Vector3.zero : (target.position - transform.position).normalized;
