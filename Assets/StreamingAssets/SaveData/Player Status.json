@@ -1,0 +1,59 @@
+{
+    "data": [
+        {
+            "Name": "atk",
+            "LV": 2,
+            "BaseValue": 5.0
+        },
+        {
+            "Name": "skillDamage",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "hp",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "def",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "critChance",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "critDamage",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "dungeonSpeed",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "speed",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "atkSpeed",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "range",
+            "LV": 1,
+            "BaseValue": 0.0
+        },
+        {
+            "Name": "score",
+            "LV": 1,
+            "BaseValue": 0.0
+        }
+    ]
+}
