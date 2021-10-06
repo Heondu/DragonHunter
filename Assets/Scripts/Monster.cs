@@ -27,8 +27,6 @@ public class Monster : MonoBehaviour, ILivingEntity
     [SerializeField]
     protected Skill[] skills;
     [SerializeField]
-    protected Skill poisonExplosion;
-    [SerializeField]
     protected GameObject[] marbles;
 
     protected virtual void Start()
@@ -123,6 +121,8 @@ public class Monster : MonoBehaviour, ILivingEntity
 
     public void TakeDamage(int damage)
     {
+        if (hp == 0) return;
+
         hp = Mathf.Max(0, hp - damage);
         FloatingDamageManager.Instance.FloatingDamage(gameObject, damage.ToString(), DamageType.Normal);
 
@@ -137,9 +137,7 @@ public class Monster : MonoBehaviour, ILivingEntity
     {
         if (CardManager.Instance.PoisonExplosion)
         {
-            Vector3 pos = new Vector3(transform.position.x, poisonExplosion.transform.position.y, transform.position.z);
-            GameObject clone = ObjectPooler.ObjectPool(ObjectPooler.skillHolder, poisonExplosion.gameObject, pos, poisonExplosion.transform.rotation);
-            clone.GetComponent<Skill>().Attack(GetSkillData());
+            CardManager.Instance.GetPoisonExplosion.GetComponent<PoisonExplosion>().Attack(GetSkillData());
         }
 
         Dictionary<string, object> data = DataManager.monsters.FindDic("ID", id);

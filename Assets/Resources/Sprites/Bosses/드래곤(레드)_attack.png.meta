@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: 2391148882513127940
     second: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_attack_2"
+  - first:
+      213: -5194876102030225055
+    second: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_attack_3"
+  - first:
+      213: 367479925010799405
+    second: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_attack_4"
+  - first:
+      213: 8565863666412905604
+    second: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_attack_5"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -42,19 +51,19 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -115,12 +124,12 @@ TextureImporter:
       name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_attack_0"
       rect:
         serializedVersion: 2
-        x: 105
-        y: 98
-        width: 111
-        height: 149
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,12 +145,12 @@ TextureImporter:
       name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_attack_1"
       rect:
         serializedVersion: 2
-        x: 388
-        y: 93
-        width: 145
-        height: 119
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,12 +166,12 @@ TextureImporter:
       name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_attack_2"
       rect:
         serializedVersion: 2
-        x: 688
-        y: 91
-        width: 145
-        height: 119
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,10 +183,73 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_attack_3"
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 161925675b718e7b0800000000000000
+      internalID: -5194876102030225055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_attack_4"
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b1b587b0d891500800000000000000
+      internalID: 367479925010799405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_attack_5"
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48467f6ee9f00e670800000000000000
+      internalID: 8565863666412905604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ce140d0d70447114eb589e18f9bf5b64
+    spriteID: d36e232eaf0eedc4db967c693897ed29
     internalID: 0
     vertices: []
     indices: 

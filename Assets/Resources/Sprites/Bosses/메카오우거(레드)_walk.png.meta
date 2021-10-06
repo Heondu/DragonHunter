@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: -2800749637744919338
     second: "\uBA54\uCE74\uC624\uC6B0\uAC70(\uB808\uB4DC)_walk_3"
+  - first:
+      213: -6466110567976990793
+    second: "\uBA54\uCE74\uC624\uC6B0\uAC70(\uB808\uB4DC)_walk_4"
+  - first:
+      213: -5680963401263092247
+    second: "\uBA54\uCE74\uC624\uC6B0\uAC70(\uB808\uB4DC)_walk_5"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -45,19 +51,19 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -118,12 +124,12 @@ TextureImporter:
       name: "\uBA54\uCE74\uC624\uC6B0\uAC70(\uB808\uB4DC)_walk_0"
       rect:
         serializedVersion: 2
-        x: 73
-        y: 56
-        width: 74
-        height: 76
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,12 +145,12 @@ TextureImporter:
       name: "\uBA54\uCE74\uC624\uC6B0\uAC70(\uB808\uB4DC)_walk_1"
       rect:
         serializedVersion: 2
-        x: 273
-        y: 56
-        width: 74
-        height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,12 +166,12 @@ TextureImporter:
       name: "\uBA54\uCE74\uC624\uC6B0\uAC70(\uB808\uB4DC)_walk_2"
       rect:
         serializedVersion: 2
-        x: 473
-        y: 56
-        width: 74
-        height: 76
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 400
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,12 +187,12 @@ TextureImporter:
       name: "\uBA54\uCE74\uC624\uC6B0\uAC70(\uB808\uB4DC)_walk_3"
       rect:
         serializedVersion: 2
-        x: 673
-        y: 56
-        width: 74
-        height: 77
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 600
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,10 +204,52 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\uBA54\uCE74\uC624\uC6B0\uAC70(\uB808\uB4DC)_walk_4"
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b7055582b2c346a0800000000000000
+      internalID: -6466110567976990793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uBA54\uCE74\uC624\uC6B0\uAC70(\uB808\uB4DC)_walk_5"
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ede7b5b2e92921b0800000000000000
+      internalID: -5680963401263092247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c4dd78b1818975341924c50ebd928591
+    spriteID: d67522b92d39aa2429f1df2359fcb858
     internalID: 0
     vertices: []
     indices: 

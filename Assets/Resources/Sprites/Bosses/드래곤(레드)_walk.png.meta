@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: 252073947642637529
     second: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_walk_3"
+  - first:
+      213: 1879203390436315931
+    second: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_walk_4"
+  - first:
+      213: 4730514456625588250
+    second: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_walk_5"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -45,19 +51,19 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -118,12 +124,12 @@ TextureImporter:
       name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_walk_0"
       rect:
         serializedVersion: 2
-        x: 105
-        y: 92
-        width: 111
-        height: 152
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,12 +145,12 @@ TextureImporter:
       name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_walk_1"
       rect:
         serializedVersion: 2
-        x: 388
-        y: 91
-        width: 145
-        height: 134
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,12 +166,12 @@ TextureImporter:
       name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_walk_2"
       rect:
         serializedVersion: 2
-        x: 705
-        y: 92
-        width: 111
-        height: 152
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,12 +187,12 @@ TextureImporter:
       name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_walk_3"
       rect:
         serializedVersion: 2
-        x: 988
-        y: 91
-        width: 145
-        height: 134
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,10 +204,52 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_walk_4"
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b139aa3f685441a10800000000000000
+      internalID: 1879203390436315931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_walk_5"
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a18a400c5d926a140800000000000000
+      internalID: 4730514456625588250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e680969a17a7232488dae39a2e14abdf
+    spriteID: 15865f0820d577646b34001dc76d907d
     internalID: 0
     vertices: []
     indices: 

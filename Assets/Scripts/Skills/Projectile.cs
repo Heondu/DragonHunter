@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] protected GameObject hitEffect;
+
     public SkillData skillData;
     private int speed;
 
@@ -36,6 +38,10 @@ public class Projectile : MonoBehaviour
     protected virtual void Attack(ILivingEntity entity)
     {
         entity.TakeDamage(skillData.damage);
+        if (hitEffect != null)
+        {
+            ObjectPooler.ObjectPool(ObjectPooler.effectHolder, hitEffect, transform.position, Quaternion.identity);
+        }
     }
 
     private void OnBecameInvisible()

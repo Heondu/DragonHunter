@@ -42,11 +42,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -115,12 +115,12 @@ TextureImporter:
       name: "\uC624\uC6B0\uAC70(\uB9C8\uBC95\uC0AC)_attack_0"
       rect:
         serializedVersion: 2
-        x: 53
-        y: 56
-        width: 92
-        height: 114
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,12 +136,12 @@ TextureImporter:
       name: "\uC624\uC6B0\uAC70(\uB9C8\uBC95\uC0AC)_attack_1"
       rect:
         serializedVersion: 2
-        x: 252
-        y: 55
-        width: 93
-        height: 83
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 200
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,12 +157,12 @@ TextureImporter:
       name: "\uC624\uC6B0\uAC70(\uB9C8\uBC95\uC0AC)_attack_2"
       rect:
         serializedVersion: 2
-        x: 452
-        y: 56
-        width: 93
-        height: 83
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 400
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

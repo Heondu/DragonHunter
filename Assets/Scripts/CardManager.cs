@@ -29,6 +29,8 @@ public class CardManager : MonoBehaviour
     public bool BackAttack { get; private set; } = false;
     public bool PoisonExplosion { get; private set; } = false;
 
+    public GameObject GetPoisonExplosion => Resources.Load<GameObject>("Prefabs/Skills/Skill_PoisonExplosion");
+
     [ContextMenu("Show Card")]
     public void ShowCard()
     {
@@ -148,25 +150,25 @@ public class CardManager : MonoBehaviour
                 spawnManager.CanTrapSpawn = false;
                 break;
             case "spcard001":
-                player.AddSkill("SoulSword");
+                player.AddSkill("Skill_SoulSword");
                 break;
             case "spcard002":
-                player.AddSkill("SoulShield");
+                player.AddSkill("Skill_SoulShield");
                 break;
             case "spcard003":
-                player.AddSkill("Fireball");
+                player.AddSkill("Skill_Fireball");
                 break;
             case "spcard004":
                 player.Restore(100, 1);
                 break;
             case "spcard005":
-                player.AddSkill("Lightning");
+                player.AddSkill("Skill_Lightning");
                 break;
             case "spcard006":
-                player.AddSkill("Frozen");
+                player.AddSkill("Skill_Frozen");
                 break;
             case "spcard007":
-                player.AddSkill("PenetratingBeam");
+                player.AddSkill("Skill_Beam");
                 break;
             case "spcard008":
                 PoisonExplosion = true;

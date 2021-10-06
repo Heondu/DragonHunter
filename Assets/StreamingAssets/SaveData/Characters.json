@@ -15,8 +15,8 @@
         },
         {
             "ID": "character003",
-            "LV": 1,
-            "IsLock": true,
+            "LV": 2,
+            "IsLock": false,
             "list": {}
         },
         {
@@ -28,13 +28,13 @@
         {
             "ID": "character005",
             "LV": 1,
-            "IsLock": true,
+            "IsLock": false,
             "list": {}
         },
         {
             "ID": "character006",
             "LV": 1,
-            "IsLock": true,
+            "IsLock": false,
             "list": {}
         }
     ]

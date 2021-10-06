@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: 7515904562025467533
     second: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_idle_2"
+  - first:
+      213: 1663224644552297339
+    second: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_idle_3"
+  - first:
+      213: -720798879067953999
+    second: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_idle_4"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -42,19 +48,19 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 7
-  spritePivot: {x: 0.5, y: 0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -115,12 +121,12 @@ TextureImporter:
       name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_idle_0"
       rect:
         serializedVersion: 2
-        x: 88
-        y: 93
-        width: 145
-        height: 134
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,12 +142,12 @@ TextureImporter:
       name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_idle_1"
       rect:
         serializedVersion: 2
-        x: 394
-        y: 90
-        width: 133
-        height: 134
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,12 +163,12 @@ TextureImporter:
       name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_idle_2"
       rect:
         serializedVersion: 2
-        x: 705
-        y: 92
-        width: 111
-        height: 152
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,10 +180,52 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_idle_3"
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7b07388006f41710800000000000000
+      internalID: 1663224644552297339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uB4DC\uB798\uACE4(\uB808\uB4DC)_idle_4"
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 300
+        height: 300
+      alignment: 9
+      pivot: {x: 0.535, y: 0.24}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4a7aa0d353ff5f0800000000000000
+      internalID: -720798879067953999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6be3791fdf1fee1418a622a85b645ee2
+    spriteID: 9b59160ada22587439ee160f6be78b3e
     internalID: 0
     vertices: []
     indices: 

@@ -11,6 +11,12 @@ TextureImporter:
   - first:
       213: 1814285325097368277
     second: "\uC624\uD06C(\uCC3D)_idle_2"
+  - first:
+      213: 5026204848795645711
+    second: "\uC624\uD06C(\uCC3D)_idle_3"
+  - first:
+      213: 7076689888624253065
+    second: "\uC624\uD06C(\uCC3D)_idle_4"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -42,11 +48,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -115,12 +121,12 @@ TextureImporter:
       name: "\uC624\uD06C(\uCC3D)_idle_0"
       rect:
         serializedVersion: 2
-        x: 65
-        y: 72
-        width: 87
-        height: 56
+        x: 0
+        y: 0
+        width: 200
+        height: 200
       alignment: 9
-      pivot: {x: 0.55, y: 0}
+      pivot: {x: 0.58, y: 0.36}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,12 +142,12 @@ TextureImporter:
       name: "\uC624\uD06C(\uCC3D)_idle_1"
       rect:
         serializedVersion: 2
-        x: 265
-        y: 72
-        width: 87
-        height: 55
+        x: 200
+        y: 0
+        width: 200
+        height: 200
       alignment: 9
-      pivot: {x: 0.55, y: 0}
+      pivot: {x: 0.58, y: 0.36}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,12 +163,12 @@ TextureImporter:
       name: "\uC624\uD06C(\uCC3D)_idle_2"
       rect:
         serializedVersion: 2
-        x: 465
-        y: 72
-        width: 87
-        height: 55
+        x: 400
+        y: 0
+        width: 200
+        height: 200
       alignment: 9
-      pivot: {x: 0.55, y: 0}
+      pivot: {x: 0.58, y: 0.36}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,10 +180,52 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\uC624\uD06C(\uCC3D)_idle_3"
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.58, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f077fc41eaaa0c540800000000000000
+      internalID: 5026204848795645711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uC624\uD06C(\uCC3D)_idle_4"
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.58, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9881c05b5f3753260800000000000000
+      internalID: 7076689888624253065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 21575aafb67c3f842bdf0ef2c6bd2991
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: -1443321709638385012
     second: "\uC624\uC6B0\uAC70(\uBABD\uB465\uC774)_attack_2"
+  - first:
+      213: -8505063078158964725
+    second: "\uC624\uC6B0\uAC70(\uBABD\uB465\uC774)_attack_3"
+  - first:
+      213: -6669252286599614130
+    second: "\uC624\uC6B0\uAC70(\uBABD\uB465\uC774)_attack_4"
+  - first:
+      213: 4184167129435211049
+    second: "\uC624\uC6B0\uAC70(\uBABD\uB465\uC774)_attack_5"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -42,11 +51,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -115,12 +124,12 @@ TextureImporter:
       name: "\uC624\uC6B0\uAC70(\uBABD\uB465\uC774)_attack_0"
       rect:
         serializedVersion: 2
-        x: 84
-        y: 56
-        width: 61
-        height: 103
+        x: 0
+        y: 0
+        width: 200
+        height: 200
       alignment: 9
-      pivot: {x: 0.4, y: 0}
+      pivot: {x: 0.52, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,12 +145,12 @@ TextureImporter:
       name: "\uC624\uC6B0\uAC70(\uBABD\uB465\uC774)_attack_1"
       rect:
         serializedVersion: 2
-        x: 241
-        y: 56
-        width: 104
-        height: 76
+        x: 200
+        y: 0
+        width: 200
+        height: 200
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.52, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,12 +166,12 @@ TextureImporter:
       name: "\uC624\uC6B0\uAC70(\uBABD\uB465\uC774)_attack_2"
       rect:
         serializedVersion: 2
-        x: 441
-        y: 56
-        width: 104
-        height: 71
+        x: 400
+        y: 0
+        width: 200
+        height: 200
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.52, y: 0.28}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,10 +183,73 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "\uC624\uC6B0\uAC70(\uBABD\uB465\uC774)_attack_3"
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b086b023132f7f980800000000000000
+      internalID: -8505063078158964725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uC624\uC6B0\uAC70(\uBABD\uB465\uC774)_attack_4"
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e41b4cb616e0273a0800000000000000
+      internalID: -6669252286599614130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\uC624\uC6B0\uAC70(\uBABD\uB465\uC774)_attack_5"
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 200
+        height: 200
+      alignment: 9
+      pivot: {x: 0.52, y: 0.28}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9250ad6e5d5211a30800000000000000
+      internalID: 4184167129435211049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2a8ab266e00095840a729f99d8e69917
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

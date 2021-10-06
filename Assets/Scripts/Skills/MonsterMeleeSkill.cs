@@ -11,7 +11,7 @@ public class MonsterMeleeSkill : Skill
         float angle = Mathf.Atan2(skillData.dir.z, skillData.dir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
         GameObject clone = ObjectPooler.ObjectPool(ObjectPooler.skillHolder, attackBounds, pos, rotation, skillData.caster.transform);
-        clone.GetComponent<AttackBounds>().Init(skillData, 0.2f, true);
+        clone.GetComponent<AttackBounds>().Init(skillData, true);
 
         return true;
     }

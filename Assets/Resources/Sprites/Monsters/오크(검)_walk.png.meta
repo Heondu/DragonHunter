@@ -45,11 +45,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -118,12 +118,12 @@ TextureImporter:
       name: "\uC624\uD06C(\uAC80)_walk_0"
       rect:
         serializedVersion: 2
-        x: 75
-        y: 72
-        width: 68
-        height: 60
+        x: 0
+        y: 0
+        width: 200
+        height: 200
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.58, y: 0.36}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,12 +139,12 @@ TextureImporter:
       name: "\uC624\uD06C(\uAC80)_walk_1"
       rect:
         serializedVersion: 2
-        x: 275
-        y: 72
-        width: 68
-        height: 61
+        x: 200
+        y: 0
+        width: 200
+        height: 200
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.58, y: 0.36}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,12 +160,12 @@ TextureImporter:
       name: "\uC624\uD06C(\uAC80)_walk_2"
       rect:
         serializedVersion: 2
-        x: 475
-        y: 72
-        width: 68
-        height: 60
+        x: 400
+        y: 0
+        width: 200
+        height: 200
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.58, y: 0.36}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: "\uC624\uD06C(\uAC80)_walk_3"
       rect:
         serializedVersion: 2
-        x: 675
-        y: 72
-        width: 68
-        height: 61
+        x: 600
+        y: 0
+        width: 200
+        height: 200
       alignment: 9
-      pivot: {x: 0.6, y: 0}
+      pivot: {x: 0.58, y: 0.36}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,7 +201,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7a58c3a25fdbca74b9920fbf134f2849
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

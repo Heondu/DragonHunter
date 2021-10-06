@@ -45,11 +45,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -118,12 +118,12 @@ TextureImporter:
       name: "\uB9C8\uBC95\uC0AC(\uC5EC)_walk_0"
       rect:
         serializedVersion: 2
-        x: 39
-        y: 20
-        width: 40
-        height: 40
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 100
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -139,12 +139,12 @@ TextureImporter:
       name: "\uB9C8\uBC95\uC0AC(\uC5EC)_walk_1"
       rect:
         serializedVersion: 2
-        x: 139
-        y: 20
-        width: 40
-        height: 41
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 100
+        y: 0
+        width: 100
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,12 +160,12 @@ TextureImporter:
       name: "\uB9C8\uBC95\uC0AC(\uC5EC)_walk_2"
       rect:
         serializedVersion: 2
-        x: 239
-        y: 20
-        width: 40
-        height: 40
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 200
+        y: 0
+        width: 100
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: "\uB9C8\uBC95\uC0AC(\uC5EC)_walk_3"
       rect:
         serializedVersion: 2
-        x: 339
-        y: 20
-        width: 40
-        height: 41
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 9
+      pivot: {x: 0.6, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,7 +201,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 224a94eff7550df449d08a616e4d56f0
+    spriteID: 52718713a9297404982392a84935232a
     internalID: 0
     vertices: []
     indices: 

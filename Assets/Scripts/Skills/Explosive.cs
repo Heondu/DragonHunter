@@ -1,13 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class Explosive : MonoBehaviour
+public class Explosive : EffectAutoDestroyer
 {
-    private SkillData skillData;
+    protected SkillData skillData;
     [SerializeField]
-    private float radius = 3;
+    protected float radius = 1;
 
-    public void Explode(SkillData skillData, float destroyTime)
+    public virtual void Explode(SkillData skillData)
     {
         this.skillData = skillData;
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
@@ -20,7 +20,6 @@ public class Explosive : MonoBehaviour
                 Attack(entity);
             }
         }
-        StartCoroutine("DestroyTimer", destroyTime);
     }
 
     protected virtual void Attack(ILivingEntity entity)
@@ -31,12 +30,5 @@ public class Explosive : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
-    }
-
-    private IEnumerator DestroyTimer(float t)
-    {
-        yield return new WaitForSeconds(t);
-
-        ObjectPooler.ObjectInactive(ObjectPooler.skillHolder, gameObject);
     }
 }
