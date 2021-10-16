@@ -23,6 +23,9 @@ public class CardManager : MonoBehaviour
     private List<Dictionary<string, object>> spawnableCards;
     private List<Dictionary<string, object>> spawnableSpecialCards;
 
+    private List<int> cardSpawnCount;
+    private List<int> specialCardSpawnCount;
+
     public int Penetrate { get; private set; } = 1;
     public int Repeat { get; private set; } = 1;
     public bool DiagonalAttack { get; private set; } = false;
@@ -41,6 +44,11 @@ public class CardManager : MonoBehaviour
         {
             spawnableCards = new List<Dictionary<string, object>>();
             spawnableCards = DataManager.cards;
+            cardSpawnCount = new List<int>();
+            for (int i = 0; i < spawnableCards.Count; i++)
+            {
+                cardSpawnCount.Add(0);
+            }
         }
 
         List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();
@@ -82,6 +90,11 @@ public class CardManager : MonoBehaviour
         {
             spawnableSpecialCards = new List<Dictionary<string, object>>();
             spawnableSpecialCards = DataManager.specialCards;
+            specialCardSpawnCount = new List<int>();
+            for (int i = 0; i < spawnableSpecialCards.Count; i++)
+            {
+                specialCardSpawnCount.Add(0);
+            }
         }
 
         List<Dictionary<string, object>> list = new List<Dictionary<string, object>>();
@@ -184,7 +197,8 @@ public class CardManager : MonoBehaviour
             {
                 if (spawnableCards[i]["ID"].ToString() == id)
                 {
-                    if (spawnableCards[i]["OnlyOnce"].ToString() == "TRUE")
+                    cardSpawnCount[i]++;
+                    if ((int)spawnableCards[i]["MAX"] != -1 && cardSpawnCount[i] >= (int)spawnableCards[i]["MAX"])
                     {
                         spawnableCards.RemoveAt(i);
                         break;
@@ -199,7 +213,8 @@ public class CardManager : MonoBehaviour
             {
                 if (spawnableSpecialCards[i]["ID"].ToString() == id)
                 {
-                    if (spawnableSpecialCards[i]["OnlyOnce"].ToString() == "TRUE")
+                    specialCardSpawnCount[i]++;
+                    if ((int)spawnableSpecialCards[i]["MAX"] != -1 && specialCardSpawnCount[i] >= (int)spawnableSpecialCards[i]["MAX"])
                     {
                         spawnableSpecialCards.RemoveAt(i);
                         break;

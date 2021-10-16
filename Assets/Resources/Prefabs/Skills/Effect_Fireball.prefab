@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1069494065897729587}
   - component: {fileID: -4649303626039425955}
   - component: {fileID: -2104427271365294419}
+  - component: {fileID: 141673985258196405}
   m_Layer: 0
   m_Name: Effect_Fireball
   m_TagString: Untagged
@@ -146,6 +147,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &141673985258196405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799080914414633463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d6783a83cbc844c83de141a199667c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 2a5987df8ef6eeb4398d7d5b7430c03f, type: 3}
+  volume: 1
 --- !u!1001 &3624433171188153850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,6 +171,10 @@ PrefabInstance:
     - target: {fileID: 1815465942245314, guid: 2cba8f08683097b498117361c2776834, type: 3}
       propertyPath: m_Name
       value: vfx_Hit_Trail03_Red_Mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815465942245314, guid: 2cba8f08683097b498117361c2776834, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4636687428281092, guid: 2cba8f08683097b498117361c2776834, type: 3}
       propertyPath: m_RootOrder

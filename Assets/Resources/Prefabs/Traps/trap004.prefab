@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb92d38b894df394c87b1bc6a340f1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 6294030006563692308, guid: 60769579d3915f34e92b95e1bdcfbbe9, type: 3}
+  clip: {fileID: 8300000, guid: 66bd87791497f584fa4825c32a6d7c5a, type: 3}
 --- !u!95 &740963519
 Animator:
   serializedVersion: 3

@@ -38,6 +38,11 @@ public class Monster : MonoBehaviour, ILivingEntity
         ss = GetComponent<SpriteSetup>();
         ss.SetupShadow(new Vector3(cc.radius * 2, cc.radius, 1), transform);
 
+        for (int i = 0; i < skills.Length; i++)
+        {
+            skills[i] = Instantiate(skills[i], transform);
+        }
+
         target = FindObjectOfType<Player>().transform;
         pathFinder.SetTarget(target);
     }
@@ -79,10 +84,16 @@ public class Monster : MonoBehaviour, ILivingEntity
             animator.SetBool("IsMove", true);
             sr.flipX = dir.x > 0;
         }
+        else
+        {
+            animator.SetBool("IsMove", false);
+        }
     }
 
     protected virtual void Attack()
     {
+        animator.SetBool("IsMove", false);
+
         for (int i = 0; i < skills.Length; i++)
         {
             if (attackImmediately || skills[i].timer.GetTimer(skills[i].delay))
@@ -90,10 +101,7 @@ public class Monster : MonoBehaviour, ILivingEntity
                 if (skills[i].Attack(GetSkillData()))
                 {
                     attackImmediately = false;
-                    if (i == 0)
-                    {
-                        animator.SetTrigger("Attack");
-                    }
+                    animator.SetTrigger("Attack");
                 }
             }
         }
@@ -142,7 +150,7 @@ public class Monster : MonoBehaviour, ILivingEntity
 
         Dictionary<string, object> data = DataManager.monsters.FindDic("ID", id);
         int[] probs = { (int)data["BlueMarbleProb"], (int)data["YellowMarbleProb"] };
-
+        
         int rand = Random.Range(0, 100);
         int sumOfProb = 0;
         for (int i = 0; i < probs.Length; i++)

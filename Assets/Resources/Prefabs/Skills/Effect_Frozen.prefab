@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8158688300132921032}
   - component: {fileID: 1562272970610803061}
   - component: {fileID: 1465067650166003703}
+  - component: {fileID: -1106720176887737104}
   m_Layer: 0
   m_Name: Effect_Frozen
   m_TagString: Untagged
@@ -146,6 +147,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1106720176887737104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038915517418968352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d6783a83cbc844c83de141a199667c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 27ef64540b5902440877f93ae57fac20, type: 3}
+  volume: 1
 --- !u!1001 &5578184023540537540
 PrefabInstance:
   m_ObjectHideFlags: 0

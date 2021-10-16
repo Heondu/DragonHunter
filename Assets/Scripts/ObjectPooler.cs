@@ -106,4 +106,9 @@ public class ObjectPooler : MonoBehaviour
         obj.transform.SetParent(holder);
         obj.SetActive(false);
     }
+
+    public static bool CheckForDistance(float distance)
+    {
+        return distance > 15;
+    }
 }

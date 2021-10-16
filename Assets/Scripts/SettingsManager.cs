@@ -10,7 +10,7 @@ public class SettingsManager : MonoBehaviour
 
     private Language language = Language.korean;
     private float BGM_volume;
-    private float SE_volume;
+    private float SFX_volume;
     private bool VFX_toggle = true;
 
     private void Awake()
@@ -60,13 +60,13 @@ public class SettingsManager : MonoBehaviour
             BGM_volume = 0.7f;
         }
 
-        if (PlayerPrefs.HasKey("SE"))
+        if (PlayerPrefs.HasKey("SFX"))
         {
-            SE_volume = PlayerPrefs.GetFloat("SE");
+            SFX_volume = PlayerPrefs.GetFloat("SFX");
         }
         else
         {
-            SE_volume = 0.7f;
+            SFX_volume = 0.7f;
         }
 
         if (PlayerPrefs.HasKey("VFX"))
@@ -83,7 +83,7 @@ public class SettingsManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Language", (int)settingsManager.language);
         PlayerPrefs.SetFloat("BGM", settingsManager.BGM_volume);
-        PlayerPrefs.SetFloat("SE", settingsManager.SE_volume);
+        PlayerPrefs.SetFloat("SE", settingsManager.SFX_volume);
         PlayerPrefs.SetInt("VFX", System.Convert.ToInt32(settingsManager.VFX_toggle));
     }
 
@@ -93,28 +93,28 @@ public class SettingsManager : MonoBehaviour
         settingsManager.Resetting();
     }
 
-    public static float getBGM
+    public static float GetBGMVolume
     {
         get
         {
             return settingsManager.BGM_volume;
         }
     }
-    public static void setBGM(float value)
+    public static void SetBGMVolume(float value)
     {
         settingsManager.BGM_volume = value;
         SaveSettings();
     }
-    public static float getSE
+    public static float GetSFXVolume
     {
         get
         {
-            return settingsManager.SE_volume;
+            return settingsManager.SFX_volume;
         }
     }
-    public static void setSE(float value)
+    public static void SetSFXVolume(float value)
     {
-        settingsManager.SE_volume = value;
+        settingsManager.SFX_volume = value;
         SaveSettings();
     }
 

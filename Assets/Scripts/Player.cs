@@ -20,6 +20,7 @@ public class Player : MonoBehaviour, ILivingEntity
     private SpriteRenderer sr;
     private CapsuleCollider cc;
     private SpriteSetup ss;
+    private Joystick joystick;
 
     [SerializeField]
     private List<Skill> skills = new List<Skill>();
@@ -40,6 +41,7 @@ public class Player : MonoBehaviour, ILivingEntity
         cc = GetComponent<CapsuleCollider>();
         ss = GetComponent<SpriteSetup>();
         ss.SetupShadow(new Vector3(cc.radius * 2, cc.radius, 1), transform);
+        joystick = FindObjectOfType<Joystick>();
     }
 
     private void Update()
@@ -53,13 +55,15 @@ public class Player : MonoBehaviour, ILivingEntity
 
     private void Move()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float z = Input.GetAxisRaw("Vertical");
+        //float x = Input.GetAxisRaw("Horizontal");
+        //float z = Input.GetAxisRaw("Vertical");
+        float x = joystick.Horizontal;
+        float z = joystick.Vertical;
         transform.position += new Vector3(x, 0, z).normalized * StatusManager.GetStatus("speed").Value * Time.deltaTime;
         if (x != 0 || z != 0)
         {
             animator.SetBool("IsMove", true);
-            if (x != 0) sr.flipX = x > 0;
+            if (x != 0 && animator.GetCurrentAnimatorStateInfo(0).IsName("Walk")) sr.flipX = x > 0;
         }
         else
         {

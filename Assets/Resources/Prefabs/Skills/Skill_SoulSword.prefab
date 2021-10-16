@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3614300655049072295}
   - component: {fileID: 3614300655049072294}
+  - component: {fileID: -7068400502239188905}
   m_Layer: 0
   m_Name: Skill_SoulSword
   m_TagString: Untagged
@@ -171,6 +172,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   speed: 50
+--- !u!114 &-7068400502239188905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3614300655049072312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d6783a83cbc844c83de141a199667c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 9d5fb600fe944874194f40e069b78829, type: 3}
+  volume: 1
 --- !u!1 &3614300655466510187
 GameObject:
   m_ObjectHideFlags: 0

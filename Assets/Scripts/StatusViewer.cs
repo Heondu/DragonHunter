@@ -18,7 +18,7 @@ public class StatusViewer : MonoBehaviour
 
     private void Update()
     {
-        textStatus.text = $"{DataManager.Localization(name)}\nLV.{StatusManager.GetLevel(name)}\n{StatusManager.GetStatus(name).Value}";
+        textStatus.text = $"{DataManager.Localization(name)}\nLV.{StatusManager.GetLevel(name)}\n{StatusManager.GetStatus(name).Value}\nºñ¿ë : {StatusManager.GetPrice(name)}";
     }
 
     private void LevelUp()

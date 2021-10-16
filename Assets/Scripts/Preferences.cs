@@ -9,11 +9,11 @@ public class Preferences : MonoBehaviour
 
     public void SetBGM(float value)
     {
-        SettingsManager.setBGM(value);
+        SoundManager.Instance.SetBGMVolume(value);
     }
 
-    public void SetSE(float value)
+    public void SetSFX(float value)
     {
-        SettingsManager.setSE(value);
+        SoundManager.Instance.SetSFXVolume(value);
     }
 }

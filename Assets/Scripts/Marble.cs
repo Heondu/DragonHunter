@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public enum MarbleType { Blue, Yellow }
@@ -7,6 +6,12 @@ public class Marble : MonoBehaviour
 {
     [SerializeField]
     private MarbleType type;
+    private Transform player;
+
+    private void Start()
+    {
+        player = FindObjectOfType<Player>().transform;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,26 +23,11 @@ public class Marble : MonoBehaviour
         }
     }
 
-    private void OnBecameInvisible()
+    private void Update()
     {
-        if (gameObject.activeSelf)
-            StartCoroutine("InactiveTimer", 20);
-    }
-
-    private void OnBecameVisible()
-    {
-        StopCoroutine("InactiveTimer");
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine("InactiveTimer");
-    }
-
-    private IEnumerator InactiveTimer(float t)
-    {
-        yield return new WaitForSeconds(t);
-
-        ObjectPooler.ObjectInactive(ObjectPooler.itemHolder, gameObject);
+        if (ObjectPooler.CheckForDistance(Vector3.Distance(player.transform.position, transform.position)))
+        {
+            ObjectPooler.ObjectInactive(ObjectPooler.itemHolder, gameObject);
+        }
     }
 }

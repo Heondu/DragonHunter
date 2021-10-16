@@ -21,7 +21,7 @@ public class MonsterBoss : Monster
         }
         else
         {
-            Vector3 targetPos = target.position + new Vector3(Random.Range(-1f, 1f), target.position.y, Random.Range(-1f, 1f));
+            Vector3 targetPos = target.position;
             skillData.dir = (targetPos - transform.position).normalized;
         }
         skillData.penetrate = 1;

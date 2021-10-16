@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 1.5
   projectile: {fileID: 6758284432220646371, guid: 36b448ab5d05c904e9eac5fb9edb8939, type: 3}
+  speed: 3

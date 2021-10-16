@@ -99,7 +99,7 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnBoss(string id)
     {
-        GameObject prefab = Resources.Load<GameObject>("Prefabs/Monsters/" + id);
+        GameObject prefab = Resources.Load<GameObject>("Prefabs/Monsters/" + id + "_" + Random.Range(0, 3));
         Vector3 pos = GetRandomPos(prefab.transform.position);
         prefab = ObjectPooler.ObjectPool(ObjectPooler.monsterHolder, prefab, pos, prefab.transform.rotation);
         prefab.GetComponent<Monster>().Init(id);
@@ -211,6 +211,6 @@ public class SpawnManager : MonoBehaviour
     {
         wall.SetActive(false);
         IsBossSpawn = false;
-        if (id == "mon020") GameManager.Instance.GoToMain();
+        if (id == "mon020") GameManager.Instance.GameClear();
     }
 }

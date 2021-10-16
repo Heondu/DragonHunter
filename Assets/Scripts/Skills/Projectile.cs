@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -6,9 +5,9 @@ public class Projectile : MonoBehaviour
     [SerializeField] protected GameObject hitEffect;
 
     public SkillData skillData;
-    private int speed;
+    private float speed;
 
-    public void Init(SkillData _skillData, int _speed)
+    public void Init(SkillData _skillData, float _speed)
     {
         skillData = _skillData;
         speed = _speed;
@@ -17,6 +16,11 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
         transform.position += new Vector3(skillData.dir.x * speed * Time.deltaTime, skillData.dir.y * speed * Time.deltaTime, skillData.dir.z * speed * Time.deltaTime);
+
+        if (ObjectPooler.CheckForDistance(Vector3.Distance(skillData.caster.transform.position, transform.position)))
+        {
+            ObjectPooler.ObjectInactive(ObjectPooler.skillHolder, gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,28 +46,5 @@ public class Projectile : MonoBehaviour
         {
             ObjectPooler.ObjectPool(ObjectPooler.effectHolder, hitEffect, transform.position, Quaternion.identity);
         }
-    }
-
-    private void OnBecameInvisible()
-    {
-        if (gameObject.activeSelf)
-            StartCoroutine("InactiveTimer", 5);
-    }
-
-    private void OnBecameVisible()
-    {
-        StopCoroutine("InactiveTimer");
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine("InactiveTimer");
-    }
-
-    private IEnumerator InactiveTimer(float t)
-    {
-        yield return new WaitForSeconds(t);
-
-        ObjectPooler.ObjectInactive(ObjectPooler.skillHolder, gameObject);
     }
 }

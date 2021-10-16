@@ -48,6 +48,10 @@ public class StatusManager : MonoBehaviour
     {
         SaveData saveData = new SaveData();
         saveData.data = List.GetList();
+        for (int i = 0; i < saveData.data.Count; i++)
+        {
+            Debug.Log($"{saveData.data[i].Name} : {saveData.data[i].Value}");
+        }
         SaveManager.SaveToJson(saveData, SaveDataManager.saveFile[SaveFile.PlayerStatus]);
     }
 
@@ -65,10 +69,15 @@ public class StatusManager : MonoBehaviour
             {
                 string name = saveData.data[i].Name;
                 Dictionary<string, object> data = DataManager.status.FindDic("Name", name);
-                float value = (float)data["Default"] + (float)data["StatAmount"] * (saveData.data[i].LV - 1);
+                float value = (float)data["StatAmount"] * (saveData.data[i].LV - 1);
                 list.status.Add(name, new Status(name, saveData.data[i].LV, value));
             }
         }
+    }
+
+    public static int GetPrice(string name)
+    {
+        return (int)DataManager.status.Find("Name", name, "Price") + (int)DataManager.status.Find("Name", name, "GoldAmount") * (List.status[name].LV - 1);
     }
 
     public static void LevelUp(string name)

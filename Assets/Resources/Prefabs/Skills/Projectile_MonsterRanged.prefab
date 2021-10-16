@@ -14990,6 +14990,7 @@ GameObject:
   - component: {fileID: 4010304596515913867}
   - component: {fileID: 2097026416535145080}
   - component: {fileID: 8656948525066061842}
+  - component: {fileID: 9134129824080736484}
   m_Layer: 0
   m_Name: Projectile_MonsterRanged
   m_TagString: Untagged
@@ -15122,3 +15123,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9134129824080736484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803038894848899800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d6783a83cbc844c83de141a199667c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 93ee692e16e1d7640b1a35e5bbce0248, type: 3}
+  volume: 1

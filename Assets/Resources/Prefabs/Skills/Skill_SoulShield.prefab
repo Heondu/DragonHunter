@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4645434479715777941}
   - component: {fileID: 1211490623274774416}
+  - component: {fileID: -1855092217159355308}
   m_Layer: 0
   m_Name: Skill_SoulShield
   m_TagString: Untagged
@@ -47,6 +48,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 0
   speed: 50
+--- !u!114 &-1855092217159355308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670463017498708709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d6783a83cbc844c83de141a199667c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 9d5fb600fe944874194f40e069b78829, type: 3}
+  volume: 1
 --- !u!1 &7366346398844088194
 GameObject:
   m_ObjectHideFlags: 0

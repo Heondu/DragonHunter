@@ -62,6 +62,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void GameClear()
+    {
+        SetItem();
+        GoToMain();
+    }
+
     public void Pause(bool value)
     {
         if (value) Time.timeScale = 0;
@@ -70,23 +76,13 @@ public class GameManager : MonoBehaviour
 
     public void Mute(bool value)
     {
-        if (value)
-        {
-            SettingsManager.setBGM(0);
-            SettingsManager.setSE(0);
-        }
-        else
-        {
-            SettingsManager.setBGM(1);
-            SettingsManager.setSE(1);
-        }
+        SoundManager.Instance.Mute(value);
     }
 
     public void GoToMain()
     {
         StatusManager.Sub(CharacterManager.GetCharacter().list);
         StatusManager.Print();
-        SetItem();
         SetPlayTime(GetPlayTime() + tElapsed);
         Time.timeScale = 1;
         LoadingSceneManager.LoadScene("Main");

@@ -85,6 +85,10 @@ public class Inventory : MonoBehaviour
     public static void AddItem(ItemData itemData)
     {
         itemList.Add(itemData);
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            Debug.Log(itemList[i].id);
+        }    
         Save();
     }
 
@@ -173,5 +177,6 @@ public class Inventory : MonoBehaviour
             }
         }
         UpdateInventory();
+        Save();
     }
 }

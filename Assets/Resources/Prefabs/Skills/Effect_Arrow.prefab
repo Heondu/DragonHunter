@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3859138710015119747}
   - component: {fileID: 6669332271216138408}
   - component: {fileID: -8024171579551094887}
+  - component: {fileID: -4331898142481376675}
   m_Layer: 0
   m_Name: Effect_Arrow
   m_TagString: Untagged
@@ -130,3 +131,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   receiveShadows: 0
   shadowCastingMode: 1
+--- !u!114 &-4331898142481376675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6294030006563692308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d6783a83cbc844c83de141a199667c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: f81e7477b5635564c99c52eb15b9a5cf, type: 3}
+  volume: 0.3

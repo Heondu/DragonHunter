@@ -9,7 +9,7 @@ public class PenetratingBeam : Skill
     {
         if (skillData.dir == Vector3.zero) return false;
         Vector3 pos = new Vector3(skillData.caster.transform.position.x, beam.transform.position.y, skillData.caster.transform.position.z);
-        Quaternion rotation = Quaternion.Euler(beam.transform.eulerAngles.x, 0, Mathf.Atan2(skillData.dir.z, skillData.dir.x) * Mathf.Rad2Deg);
+        Quaternion rotation = Quaternion.Euler(beam.transform.eulerAngles.x, 0, Mathf.Atan2(skillData.dir.z, skillData.dir.x) * Mathf.Rad2Deg + beam.transform.eulerAngles.y);
         GameObject clone = ObjectPooler.ObjectPool(ObjectPooler.skillHolder, beam, pos, rotation, skillData.caster.transform);
         clone.GetComponent<AttackBounds>().Init(skillData, false);
 

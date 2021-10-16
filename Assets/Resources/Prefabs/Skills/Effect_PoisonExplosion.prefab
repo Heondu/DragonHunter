@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 982553898181830855}
   - component: {fileID: 1058027420303914460}
   - component: {fileID: 4099469085345229669}
+  - component: {fileID: -3543784358891200791}
   m_Layer: 0
   m_Name: Effect_PoisonExplosion
   m_TagString: Untagged
@@ -145,7 +146,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b4cbb032d2844c40a12f9eb3292b119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1
+  radius: 0.3
+--- !u!114 &-3543784358891200791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6427026598222264698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d6783a83cbc844c83de141a199667c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 2e0420d72de56634090a2c20eb05a87d, type: 3}
+  volume: 1
 --- !u!1001 &5422068142417699348
 PrefabInstance:
   m_ObjectHideFlags: 0

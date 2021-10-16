@@ -11,6 +11,7 @@ public class Trap : MonoBehaviour
     private bool atkCool = false;
     private float cooltime = 2;
     private Timer timer = new Timer();
+    [SerializeField] protected GameObject hitEffect;
 
     public virtual void Init(string _id, Transform _player)
     {
@@ -59,6 +60,7 @@ public class Trap : MonoBehaviour
             if (other.CompareTag("Player"))
             {
                 other.GetComponent<ILivingEntity>().TakeDamage(atk);
+                GameObject clone = ObjectPooler.ObjectPool(ObjectPooler.skillHolder, hitEffect, other.transform.position, hitEffect.transform.rotation);
                 atkCool = true;
             }
         }

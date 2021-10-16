@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MonsterMelee : Monster
 {
@@ -12,27 +11,14 @@ public class MonsterMelee : Monster
         hpBar.SetActive(true);
     }
 
-    private void OnBecameInvisible()
+    protected override void Update()
     {
-        if (gameObject.activeSelf)
-            StartCoroutine("InactiveTimer", 5);
-    }
+        base.Update();
 
-    private void OnBecameVisible()
-    {
-        StopCoroutine("InactiveTimer");
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine("InactiveTimer");
-    }
-
-    private IEnumerator InactiveTimer(float t)
-    {
-        yield return new WaitForSeconds(t);
-
-        ObjectPooler.ObjectInactive(ObjectPooler.skillHolder, gameObject);
+        if (ObjectPooler.CheckForDistance(Vector3.Distance(target.transform.position, transform.position)))
+        {
+            ObjectPooler.ObjectInactive(ObjectPooler.monsterHolder, gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision other)

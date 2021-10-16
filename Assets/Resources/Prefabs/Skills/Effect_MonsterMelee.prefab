@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -3856463235357973437}
   - component: {fileID: -7995407689501739270}
   - component: {fileID: 3235102057799879641}
+  - component: {fileID: -7789115731585408786}
   m_Layer: 0
   m_Name: Effect_MonsterMelee
   m_TagString: Untagged
@@ -142,3 +143,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb3dc469bbabf674aad77b11c2eb5943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7789115731585408786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5422265765867645360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d6783a83cbc844c83de141a199667c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: ecc08d95e44de15439b8d0e82265ba0e, type: 3}
+  volume: 1

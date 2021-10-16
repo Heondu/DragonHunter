@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Nexus : Trap
 {
+    [SerializeField] private AudioClip clip;
+
     private bool canAttack = true;
 
     public override void Init(string _id, Transform _player)
@@ -24,6 +26,8 @@ public class Nexus : Trap
             if (canAttack)
             {
                 other.GetComponent<ILivingEntity>().TakeDamage(atk);
+                GameObject clone = ObjectPooler.ObjectPool(ObjectPooler.skillHolder, hitEffect, other.transform.position, hitEffect.transform.rotation);
+                SoundManager.Instance.PlaySFX(clip);
                 canAttack = false;
                 StartCoroutine("Cooltime", 1);
             }

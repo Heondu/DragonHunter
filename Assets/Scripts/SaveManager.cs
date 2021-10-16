@@ -6,11 +6,28 @@ public class SaveManager : MonoBehaviour
 {
     private static readonly string privateKey = "1718hy9dsf0jsdlfjds0pa9ids78ahgf81h32re";
 
+#if (UNITY_EDITOR || UNITY_STANDALONE_WIN)
     private static readonly string dataPath = Application.streamingAssetsPath;
+#elif (UNITY_ANDROID)
+    private static readonly string dataPath = Application.persistentDataPath;
+#endif
     private static readonly string directoryName = "SaveData";
+
+    private static void CheckForExists(string fileName)
+    {
+        if (!Directory.Exists(dataPath + "/" + directoryName))
+        {
+            Directory.CreateDirectory(dataPath + "/" + directoryName + "/");
+        }
+        if (!File.Exists(dataPath + "/" + directoryName + "/" + fileName + ".json"))
+        {
+            File.Create(dataPath + "/" + directoryName + "/" + fileName + ".json").Close();
+        }
+    }
 
     public static void SaveToJson<T>(T t, string fileName)
     {
+        CheckForExists(fileName);
         string jsonString = DataToJson(t);
         File.WriteAllText(dataPath + "/" + directoryName + "/" + fileName + ".json", jsonString);
         string encryptString = Encrypt(jsonString);
@@ -47,6 +64,8 @@ public class SaveManager : MonoBehaviour
 
             //bytes의 내용물을 0 ~ max 길이까지 fs에 복사
             fs.Write(bytes, 0, bytes.Length);
+
+            File.Delete(dataPath + "/" + directoryName + "/" + path + ".json");
         }
     }
 
