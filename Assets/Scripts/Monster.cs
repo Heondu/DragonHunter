@@ -73,6 +73,7 @@ public class Monster : MonoBehaviour, ILivingEntity
         atkSpeed = 1;
         spawnTime = (int)data["SpawnTime"];
         attackImmediately = true;
+        state = State.None;
     }
 
     protected virtual void Move()
